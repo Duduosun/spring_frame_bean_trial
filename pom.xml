@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.akzonobel.test</groupId>
-    <artifactId>salmonAutomationFramework</artifactId>
+    <artifactId>cucumber_testng_salmon</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <!-- Test Profiles, define URL for AUT, Browser and Test Suites -->
