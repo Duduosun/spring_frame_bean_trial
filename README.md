@@ -65,7 +65,12 @@ Machine Configuration
 Configure Ubuntu / Windows and setup: -   
 *Java 7  
 *Git  
-*Maven  
+*Maven    
+
+
+*Windows  user the driver executable path is not setup currently.
+Temporary fix is to add this in WebDriverHelper. This bug will be fixed soon
+
 
 
 Get the latest Source Code
