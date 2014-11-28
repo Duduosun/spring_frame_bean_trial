@@ -24,6 +24,7 @@ public  class LoadProperties {
             setUpEnvironmentURLFor("site.port");
             setUpEnvironmentURLFor("site.basepath");
             setUpEnvironmentURLFor("browser");
+            setUpEnvironmentURLFor("platform");
         } catch (IOException e) {
             LOG.info(e.getMessage());
         }
