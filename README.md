@@ -98,6 +98,9 @@ Import Project into Intellij
 File>Import Project>
 Browse to SalmonAutomationFramework
 
+File >> Setting >>  
+Search for Annotation Processing  
+(Java Compiler ... Annotation Processing>> Enable the check box
 
 Eclipse plugins  
 ----------------
@@ -134,7 +137,7 @@ Select Cucumber Feature and create one new configuration
 Project: salmonAutomationFramework
 Feature: src/salmonAutomationFramework/src/test/resources/features
 Glue:  com.salmon.test.step_definitions
-Repors:  monochrome, pretty
+Reports:  monochrome, pretty
 
 Framework Setup steps
 ============================
