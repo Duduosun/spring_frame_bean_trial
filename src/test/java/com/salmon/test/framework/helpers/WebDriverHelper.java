@@ -65,7 +65,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
 				startIEDriver();
 			} else {
 				throw new IllegalArgumentException("Browser "+ BROWSER + " or Platform "
-						+ PLATFORM + " type not supported");
+								+ PLATFORM + " type not supported");
 			}
 
 		} catch (IllegalStateException e) {
@@ -145,9 +145,9 @@ public class WebDriverHelper extends EventFiringWebDriver {
 				.internetExplorer();
 		capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
 		capabilities
-		.setCapability(
-				InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
-				true);
+				.setCapability(
+						InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+						true);
 		capabilities.setVersion("9");
 		return capabilities;
 	}
