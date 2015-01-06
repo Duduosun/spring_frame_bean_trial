@@ -9,6 +9,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -53,7 +55,10 @@ public class WebDriverHelper extends EventFiringWebDriver {
 		if (!DRIVER_ROOT_DIR.equals("DEFAULT_PATH")) {
 			System.setProperty("webdriver.chrome.driver", getDriverPath());
 			System.setProperty("webdriver.ie.driver", getDriverPath());
-		}
+            System.setProperty("phantomjs.binary.path", getDriverPath());
+
+
+        }
 
 		try {
 
@@ -63,7 +68,9 @@ public class WebDriverHelper extends EventFiringWebDriver {
 				startFireFoxDriver();
 			} else if (BROWSER.equalsIgnoreCase("iexplore")) {
 				startIEDriver();
-			} else {
+            } else if (BROWSER.equalsIgnoreCase("phantomjs")) {
+                startPhantomJsDriver();
+            } else {
 				throw new IllegalArgumentException("Browser "+ BROWSER + " or Platform "
 								+ PLATFORM + " type not supported");
 			}
@@ -92,8 +99,13 @@ public class WebDriverHelper extends EventFiringWebDriver {
 			DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "iedriver"
 					+ FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
 					+ "IEDriverServer.exe";
-		}
-		return DRIVER_PATH;
+		} else if (BROWSER.equals("phantomjs") && PLATFORM.contains("linux")) {
+            DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "phantomjs"
+                    + FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
+                    + "phantomjs";
+        }
+
+        return DRIVER_PATH;
 	}
 
 	private static void startIEDriver() {
@@ -107,6 +119,11 @@ public class WebDriverHelper extends EventFiringWebDriver {
 		// DesiredCapabilities capabilities = getFireFoxDesiredCapabilities();
 		REAL_DRIVER = new FirefoxDriver();
 	}
+
+    private static void startPhantomJsDriver() {
+        DesiredCapabilities capabilities = getPhantomJsCapabilities();
+        REAL_DRIVER = new PhantomJSDriver(capabilities);
+    }
 
 	protected static WebDriver startChromeDriver() {
 		DesiredCapabilities capabilities = getChromeDesiredCapabilities();
@@ -151,6 +168,16 @@ public class WebDriverHelper extends EventFiringWebDriver {
 		capabilities.setVersion("9");
 		return capabilities;
 	}
+
+    private static DesiredCapabilities getPhantomJsCapabilities() {
+        LoggingPreferences logs = new LoggingPreferences();
+        logs.enable(LogType.DRIVER, Level.OFF);
+        DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+        capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
+        capabilities
+                .setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY,getDriverPath());
+        return capabilities;
+    }
 
 	private static DesiredCapabilities getAppiumDesiredCapabilities() {
 		File classpathRoot = new File(System.getProperty("user.dir"));
