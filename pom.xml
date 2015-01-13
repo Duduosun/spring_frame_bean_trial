@@ -284,7 +284,7 @@
             <scope>test</scope>
         </dependency>
 
-           <!--PhantomJsDriver Custom to support latest Webdriver-->
+        <!--PhantomJsDriver Custom to support latest Webdriver-->
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>phantomjsdriver</artifactId>

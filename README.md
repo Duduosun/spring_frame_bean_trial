@@ -40,6 +40,9 @@ The test automation framework is comprised of following tools and libraries
 *SonarQube (optional): - Code Quality and Code Coverage  
 *DbUtils Mysql (optional): - Java Database utility api  
 *Rest-Assured (optional): - Restful Api framework     
+*PhantomJsDriver, GhostDriver: - Full web stack No browser required supporting headless testing
+
+
 
 Contact information
 ===================
@@ -240,7 +243,7 @@ Scroll to Profile section : - Choose desired profile e.g "dev" for running local
                             <site.basepath></site.basepath>
                             <!--platform to run e.g linux64, mac32, win32, win64-->
                             <platform>linux64</platform>
-                            <!--Desired browser to run e.g firefox,chrome,iexplore -->
+                            <!--Desired browser to run e.g firefox,chrome,iexplore phantomjs-->
                             <browser>firefox</browser>
                             <!--To Run parallel Test suite specify the type of Run Files which can be run in parallel -->
                             <testToRun>**/*ATSuite.class</testToRun>
