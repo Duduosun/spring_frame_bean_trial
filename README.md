@@ -96,12 +96,6 @@ File >> Setting >> Plugins >> Browser Repositories>
 *Maven Integration
 *SonarQube (optional)
 
-Import Project into Intellij
-----------------------------
-File>Import Project>
-Browse to SalmonAutomationFramework
-
-
 Eclipse plugins  
 ----------------
 Configure and Install Following Plugins  
@@ -121,97 +115,6 @@ Follow the Installation Steps
 
 *SonarQube (optional)
 
-Import Project into Eclipse
---------------------------
-File>Import>Maven>Existing Maven Projects>Next>
-Browse to SalmonAutomationFramework
-Ensure pom.xml is found
-Finish
-
-open terminal
-cd to test root directory
-run "mvn clean eclipse:eclipse" 
-
-
-Plugin configuration for Cucumber Feature
-Open Run Configurations
-Select Cucumber Feature and create one new configuration
-Project: salmonAutomationFramework
-Feature: src/salmonAutomationFramework/src/test/resources/features
-Glue:  com.salmon.test.step_definitions
-Repors:  monochrome, pretty
-=======
-*Maven    
-
-
-*Windows  user the driver executable path is not setup currently.
-Temporary fix is to add this in WebDriverHelper. This bug will be fixed soon
-
-
-
-Get the latest Source Code
-===========================
-Open Terminal or command line
-cd to the desired folder where the test automation source code needs to be checkout
-
-Run command
-git clone https://github.com/salmontest/salmontest.git
-
-This will download the latest template source code
-
-IDE Configuration
-==================
-Intellij plugins  
-----------------
-Configure and Install Following Plugins  
-File >> Setting >> Plugins >> Browser Repositories>
-
-*Cucumber for Java
-*Gherkin
-*lombok
-*Git Integration
-*GitHub
-*Maven Integration
-*SonarQube (optional)
-
-Import Project into Intellij
-----------------------------
-File>Import Project>
-Browse to SalmonAutomationFramework
-
-File >> Setting >>  
-Search for Annotation Processing  
-(Java Compiler ... Annotation Processing>> Enable the check box
-
-Eclipse plugins  
-----------------
-Configure and Install Following Plugins  
-Help>>Install new software
-*Cucumber for Java
-http://cucumber.github.com/cucumber-eclipse/update-site  
-
-*lombok
-Download lombok.jar from http://projectlombok.org/download.html
-Copy the Jar to eclipse installation directory
-right click the Jar>Open with Open JDK or Oracle JDK Java 7 Runtime
-Follow the Installation Steps  
-
-*Git Integration
-
-*SonarQube (optional)
-
-Import Project into Eclipse
---------------------------
-File>Import>Maven>Existing Maven Projects>Next>
-Browse to SalmonAutomationFramework
-Ensure pom.xml is found
-Finish
-
-open terminal
-cd to test root directory
-run "mvn clean eclipse:eclipse" 
-
-
 Plugin configuration for Cucumber Feature
 Open Run Configurations
 Select Cucumber Feature and create one new configuration
@@ -219,6 +122,31 @@ Project: salmonAutomationFramework
 Feature: src/salmonAutomationFramework/src/test/resources/features
 Glue:  com.salmon.test.step_definitions
 Reports:  monochrome, pretty
+
+File >> Setting >>  
+Search for Annotation Processing  
+(Java Compiler ... Annotation Processing>> Enable the check box
+
+
+Import Project into Intellij
+----------------------------
+File>Import Project>
+Browse to SalmonAutomationFramework
+
+
+
+Import Project into Eclipse
+--------------------------
+File>Import>Maven>Existing Maven Projects>Next>
+Browse to SalmonAutomationFramework
+Ensure pom.xml is found
+Finish
+
+open terminal
+cd to test root directory
+run "mvn clean eclipse:eclipse" 
+
+
 
 Framework Setup steps
 ============================
@@ -394,6 +322,6 @@ format: html and json reports are created. if a TesSuite is renamed then change 
 
 Other ways to run the tests or Test Suite
 ---------------------------------------------
-*command line using Maven:-  mvn clean install -P dev
-*IDE Plugins: - Eclipse or Intellij via TestNg plugin or Maven plugin or Cucumber-Java plugin
-*IDE TestNg Suite xml: - file located at "src/test/resources" TestNGRunTestSuite.xml (Right click and run as TestNg)
+*command line using Maven:-  mvn clean install -P dev  
+*IDE Plugins: - Eclipse or Intellij via TestNg plugin or Maven plugin or Cucumber-Java plugin  
+*IDE TestNg Suite xml: - file located at "src/test/resources" TestNGRunTestSuite.xml (Right click and run as TestNg)  
