@@ -47,7 +47,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
 	private static String SELENIUM_PORT;
 	private static String SELENIUM_REMOTE_URL;
 
-	public WebDriverHelper() {
+	private WebDriverHelper() {
 		super(REAL_DRIVER);
 	}
 
@@ -93,7 +93,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
 		Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
 	}
 
-	public static String getDriverPath() {
+	private static String getDriverPath() {
 		if (BROWSER.equals("chrome") && PLATFORM.contains("win")) {
 			DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "chromedriver"
 					+ FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
@@ -158,7 +158,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
 		}
 	}
 
-	protected static WebDriver startChromeDriver() {
+	private static WebDriver startChromeDriver() {
 		DesiredCapabilities capabilities = getChromeDesiredCapabilities();
 
 		if (SELENIUM_HOST == null)

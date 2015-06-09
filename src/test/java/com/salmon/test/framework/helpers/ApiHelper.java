@@ -8,8 +8,8 @@ import com.jayway.restassured.response.Header;
  */
 
 public class ApiHelper {
-    static final String APPLICATION_JSON = "application/json";
-    static final String WRAPPED_JSON = "application/vnd.rhq.wrapped+json";
+    private static final String APPLICATION_JSON = "application/json";
+    private static final String WRAPPED_JSON = "application/vnd.rhq.wrapped+json";
     private static final String APPLICATION_XML = "application/xml";
     private static final String TEXT_CSV = "text/csv";
     private static final String TEXT_HTML = "text/html";

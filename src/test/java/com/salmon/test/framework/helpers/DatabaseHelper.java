@@ -33,7 +33,7 @@ public class DatabaseHelper {
  * @param sqlQuery Specify sql query in String format
 * */
 
-    public static List executeQuery(String sqlQuery) throws SQLException {
+    protected static List executeQuery(String sqlQuery) throws SQLException {
         conn = setUpConnection();
         QueryRunner run = new QueryRunner();
         return run.query(conn, sqlQuery, new MapListHandler());

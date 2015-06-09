@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.UUID;
 
 public class ReportMerger {
-    private static String reportFileName = "report.js";
     private static String reportImageExtension = "png";
 
     public static void main(String[] args) throws Throwable {
@@ -22,7 +21,7 @@ public class ReportMerger {
     /**
      * Merge all reports together into master report in given reportDirectory
      *
-     * @param reportDirectory
+     * @param reportDirectory directory
      * @throws Exception
      */
     public void mergeReports(File reportDirectory) throws Throwable {
@@ -30,6 +29,7 @@ public class ReportMerger {
         File mergedReport = null;
         for (File report : existingReports) {
 //only address report files
+            String reportFileName = "report.js";
             if (report.getName().equals(reportFileName)) {
 //rename all the image files (to give unique names) in report directory and update report
                 renameEmbededImages(report);
@@ -48,8 +48,8 @@ public class ReportMerger {
     /**
      * merge source file into target
      *
-     * @param target
-     * @param source
+     * @param target target folder
+     * @param source source folder
      */
     public void mergeFiles(File target, File source) throws Throwable {
 //copy embeded images
@@ -67,7 +67,7 @@ public class ReportMerger {
      * Give unique names to embedded images to ensure they aren't lost during merge
      * Update report file to reflect new image names
      *
-     * @param reportFile
+     * @param reportFile reportFile
      */
     public void renameEmbededImages(File reportFile) throws Throwable {
         File reportDirectory = reportFile.getParentFile();

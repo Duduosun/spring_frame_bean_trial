@@ -57,8 +57,7 @@ public final class RandomGenerator {
         gender.add("U");
         Random rand = new Random();
         int choice = rand.nextInt(gender.size());
-        String randomGenderString = gender.get(choice);
-        return randomGenderString;
+        return gender.get(choice);
     }
 
     /**Generates random gender in full text form

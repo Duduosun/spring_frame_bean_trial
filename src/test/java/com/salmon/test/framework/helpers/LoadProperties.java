@@ -31,7 +31,7 @@ public  class LoadProperties {
         }
     }
 
-    protected static void setUpEnvironmentURLFor(String key) {
+    private static void setUpEnvironmentURLFor(String key) {
         String value = getRunProps().getProperty(key);
         LOG.warn("Properties : key  " + key +" value :" + value);
 

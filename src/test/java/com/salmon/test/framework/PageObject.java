@@ -21,7 +21,7 @@ public class PageObject {
     private static final Logger LOG = LoggerFactory.getLogger(PageObject.class);
 
 
-    public PageObject() {
+    protected PageObject() {
         this.webDriver = WebDriverHelper.getWebDriver();
         this.wait = new WebDriverWait(webDriver, DRIVER_WAIT_TIME);
     }
@@ -45,7 +45,7 @@ public class PageObject {
     * @param by Element location found by css, xpath, id etc...
     *
     **/
-    public WebElement waitForExpectedElement(final By by) {
+    protected WebElement waitForExpectedElement(final By by) {
         return wait.until(visibilityOfElementLocated(by));
     }
 
@@ -67,7 +67,7 @@ public class PageObject {
         }
     }
 
-    protected ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
+    private ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
         return new ExpectedCondition<WebElement>() {
 
             @Override
@@ -92,7 +92,7 @@ public class PageObject {
         return true;
     }
 
-    public WebElement waitForElementDisplayedAndClickable(By by) {
+    protected WebElement waitForElementDisplayedAndClickable(By by) {
         waitForExpectedElement(by);
         return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementToBeClickable(by));
     }

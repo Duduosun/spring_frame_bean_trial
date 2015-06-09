@@ -32,9 +32,7 @@ public class ScreenshotHook extends PageObject {
                 scenario.embed(screenShot, "image/png");
             }
 
-        } catch (WebDriverException wde) {
-            LOG.error(wde.getMessage());
-        } catch (ClassCastException wde) {
+        } catch (WebDriverException | ClassCastException wde) {
             LOG.error(wde.getMessage());
         } finally {
             getWebDriver().switchTo().defaultContent();
