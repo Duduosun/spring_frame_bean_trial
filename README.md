@@ -214,6 +214,19 @@ mvn clean install -Dcucumber.options="--tags @gui --tags ~@api" -P single
 ** Note "~" before tag means this specific tag will not run
 
 
+Jenkins
+======
+
+mvn clean install  -P jenkins
+
+** Create 3 string parameters in jenkins 
+with the below conventions which will be passed on as an argument to the above maven command  
+
+Key: cucumber.options Default Value: --tags @gui, @api     
+Key: driverhost  Default Value: 192.168.216.76  
+Key: driverport  Default Value: 4444  
+
+
 Report
 ======
 

@@ -27,15 +27,15 @@
                 <!-- AUT has default base path-->
                 <site.basepath></site.basepath>
                 <!--platform to run e.g linux64, mac32, win32, win64-->
-                <platform>win32</platform>
+                <platform>win64</platform>
                 <!--Desired browser to run e.g firefox,chrome,iexplore,phantomjs -->
                 <browser>firefox</browser>
 
                 <!--Location of Chrome, IE, PhantomJs Drivers installed, normally in your project source code under tools-->
                 <!-- Below is windows example. Linux example  home/dev/src/cucumber_testng_java/tools-->
-                <!-- If set to DEFAULT_PATH, will try to access from default path location -->
+                <!-- If set to DEFAULT_PATH, will try to access from default path location valid for FIREFOX Driver-->
                 
-                 <driver.root.dir>C:\dev\cucumber_testng_java\tools</driver.root.dir>
+                 <driver.root.dir>DEFAULT_PATH</driver.root.dir>
                  
 
                  <!--To Run parallel Test suite specify the type of Run Files which can be run in parallel -->
@@ -77,7 +77,7 @@
 
         <!-- Jenkins environment @ deploy server normally configured on linux-->
         <profile>
-            <id>deploy</id>
+            <id>jenkins</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
