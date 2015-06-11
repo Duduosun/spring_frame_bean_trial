@@ -10,7 +10,7 @@ import java.util.Map;
     private static final ThreadLocal<Map<String, Object>> SCREEN_SHOTS = new ThreadLocal<Map<String, Object>>() {
         @Override
         protected Map<String, Object> initialValue() {
-            return new HashMap<String, Object>();
+            return new HashMap<>();
         }
     };
 
