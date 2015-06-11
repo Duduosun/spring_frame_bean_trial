@@ -1,5 +1,6 @@
 package com.salmon.test.framework.helpers;
 
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,12 +12,13 @@ public class UrlBuilder {
     private static  URL basePath;
     private static URL apiUrl;
     private static final Logger LOG = LoggerFactory.getLogger(UrlBuilder.class);
+    @Getter
     private static final String RUN_CONFIG_PROPERTIES = "/environment.properties";
 
 
     static {
         try {
-            LoadProperties.loadRunConfigProps(RUN_CONFIG_PROPERTIES);
+            LoadProperties.loadRunConfigProps();
             basePath = new URL(LoadProperties.getRunProps().getProperty("site.url"));
             apiUrl = new URL(LoadProperties.getRunProps().getProperty("api.url"));
         } catch (MalformedURLException e) {
@@ -26,7 +28,7 @@ public class UrlBuilder {
     }
 
     public static void startAtHomePage() {
-        WebDriverHelper.getWebDriver().navigate().to(getUrl("site.url"));
+        WebDriverHelper.getWebDriver().navigate().to(getUrl());
     }
 
     public  static URL getApiUrlForEndPoint(String endpoint){
@@ -38,11 +40,11 @@ public class UrlBuilder {
     }
 
 
-    public static String getUrl(String applicationUrl) {
-        return LoadProperties.getRunProps().getProperty(applicationUrl);
+    private static String getUrl() {
+        return LoadProperties.getRunProps().getProperty("site.url");
     }
 
-    public static URL  createApiUrl(String endpoint) {
+    private static URL  createApiUrl(String endpoint) {
         try {
             return new URL(apiUrl.getProtocol(), apiUrl.getHost(), apiUrl.getPort(), endpoint);
         } catch (MalformedURLException e) {

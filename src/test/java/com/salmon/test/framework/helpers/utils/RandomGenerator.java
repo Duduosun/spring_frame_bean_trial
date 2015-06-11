@@ -11,24 +11,40 @@ import java.util.*;
 
 public final class RandomGenerator {
 
+    public static String random(Integer length, PermittedCharacters permittedCharacters) {
+        String randomString = null;
+        if (PermittedCharacters.ALPHABETS.equals(permittedCharacters)) {
+            randomString = randomString(length);
+        } else if (PermittedCharacters.NUMERIC.equals(permittedCharacters)) {
+            randomString = randomInteger(length);
+        } else if (PermittedCharacters.ALPHANUMERIC.equals(permittedCharacters)) {
+            randomString = randomAlphanumeric(length);
+        } else if (PermittedCharacters.ANY_CHARACTERS.equals(permittedCharacters)) {
+            randomString = randomAsciiCharacters(length);
+        } else if (PermittedCharacters.ANY_CHARACTERS_SUPPORTS_MULTILINGUAL.equals(permittedCharacters)) {
+            randomString = randomAsciiCharacters(length);
+        }
+        return randomString;
+    }
+
     /**Generates random Number.
     @param length  length of random number to be generated
     */
-    public static String randomInteger(Integer length) {
+    private static String randomInteger(Integer length) {
         return RandomStringUtils.randomNumeric(length);
     }
 
     /**Generates random String.
      @param length  length of random characters to be generated
      */
-    public static String randomString(Integer length) {
+    private static String randomString(Integer length) {
         return RandomStringUtils.random(length, true, false);
     }
 
     /**Generates random alphanumeric String.
      @param length  length of random alphanumeric characters to be generated
      */
-    public static String randomAlphanumeric(Integer length) {
+    private static String randomAlphanumeric(Integer length) {
         return RandomStringUtils.randomAlphanumeric(length);
     }
 
@@ -116,23 +132,8 @@ public final class RandomGenerator {
         return plusYears.toString(dateTimeFormatter);
     }
 
-    public static String randomAsciiCharacters(Integer characterAmount) {
+    private static String randomAsciiCharacters(Integer characterAmount) {
         return RandomStringUtils.random(characterAmount, 32, 127, false, false);
     }
 
-    public static String random(Integer length, PermittedCharacters permittedCharacters) {
-       String randomString = null;
-        if (PermittedCharacters.ALPHABETS.equals(permittedCharacters)) {
-            randomString = randomString(length);
-        } else if (PermittedCharacters.NUMERIC.equals(permittedCharacters)) {
-            randomString = randomInteger(length);
-        } else if (PermittedCharacters.ALPHANUMERIC.equals(permittedCharacters)) {
-            randomString = randomAlphanumeric(length);
-        } else if (PermittedCharacters.ANY_CHARACTERS.equals(permittedCharacters)) {
-            randomString = randomAsciiCharacters(length);
-        } else if (PermittedCharacters.ANY_CHARACTERS_SUPPORTS_MULTILINGUAL.equals(permittedCharacters)) {
-            randomString = randomAsciiCharacters(length);
-        }
-        return randomString;
-    }
 }

@@ -159,7 +159,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
 	}
 
 	private static WebDriver startChromeDriver() {
-		DesiredCapabilities capabilities = getChromeDesiredCapabilities();
+			DesiredCapabilities capabilities = getChromeDesiredCapabilities();
 
 		if (SELENIUM_HOST == null)
 			REAL_DRIVER = new ChromeDriver(

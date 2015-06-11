@@ -9,15 +9,15 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public  class LoadProperties {
+class LoadProperties {
     private static  final Logger LOG = LoggerFactory.getLogger(LoadProperties.class);
     @Getter
     private static Properties runProps;
 
-    public static void loadRunConfigProps(String configPropertyFileLocation) {
+    public static void loadRunConfigProps() {
 
         runProps = new Properties();
-        try (InputStream inputStream = LoadProperties.class.getResourceAsStream(configPropertyFileLocation)) {
+        try (InputStream inputStream = LoadProperties.class.getResourceAsStream(UrlBuilder.getRUN_CONFIG_PROPERTIES())) {
             runProps.load(inputStream);
             setUpEnvironmentURLFor("site.url");
             setUpEnvironmentURLFor("api.url");

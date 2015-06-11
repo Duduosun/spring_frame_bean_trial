@@ -7,7 +7,7 @@ import java.io.File;
 import java.util.Collection;
 import java.util.UUID;
 
-public class ReportMerger {
+class ReportMerger {
     private static String reportImageExtension = "png";
 
     public static void main(String[] args) throws Throwable {
@@ -24,7 +24,7 @@ public class ReportMerger {
      * @param reportDirectory directory
      * @throws Exception
      */
-    public void mergeReports(File reportDirectory) throws Throwable {
+    private void mergeReports(File reportDirectory) throws Throwable {
         Collection<File> existingReports = FileUtils.listFiles(reportDirectory, new String[]{"js"}, true);
         File mergedReport = null;
         for (File report : existingReports) {
@@ -51,7 +51,7 @@ public class ReportMerger {
      * @param target target folder
      * @param source source folder
      */
-    public void mergeFiles(File target, File source) throws Throwable {
+    private void mergeFiles(File target, File source) throws Throwable {
 //copy embeded images
         Collection<File> embeddedImages = FileUtils.listFiles(source.getParentFile(), new String[]{reportImageExtension}, true);
         for (File image : embeddedImages) {
@@ -69,7 +69,7 @@ public class ReportMerger {
      *
      * @param reportFile reportFile
      */
-    public void renameEmbededImages(File reportFile) throws Throwable {
+    private void renameEmbededImages(File reportFile) throws Throwable {
         File reportDirectory = reportFile.getParentFile();
         Collection<File> embeddedImages = FileUtils.listFiles(reportDirectory, new String[]{reportImageExtension}, true);
         String fileAsString = FileUtils.readFileToString(reportFile);

@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class PageObject {
+public abstract class PageObject {
     @Getter
     protected WebDriverWait wait;
     @Getter
@@ -65,7 +65,7 @@ public class PageObject {
             LOG.info(e.getMessage());
             return null;
         }
-    }
+        }
 
     private ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
         return new ExpectedCondition<WebElement>() {
