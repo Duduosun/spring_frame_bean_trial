@@ -15,7 +15,7 @@ import static com.jayway.restassured.RestAssured.when;
 import static com.jayway.restassured.path.json.JsonPath.from;
 
 /**
- *  Step Definition implementation class for Cucumber Steps defined in Feature file
+ * Step Definition implementation class for Cucumber Steps defined in Feature file
  */
 
 public class ApiSteps extends ApiHelper {
@@ -26,7 +26,7 @@ public class ApiSteps extends ApiHelper {
     /*   Perform a HTTP GET request for a endpoint*/
 
     @When("^I perform GET request for \"([^\"]*)\" endpoint$")
-    public void I_perform_GET_request_for_endpoint(String endpoint){
+    public void I_perform_GET_request_for_endpoint(String endpoint) {
 
         given().contentType(ContentType.JSON);
         response = when().get(UrlBuilder.getApiUrlForEndPoint(endpoint));
@@ -36,7 +36,7 @@ public class ApiSteps extends ApiHelper {
 
     @Then("^I get a (\\d+) http status code$")
     public void I_get_a_http_status_code(int statusCodeExpected) {
-        Assert.assertEquals( statusCodeExpected, response.statusCode());
+        Assert.assertEquals(statusCodeExpected, response.statusCode());
     }
 
 

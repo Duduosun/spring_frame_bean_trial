@@ -3,7 +3,7 @@ package com.salmon.test.models;
 import lombok.Getter;
 
 @Getter
- class ExampleModel {
+class ExampleModel {
     private String title;
     private String colour;
     private String topic;

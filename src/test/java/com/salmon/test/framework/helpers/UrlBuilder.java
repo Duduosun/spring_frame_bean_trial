@@ -9,12 +9,11 @@ import java.net.URI;
 import java.net.URL;
 
 public class UrlBuilder {
-    private static  URL basePath;
-    private static URL apiUrl;
     private static final Logger LOG = LoggerFactory.getLogger(UrlBuilder.class);
     @Getter
     private static final String RUN_CONFIG_PROPERTIES = "/environment.properties";
-
+    private static URL basePath;
+    private static URL apiUrl;
 
     static {
         try {
@@ -31,7 +30,7 @@ public class UrlBuilder {
         WebDriverHelper.getWebDriver().navigate().to(getUrl());
     }
 
-    public  static URL getApiUrlForEndPoint(String endpoint){
+    public static URL getApiUrlForEndPoint(String endpoint) {
         return createApiUrl(endpoint);
     }
 
@@ -44,7 +43,7 @@ public class UrlBuilder {
         return LoadProperties.getRunProps().getProperty("site.url");
     }
 
-    private static URL  createApiUrl(String endpoint) {
+    private static URL createApiUrl(String endpoint) {
         try {
             return new URL(apiUrl.getProtocol(), apiUrl.getHost(), apiUrl.getPort(), endpoint);
         } catch (MalformedURLException e) {
@@ -53,7 +52,7 @@ public class UrlBuilder {
     }
 
 
-    public static URL  createUrl(String path) {
+    public static URL createUrl(String path) {
         try {
             return new URL(basePath.getProtocol(), basePath.getHost(), basePath.getPort(), path);
         } catch (MalformedURLException e) {

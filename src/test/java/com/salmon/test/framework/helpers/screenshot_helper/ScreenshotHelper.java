@@ -4,7 +4,7 @@ package com.salmon.test.framework.helpers.screenshot_helper;
 import java.util.HashMap;
 import java.util.Map;
 
- class ScreenshotHelper {
+class ScreenshotHelper {
 
 
     private static final ThreadLocal<Map<String, Object>> SCREEN_SHOTS = new ThreadLocal<Map<String, Object>>() {

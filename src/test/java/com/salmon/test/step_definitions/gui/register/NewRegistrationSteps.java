@@ -10,6 +10,7 @@ import org.testng.Assert;
 import static com.salmon.test.enums.PermittedCharacters.ALPHABETS;
 import static com.salmon.test.enums.PermittedCharacters.ALPHANUMERIC;
 import static com.salmon.test.framework.helpers.utils.RandomGenerator.random;
+
 @Getter
 public class NewRegistrationSteps {
 

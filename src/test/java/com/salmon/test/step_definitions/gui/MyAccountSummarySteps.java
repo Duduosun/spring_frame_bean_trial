@@ -25,8 +25,8 @@ public class MyAccountSummarySteps {
         String townOrCity = myAccountSummaryPage.getPersonalInformation().get(2).getText();
         String emailAddress = myAccountSummaryPage.getPersonalInformation().get(3).getText();
 
-        assertEquals(newRegistrationSteps.getFirstNameData() + " " + newRegistrationSteps.getLastNameData() , nameOfTheCustomer);
-        assertEquals(newRegistrationSteps.getAddress1Data() , address);
+        assertEquals(newRegistrationSteps.getFirstNameData() + " " + newRegistrationSteps.getLastNameData(), nameOfTheCustomer);
+        assertEquals(newRegistrationSteps.getAddress1Data(), address);
         assertEquals(newRegistrationSteps.getTownOrCityData(), townOrCity);
         assertEquals(newRegistrationSteps.getEmailAddressData(), emailAddress);
 

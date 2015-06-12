@@ -27,7 +27,7 @@ Feature: REGISTER:- As a new customer of Lloydspharmacy I would like to register
     When i click on Sign In
     Then i can see the validation message "<validationMessage>"
 
-    Examples: 
+    Examples:
       | loginId | password | validationMessage                                      |
       |         |          | Please enter your Login ID.                            |
       | invalid | invalid  | The Login ID or password you have entered is incorrect |

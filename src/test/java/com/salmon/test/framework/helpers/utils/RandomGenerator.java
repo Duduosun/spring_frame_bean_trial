@@ -7,7 +7,10 @@ import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
 
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
 
 public final class RandomGenerator {
 
@@ -27,44 +30,55 @@ public final class RandomGenerator {
         return randomString;
     }
 
-    /**Generates random Number.
-    @param length  length of random number to be generated
-    */
+    /**
+     * Generates random Number.
+     *
+     * @param length length of random number to be generated
+     */
     private static String randomInteger(Integer length) {
         return RandomStringUtils.randomNumeric(length);
     }
 
-    /**Generates random String.
-     @param length  length of random characters to be generated
+    /**
+     * Generates random String.
+     *
+     * @param length length of random characters to be generated
      */
     private static String randomString(Integer length) {
         return RandomStringUtils.random(length, true, false);
     }
 
-    /**Generates random alphanumeric String.
-     @param length  length of random alphanumeric characters to be generated
+    /**
+     * Generates random alphanumeric String.
+     *
+     * @param length length of random alphanumeric characters to be generated
      */
     private static String randomAlphanumeric(Integer length) {
         return RandomStringUtils.randomAlphanumeric(length);
     }
 
-    /**Generates random alphabetic String.
-     @param length  length of random alphabetic characters to be generated
+    /**
+     * Generates random alphabetic String.
+     *
+     * @param length length of random alphabetic characters to be generated
      */
     public static String randomAlphabetic(Integer length) {
         return RandomStringUtils.randomAlphabetic(length);
     }
 
-    /**Generates random emailaddress for @example.com domain  in lower case
-     @param length  length of random alphanumeric characters to be generated for the local part of email address
+    /**
+     * Generates random emailaddress for @example.com domain  in lower case
+     *
+     * @param length length of random alphanumeric characters to be generated for the local part of email address
      */
     public static String randomEmailAddress(Integer length) {
         String email = randomAlphanumeric(length) + "@example.com";
         return email.toLowerCase();
     }
 
-    /**Generates random gender in short text form "M" , "F" , "U"
-     M = Male , F = Female , U = Unspecified
+    /**
+     * Generates random gender in short text form "M" , "F" , "U"
+     * M = Male , F = Female , U = Unspecified
      */
     public static String randomGenderShortText() {
         List<String> gender = new LinkedList<>();
@@ -76,8 +90,9 @@ public final class RandomGenerator {
         return gender.get(choice);
     }
 
-    /**Generates random gender in full text form
-     Male , Female , Unspecified
+    /**
+     * Generates random gender in full text form
+     * Male , Female , Unspecified
      */
     public static String randomGenderFullText() {
         List<String> gender = new LinkedList<>();
@@ -89,8 +104,9 @@ public final class RandomGenerator {
         return gender.get(choice);
     }
 
-    /**Generates random plus or minus
-     "-" , "+"
+    /**
+     * Generates random plus or minus
+     * "-" , "+"
      */
 
     public static String randomPlusOrMinus() {
@@ -100,7 +116,7 @@ public final class RandomGenerator {
 
         Random rand = new Random();
         int choice = rand.nextInt(item.size());
-        return  item.get(choice);
+        return item.get(choice);
     }
 
 

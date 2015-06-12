@@ -23,6 +23,6 @@ public class DatabaseSteps extends DatabaseHelper {
 
     @Then("^the list of users is \"(.*?)\"$")
     public void the_list_of_users_is(String checkResult) throws Throwable {
-        Assert.assertTrue( results.size() > 0);
+        Assert.assertTrue(results.size() > 0);
     }
 }

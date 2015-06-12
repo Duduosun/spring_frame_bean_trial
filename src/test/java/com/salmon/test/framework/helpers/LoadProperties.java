@@ -10,7 +10,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 class LoadProperties {
-    private static  final Logger LOG = LoggerFactory.getLogger(LoadProperties.class);
+    private static final Logger LOG = LoggerFactory.getLogger(LoadProperties.class);
     @Getter
     private static Properties runProps;
 
@@ -33,7 +33,7 @@ class LoadProperties {
 
     private static void setUpEnvironmentURLFor(String key) {
         String value = getRunProps().getProperty(key);
-        LOG.warn("Properties : key  " + key +" value :" + value);
+        LOG.warn("Properties : key  " + key + " value :" + value);
 
         if (StringUtils.startsWith(value, "http://")) {
             return;

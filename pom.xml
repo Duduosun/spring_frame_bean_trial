@@ -34,11 +34,11 @@
                 <!--Location of Chrome, IE, PhantomJs Drivers installed, normally in your project source code under tools-->
                 <!-- Below is windows example. Linux example  home/dev/src/cucumber_testng_java/tools-->
                 <!-- If set to DEFAULT_PATH, will try to access from default path location valid for FIREFOX Driver-->
-                
-                 <driver.root.dir>DEFAULT_PATH</driver.root.dir>
-                 
 
-                 <!--To Run parallel Test suite specify the type of Run Files which can be run in parallel -->
+                <driver.root.dir>DEFAULT_PATH</driver.root.dir>
+
+
+                <!--To Run parallel Test suite specify the type of Run Files which can be run in parallel -->
                 <testToRun>**/*ATSuite.class</testToRun>
 
                 <!--Database Params -->
@@ -65,7 +65,7 @@
                 <browser>firefox</browser>
                 <!--Location of Chrome & IE Drivers installed, normally in your project source code under tools-->
                 <!-- Below is windows example. Linux example  home/dev/src/cucumber_testng_java/tools-->
-                 <driver.root.dir>C:\dev\cucumber_testng_java\tools</driver.root.dir>
+                <driver.root.dir>C:\dev\cucumber_testng_java\tools</driver.root.dir>
                 <testToRun>**/*SingleSuite.class</testToRun>
                 <!--Database Params -->
                 <jdbcUrl>jdbc:mysql://localhost:3306/sonar</jdbcUrl>
@@ -98,7 +98,6 @@
             </properties>
         </profile>
     </profiles>
-
 
 
     <properties>
@@ -252,10 +251,10 @@
             </exclusions>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>info.cukes</groupId>-->
-            <!--<artifactId>cucumber-junit</artifactId>-->
-            <!--<version>${cucumber.version}</version>-->
-            <!--<scope>test</scope>-->
+        <!--<groupId>info.cukes</groupId>-->
+        <!--<artifactId>cucumber-junit</artifactId>-->
+        <!--<version>${cucumber.version}</version>-->
+        <!--<scope>test</scope>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.picocontainer</groupId>
@@ -293,10 +292,10 @@
 
         <dependency>
 
-        <groupId>org.testng</groupId>
-        <artifactId>testng</artifactId>
-        <version>${testng}</version>
-    </dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng}</version>
+        </dependency>
         <!--Selenium Webdriver -->
 
         <!-- Api Level Testing -->

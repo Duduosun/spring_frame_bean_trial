@@ -25,242 +25,242 @@ import java.net.URL;
 import java.util.logging.Level;
 
 public class WebDriverHelper extends EventFiringWebDriver {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(WebDriverHelper.class);
-	private static final Dimension BROWSER_WINDOW_SIZE = new Dimension(1280,
-			1024);
-	private static final Thread CLOSE_THREAD = new Thread() {
+    private static final Logger LOG = LoggerFactory
+            .getLogger(WebDriverHelper.class);
+    private static final Dimension BROWSER_WINDOW_SIZE = new Dimension(1280,
+            1024);
+    private static RemoteWebDriver REAL_DRIVER = null;
+    private static final Thread CLOSE_THREAD = new Thread() {
 
-		@Override
-		public void run() {
-			REAL_DRIVER.quit();
-		}
-	};
+        @Override
+        public void run() {
+            REAL_DRIVER.quit();
+        }
+    };
+    private static String BROWSER;
+    private static String PLATFORM;
+    private static String DRIVER_PATH;
+    private static String DRIVER_ROOT_DIR;
+    private static String FILE_SEPARATOR;
+    private static String SELENIUM_HOST;
+    private static String SELENIUM_PORT;
+    private static String SELENIUM_REMOTE_URL;
 
-	private static RemoteWebDriver REAL_DRIVER = null;
-	private static String BROWSER;
-	private static String PLATFORM;
-	private static String DRIVER_PATH;
-	private static String DRIVER_ROOT_DIR;
-	private static String FILE_SEPARATOR;
-	private static String SELENIUM_HOST;
-	private static String SELENIUM_PORT;
-	private static String SELENIUM_REMOTE_URL;
+    static {
+        SELENIUM_HOST = System.getProperty("driverhost");
+        SELENIUM_PORT = System.getProperty("driverport");
+        FILE_SEPARATOR = System.getProperty("file.separator");
+        PLATFORM = LoadProperties.getRunProps().getProperty("platform");
+        BROWSER = LoadProperties.getRunProps().getProperty("browser");
+        DRIVER_ROOT_DIR = LoadProperties.getRunProps().getProperty(
+                "driver.root.dir");
 
-	private WebDriverHelper() {
-		super(REAL_DRIVER);
-	}
-
-	static {
-		SELENIUM_HOST = System.getProperty("driverhost");
-		SELENIUM_PORT = System.getProperty("driverport");
-		FILE_SEPARATOR = System.getProperty("file.separator");
-		PLATFORM = LoadProperties.getRunProps().getProperty("platform");
-		BROWSER = LoadProperties.getRunProps().getProperty("browser");
-		DRIVER_ROOT_DIR = LoadProperties.getRunProps().getProperty(
-				"driver.root.dir");
-
-		if (!DRIVER_ROOT_DIR.equals("DEFAULT_PATH")) {
-			System.setProperty("webdriver.chrome.driver", getDriverPath());
-			System.setProperty("webdriver.ie.driver", getDriverPath());
+        if (!DRIVER_ROOT_DIR.equals("DEFAULT_PATH")) {
+            System.setProperty("webdriver.chrome.driver", getDriverPath());
+            System.setProperty("webdriver.ie.driver", getDriverPath());
             System.setProperty("phantomjs.binary.path", getDriverPath());
 
 
         }
 
-		try {
+        try {
 
-			if (BROWSER.equalsIgnoreCase("chrome")) {
-				REAL_DRIVER = (RemoteWebDriver) startChromeDriver();
-			} else if (BROWSER.equalsIgnoreCase("firefox")) {
-				startFireFoxDriver();
-			} else if (BROWSER.equalsIgnoreCase("iexplore")) {
-				startIEDriver();
+            if (BROWSER.equalsIgnoreCase("chrome")) {
+                REAL_DRIVER = (RemoteWebDriver) startChromeDriver();
+            } else if (BROWSER.equalsIgnoreCase("firefox")) {
+                startFireFoxDriver();
+            } else if (BROWSER.equalsIgnoreCase("iexplore")) {
+                startIEDriver();
             } else if (BROWSER.equalsIgnoreCase("phantomjs")) {
                 startPhantomJsDriver();
             } else {
-				throw new IllegalArgumentException("Browser "+ BROWSER + " or Platform "
-								+ PLATFORM + " type not supported");
-			}
+                throw new IllegalArgumentException("Browser " + BROWSER + " or Platform "
+                        + PLATFORM + " type not supported");
+            }
 
-		} catch (IllegalStateException e) {
-			LOG.error("FIX path for driver.root.dir in pom.xml " + DRIVER_ROOT_DIR
-					+ " Browser parameter " + BROWSER + " Platform parameter " + PLATFORM
-					+ " type not supported");
-		}
+        } catch (IllegalStateException e) {
+            LOG.error("FIX path for driver.root.dir in pom.xml " + DRIVER_ROOT_DIR
+                    + " Browser parameter " + BROWSER + " Platform parameter " + PLATFORM
+                    + " type not supported");
+        }
 
-		REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
-		Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
-	}
+        REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
+        Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
+    }
 
-	private static String getDriverPath() {
-		if (BROWSER.equals("chrome") && PLATFORM.contains("win")) {
-			DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "chromedriver"
-					+ FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
-					+ "chromedriver.exe";
-		} else if (BROWSER.equals("chrome") && PLATFORM.contains("linux")) {
-			DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "chromedriver"
-					+ FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
-					+ "chromedriver";
+    private WebDriverHelper() {
+        super(REAL_DRIVER);
+    }
 
-		} else if (BROWSER.equals("iexplore") && PLATFORM.contains("win")) {
-			DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "iedriver"
-					+ FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
-					+ "IEDriverServer.exe";
-		} else if (BROWSER.equals("phantomjs") && PLATFORM.contains("linux")) {
+    private static String getDriverPath() {
+        if (BROWSER.equals("chrome") && PLATFORM.contains("win")) {
+            DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "chromedriver"
+                    + FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
+                    + "chromedriver.exe";
+        } else if (BROWSER.equals("chrome") && PLATFORM.contains("linux")) {
+            DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "chromedriver"
+                    + FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
+                    + "chromedriver";
+
+        } else if (BROWSER.equals("iexplore") && PLATFORM.contains("win")) {
+            DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "iedriver"
+                    + FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
+                    + "IEDriverServer.exe";
+        } else if (BROWSER.equals("phantomjs") && PLATFORM.contains("linux")) {
             DRIVER_PATH = DRIVER_ROOT_DIR + FILE_SEPARATOR + "phantomjs"
                     + FILE_SEPARATOR + PLATFORM + FILE_SEPARATOR
                     + "phantomjs";
         }
 
         return DRIVER_PATH;
-	}
+    }
 
-	private static void startIEDriver() {
-		DesiredCapabilities capabilities = getInternetExploreDesiredCapabilities();
-		if (SELENIUM_HOST == null)
-			REAL_DRIVER = new InternetExplorerDriver(capabilities);
-		else {
-			try {
-				REAL_DRIVER = getRemoteWebDriver(capabilities);
-			} catch (MalformedURLException e) {
-				LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
-			}
-		}
-
-
-	}
-
-	private static void startFireFoxDriver() {
-		DesiredCapabilities capabilities = getFireFoxDesiredCapabilities();
-		if (SELENIUM_HOST == null)
-			REAL_DRIVER = new FirefoxDriver();
-		else {
-			try {
-				capabilities.setPlatform(Platform.WIN8);
-				REAL_DRIVER = getRemoteWebDriver(capabilities);
-			} catch (MalformedURLException e) {
-				LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
-			}
-		}
-	}
-
-	private static void startPhantomJsDriver() {
-		DesiredCapabilities capabilities = getPhantomJsCapabilities();
-		if (SELENIUM_HOST == null)
-			REAL_DRIVER = new PhantomJSDriver(capabilities);
-		else {
-			try {
-				REAL_DRIVER = getRemoteWebDriver(capabilities);
-			} catch (MalformedURLException e) {
-				LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
-			}
-		}
-	}
-
-	private static WebDriver startChromeDriver() {
-			DesiredCapabilities capabilities = getChromeDesiredCapabilities();
-
-		if (SELENIUM_HOST == null)
-			REAL_DRIVER = new ChromeDriver(
-					ChromeDriverService.createDefaultService(), capabilities);
-		else {
-			try {
-				REAL_DRIVER = getRemoteWebDriver(capabilities);
-			} catch (MalformedURLException e) {
-				LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
-			}
-		}
+    private static void startIEDriver() {
+        DesiredCapabilities capabilities = getInternetExploreDesiredCapabilities();
+        if (SELENIUM_HOST == null)
+            REAL_DRIVER = new InternetExplorerDriver(capabilities);
+        else {
+            try {
+                REAL_DRIVER = getRemoteWebDriver(capabilities);
+            } catch (MalformedURLException e) {
+                LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
+            }
+        }
 
 
-		REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
+    }
+
+    private static void startFireFoxDriver() {
+        DesiredCapabilities capabilities = getFireFoxDesiredCapabilities();
+        if (SELENIUM_HOST == null)
+            REAL_DRIVER = new FirefoxDriver();
+        else {
+            try {
+                capabilities.setPlatform(Platform.WIN8);
+                REAL_DRIVER = getRemoteWebDriver(capabilities);
+            } catch (MalformedURLException e) {
+                LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
+            }
+        }
+    }
+
+    private static void startPhantomJsDriver() {
+        DesiredCapabilities capabilities = getPhantomJsCapabilities();
+        if (SELENIUM_HOST == null)
+            REAL_DRIVER = new PhantomJSDriver(capabilities);
+        else {
+            try {
+                REAL_DRIVER = getRemoteWebDriver(capabilities);
+            } catch (MalformedURLException e) {
+                LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
+            }
+        }
+    }
+
+    private static WebDriver startChromeDriver() {
+        DesiredCapabilities capabilities = getChromeDesiredCapabilities();
+
+        if (SELENIUM_HOST == null)
+            REAL_DRIVER = new ChromeDriver(
+                    ChromeDriverService.createDefaultService(), capabilities);
+        else {
+            try {
+                REAL_DRIVER = getRemoteWebDriver(capabilities);
+            } catch (MalformedURLException e) {
+                LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
+            }
+        }
 
 
-		return REAL_DRIVER;
-	}
+        REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
 
-	private static DesiredCapabilities getChromeDesiredCapabilities() {
 
-		LoggingPreferences logs = new LoggingPreferences();
-		logs.enable(LogType.DRIVER, Level.OFF);
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
+        return REAL_DRIVER;
+    }
 
-		ChromeOptions chromeOptions = new ChromeOptions();
-		chromeOptions.addArguments("--disable-web-security");
-		chromeOptions.addArguments("--test-type");
-		capabilities.setCapability("chrome.verbose", false);
+    private static DesiredCapabilities getChromeDesiredCapabilities() {
 
-		capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-		return capabilities;
-	}
+        LoggingPreferences logs = new LoggingPreferences();
+        logs.enable(LogType.DRIVER, Level.OFF);
+        DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+        capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
 
-	private static DesiredCapabilities getFireFoxDesiredCapabilities() {
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-		capabilities.setBrowserName("firefox");
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-web-security");
+        chromeOptions.addArguments("--test-type");
+        capabilities.setCapability("chrome.verbose", false);
 
-		capabilities.setCapability("disable-restore-session-state", true);
-		return capabilities;
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+        return capabilities;
+    }
 
-	}
+    private static DesiredCapabilities getFireFoxDesiredCapabilities() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+        capabilities.setBrowserName("firefox");
 
-	private static DesiredCapabilities getInternetExploreDesiredCapabilities() {
-		LoggingPreferences logs = new LoggingPreferences();
-		logs.enable(LogType.DRIVER, Level.OFF);
-		DesiredCapabilities capabilities = DesiredCapabilities
-				.internetExplorer();
-		capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
-		capabilities
-				.setCapability(
-						InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
-						true);
-		capabilities.setVersion("9");
-		return capabilities;
-	}
+        capabilities.setCapability("disable-restore-session-state", true);
+        return capabilities;
 
-	private static DesiredCapabilities getPhantomJsCapabilities() {
-		LoggingPreferences logs = new LoggingPreferences();
-		logs.enable(LogType.DRIVER, Level.OFF);
-		DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
-		capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
-		capabilities
-				.setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, getDriverPath());
-		return capabilities;
-	}
+    }
 
-	private static DesiredCapabilities getAppiumDesiredCapabilities() {
-		File classpathRoot = new File(System.getProperty("user.dir"));
-		File appDir = new File(classpathRoot, "../../../apps/ApiDemos/bin");
-		File app = new File(appDir, "ApiDemos-debug.apk");
+    private static DesiredCapabilities getInternetExploreDesiredCapabilities() {
+        LoggingPreferences logs = new LoggingPreferences();
+        logs.enable(LogType.DRIVER, Level.OFF);
+        DesiredCapabilities capabilities = DesiredCapabilities
+                .internetExplorer();
+        capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
+        capabilities
+                .setCapability(
+                        InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,
+                        true);
+        capabilities.setVersion("9");
+        return capabilities;
+    }
 
-		DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-		capabilities.setCapability("deviceName", "Android Emulator");
-		capabilities.setCapability("platformVersion", "4.4");
-		capabilities.setCapability("platformName", "Android");
-		capabilities.setCapability("app", app.getAbsolutePath());
-		capabilities.setCapability("appPackage", "com.example.android.apis");
-		capabilities.setCapability("appActivity", ".ApiDemos");
-		return capabilities;
-	}
+    private static DesiredCapabilities getPhantomJsCapabilities() {
+        LoggingPreferences logs = new LoggingPreferences();
+        logs.enable(LogType.DRIVER, Level.OFF);
+        DesiredCapabilities capabilities = DesiredCapabilities.phantomjs();
+        capabilities.setCapability(CapabilityType.LOGGING_PREFS, logs);
+        capabilities
+                .setCapability(PhantomJSDriverService.PHANTOMJS_EXECUTABLE_PATH_PROPERTY, getDriverPath());
+        return capabilities;
+    }
 
-	private static RemoteWebDriver getRemoteWebDriver(DesiredCapabilities capabilities) throws MalformedURLException {
+    private static DesiredCapabilities getAppiumDesiredCapabilities() {
+        File classpathRoot = new File(System.getProperty("user.dir"));
+        File appDir = new File(classpathRoot, "../../../apps/ApiDemos/bin");
+        File app = new File(appDir, "ApiDemos-debug.apk");
 
-		SELENIUM_REMOTE_URL = "http://" + SELENIUM_HOST + ":" + SELENIUM_PORT + "/wd/hub";
-		LOG.error(SELENIUM_REMOTE_URL + " Checking Selenium Remote URL");
-		return new RemoteWebDriver(new URL(SELENIUM_REMOTE_URL), (capabilities));
-	}
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
+        capabilities.setCapability("deviceName", "Android Emulator");
+        capabilities.setCapability("platformVersion", "4.4");
+        capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("app", app.getAbsolutePath());
+        capabilities.setCapability("appPackage", "com.example.android.apis");
+        capabilities.setCapability("appActivity", ".ApiDemos");
+        return capabilities;
+    }
 
-	public static WebDriver getWebDriver() {
-		return REAL_DRIVER;
-	}
+    private static RemoteWebDriver getRemoteWebDriver(DesiredCapabilities capabilities) throws MalformedURLException {
 
-	@Override
-	public void close() {
-		if (Thread.currentThread() != CLOSE_THREAD) {
-			throw new UnsupportedOperationException(
-					"You shouldn't close this WebDriver. It's shared and will close when the JVM exits.");
-		}
-		super.close();
-	}}
+        SELENIUM_REMOTE_URL = "http://" + SELENIUM_HOST + ":" + SELENIUM_PORT + "/wd/hub";
+        LOG.error(SELENIUM_REMOTE_URL + " Checking Selenium Remote URL");
+        return new RemoteWebDriver(new URL(SELENIUM_REMOTE_URL), (capabilities));
+    }
+
+    public static WebDriver getWebDriver() {
+        return REAL_DRIVER;
+    }
+
+    @Override
+    public void close() {
+        if (Thread.currentThread() != CLOSE_THREAD) {
+            throw new UnsupportedOperationException(
+                    "You shouldn't close this WebDriver. It's shared and will close when the JVM exits.");
+        }
+        super.close();
+    }
+}

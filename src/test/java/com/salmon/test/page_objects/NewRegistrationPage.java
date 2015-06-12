@@ -64,9 +64,11 @@ public class NewRegistrationPage extends PageObject {
     public WebElement firstNameText() {
         return getWebDriver().findElement(firstNameText);
     }
+
     public WebElement lastNameText() {
         return getWebDriver().findElement(lastNameText);
     }
+
     public WebElement postCodeText() {
         return getWebDriver().findElement(postCodeText);
     }

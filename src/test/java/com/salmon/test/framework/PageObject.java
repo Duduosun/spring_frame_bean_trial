@@ -11,14 +11,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class PageObject {
+    private static final long DRIVER_WAIT_TIME = 10;
+    private static final Logger LOG = LoggerFactory.getLogger(PageObject.class);
     @Getter
     protected WebDriverWait wait;
     @Getter
     protected WebDriver webDriver;
-
-    private static final long DRIVER_WAIT_TIME = 10;
-
-    private static final Logger LOG = LoggerFactory.getLogger(PageObject.class);
 
 
     protected PageObject() {
@@ -34,26 +32,26 @@ public abstract class PageObject {
     }
 
     /**
-    Returns the current page title from page
-    */
+     * Returns the current page title from page
+     */
     public String getCurrentPageTitle() {
         return getWebDriver().getTitle();
     }
 
     /**
-    Find the dynamic element wait until its visible
-    * @param by Element location found by css, xpath, id etc...
-    *
-    **/
+     * Find the dynamic element wait until its visible
+     *
+     * @param by Element location found by css, xpath, id etc...
+     **/
     protected WebElement waitForExpectedElement(final By by) {
         return wait.until(visibilityOfElementLocated(by));
     }
 
     /**
-     Find the dynamic element wait until its visible for a specified time
-     * @param by Element location found by css, xpath, id etc...
-     * @param waitTimeInSeconds max time to wait until element is visible
+     * Find the dynamic element wait until its visible for a specified time
      *
+     * @param by                Element location found by css, xpath, id etc...
+     * @param waitTimeInSeconds max time to wait until element is visible
      **/
     public WebElement waitForExpectedElement(final By by, long waitTimeInSeconds) {
         try {
@@ -65,18 +63,19 @@ public abstract class PageObject {
             LOG.info(e.getMessage());
             return null;
         }
-        }
+    }
 
     private ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
         return new ExpectedCondition<WebElement>() {
 
             @Override
             public WebElement apply(WebDriver driver) {
-            	 try {
-                     Thread.sleep(500);
-                 } catch (InterruptedException e) {
-                     LOG.error(e.getMessage());
-                 }                WebElement element = getWebDriver().findElement(by);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    LOG.error(e.getMessage());
+                }
+                WebElement element = getWebDriver().findElement(by);
                 return element.isDisplayed() ? element : null;
             }
         };
