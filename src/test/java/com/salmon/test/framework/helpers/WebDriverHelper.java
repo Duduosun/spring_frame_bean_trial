@@ -3,9 +3,7 @@ package com.salmon.test.framework.helpers;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -25,6 +23,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
@@ -96,6 +95,18 @@ public class WebDriverHelper extends EventFiringWebDriver {
             e.printStackTrace();
         }
         //REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
+
+        WebElement el = REAL_DRIVER.findElement(By.name("Add Contact"));
+        el.click();
+        List<WebElement> textFieldsList = REAL_DRIVER.findElements(By.tagName("textfield"));
+        textFieldsList.get(0).sendKeys("Some Name");
+        textFieldsList.get(2).sendKeys("Some@example.com");
+        REAL_DRIVER.findElement(By.name("Save")).click();
+
+
+
+
+
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 
@@ -199,6 +210,8 @@ public class WebDriverHelper extends EventFiringWebDriver {
         REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
 
 
+
+
         return REAL_DRIVER;
     }
 
@@ -254,10 +267,12 @@ public class WebDriverHelper extends EventFiringWebDriver {
 
     private static DesiredCapabilities getAppiumDesiredCapabilities() {
 
-        File app = new File("C:\\dev\\projects\\master_cucumber_testng\\tools\\selendroid-test-app.apk");
+        File app = new File("C:\\dev\\projects\\master_cucumber_testng\\tools\\ContactManager.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("app-package", "com.example.android.contactmanager");
+        capabilities.setCapability("app-activity", ".ContactManager");
+        //capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("deviceName", "emulator-5554");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "Appium");
