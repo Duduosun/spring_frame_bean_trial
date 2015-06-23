@@ -1,5 +1,8 @@
 package com.salmon.test.framework.helpers;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +25,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 public class WebDriverHelper extends EventFiringWebDriver {
@@ -73,6 +77,8 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 startIEDriver();
             } else if (BROWSER.equalsIgnoreCase("phantomjs")) {
                 startPhantomJsDriver();
+            } else if (BROWSER.equalsIgnoreCase("appium")) {
+                startAppiumDriver();
             } else {
                 throw new IllegalArgumentException("Browser " + BROWSER + " or Platform "
                         + PLATFORM + " type not supported");
@@ -83,8 +89,13 @@ public class WebDriverHelper extends EventFiringWebDriver {
                     + " Browser parameter " + BROWSER + " Platform parameter " + PLATFORM
                     + " type not supported");
         }
-
-        REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
+        REAL_DRIVER.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        try {
+            Thread.sleep(10000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
         Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
     }
 
@@ -155,6 +166,19 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
+    }
+
+
+    private static void startAppiumDriver() {
+        DesiredCapabilities capabilities = getAppiumDesiredCapabilities();
+
+        try {
+            REAL_DRIVER = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"),capabilities);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     private static WebDriver startChromeDriver() {
@@ -229,18 +253,16 @@ public class WebDriverHelper extends EventFiringWebDriver {
     }
 
     private static DesiredCapabilities getAppiumDesiredCapabilities() {
-        File classpathRoot = new File(System.getProperty("user.dir"));
-        File appDir = new File(classpathRoot, "../../../apps/ApiDemos/bin");
-        File app = new File(appDir, "ApiDemos-debug.apk");
+
+        File app = new File("C:\\dev\\projects\\master_cucumber_testng\\tools\\selendroid-test-app.apk");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-        capabilities.setCapability("deviceName", "Android Emulator");
-        capabilities.setCapability("platformVersion", "4.4");
+        capabilities.setCapability("browserName", "chrome");
+        capabilities.setCapability("deviceName", "emulator-5554");
         capabilities.setCapability("platformName", "Android");
+        capabilities.setCapability("automationName", "Appium");
+
         capabilities.setCapability("app", app.getAbsolutePath());
-        capabilities.setCapability("appPackage", "com.example.android.apis");
-        capabilities.setCapability("appActivity", ".ApiDemos");
         return capabilities;
     }
 
