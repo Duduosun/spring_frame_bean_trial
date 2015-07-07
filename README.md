@@ -66,7 +66,7 @@ gkarvir@salmon.com
 Machine Configuration
 ====================
 Configure Ubuntu / Windows and setup: -   
-*Java 7  
+*Java 8  
 *Git  
 *Maven  
 
@@ -77,7 +77,7 @@ Open Terminal or command line
 cd to the desired folder where the test automation source code needs to be checkout
 
 Run command
-git clone https://github.com/salmontest/salmontest.git
+git clone https://github.com/salmon-org/master_cucumber_testng.git
 
 This will download the latest template source code
 
@@ -213,6 +213,13 @@ mvn clean install -Dcucumber.options="--tags @gui --tags ~@api" -P single
 
 ** Note "~" before tag means this specific tag will not run
 
+To Rerun failed test scenarios
+---------------------------------------------
+After a test suite is run. There is rerun.txt created at the project root level in rerun folder. This rerun file contains the details of all the failed scenarios.
+e.g master_cucumber_testng\rerun\rerun.txt
+
+mvn clean install -Dcucumber.options="@rerun/rerun.txt" -P single
+
 
 Jenkins
 ======
@@ -223,16 +230,20 @@ mvn clean install  -P jenkins
 with the below conventions which will be passed on as an argument to the above maven command  
 
 Key: cucumber.options Default Value: --tags @gui, @api     
-Key: driverhost  Default Value: 192.168.216.76  
+Key: driverhost  Default Value: 0000.000.000.00 (RAS server with selenium server configured for the project)  
 Key: driverport  Default Value: 4444  
 
 
 Report
 ======
 
-Local report
+Local reports
 -------------
-A report will be generated at /target/cucumber-report/index.html
+Standard HTML Report  
+A report will be generated at /target/cucumber-report/index.html  
+
+Preety Cucumber-Html Report  
+A report will be generated at /target/cucumber-report/cucumber-html-reports/feature-overview.html 
 
 Jenkins report
 --------------
@@ -318,23 +329,25 @@ Location: /home/dev/src/salmonAutomationFramework/src/test/java/com/salmon/test
 File Conventions:Every Class file ends with Suite.class (RunWebATSuite.class)  
 
 
-    @CucumberOptions(features = "target/test-classes", tags = {"@gui"}, 
-         monochrome = true, plugin = {
-        "pretty", "html:target/cucumber-report/runwebat",
-        "json:target/cucumber-report/runwebat/cucumber.json"
-        })
-        
-        public class RunWebATSuite extends AbstractTestNGCucumberTests {
-        }
+    @CucumberOptions(features = "target/test-classes", tags = {"@gui"}, monochrome = true, plugin = {
+            "pretty", "html:target/cucumber-report/runwebat",
+            "json:target/cucumber-report/runwebat/cucumber.json",
+            "rerun:target/cucumber-report/runwebat/rerun.txt"},
+            glue = "com.salmon.test")
+    public class RunWebATSuite extends AbstractTestNGCucumberTests {
+    }
 
 Where: -  
 features: represent the location of feature files from the compiled build  
 tags:  multiple tags can be specified by comma separated denotation, if a specific tag needs to be excluded then this 
         can be specified by "~" . e.g "~@api" feature files tagged with "~api" will not be run as a part of Test Suite.  
-format: html and json reports are created. if a TesSuite is renamed then change the reporting directory name for both reports   
+plugin: html,json and rerun reports are created. if a TesSuite is renamed then change the reporting directory name for both reports  
+   
 
 Other ways to run the tests or Test Suite
 ---------------------------------------------
 *command line using Maven:-  mvn clean install -P dev  
 *IDE Plugins: - Eclipse or Intellij via TestNg plugin or Maven plugin or Cucumber-Java plugin  
-*IDE TestNg Suite xml: - file located at "src/test/resources" TestNGRunTestSuite.xml (Right click and run as TestNg)  
+*IDE TestNg Suite xml: - file located at "src/test/resources" TestNGRunTestSuite.xml (Right click and run as TestNg)
+  
+
