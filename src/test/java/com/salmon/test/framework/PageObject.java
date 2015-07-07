@@ -66,18 +66,14 @@ public abstract class PageObject {
     }
 
     private ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
-        return new ExpectedCondition<WebElement>() {
-
-            @Override
-            public WebElement apply(WebDriver driver) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    LOG.error(e.getMessage());
-                }
-                WebElement element = getWebDriver().findElement(by);
-                return element.isDisplayed() ? element : null;
+        return driver -> {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                LOG.error(e.getMessage());
             }
+            WebElement element = getWebDriver().findElement(by);
+            return element.isDisplayed() ? element : null;
         };
     }
 
