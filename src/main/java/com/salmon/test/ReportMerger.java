@@ -30,7 +30,7 @@ class ReportMerger {
      * @param reportDirectory report directory
      * @throws Exception
      */
-    private void mergeReports(File reportDirectory) throws Exception {
+    private void mergeReports(File reportDirectory) throws IOException {
         //merging js reports for parallel tests
         mergeResponse(reportDirectory, "js", "report.js");
         //merging json response for parallel tests
@@ -39,7 +39,7 @@ class ReportMerger {
         getListOfFailedScenarios(reportDirectory);
     }
 
-    private void mergeResponse(File reportDirectory, String format, String reportFileName) throws Exception {
+    private void mergeResponse(File reportDirectory, String format, String reportFileName) throws IOException {
         LOG.info("In ReportMerger--->Report directory: " + reportDirectory + "  File format: " + format + "  Report fileName: " + reportFileName);
         Collection<File> existingReports = FileUtils.listFiles(reportDirectory, new String[]{format}, true);
         File mergedReport = null;
@@ -107,7 +107,7 @@ class ReportMerger {
      * @param target target location
      * @param source source location
      */
-    private void mergeJsFiles(File target, File source) throws Exception {
+    private void mergeJsFiles(File target, File source) throws IOException {
         //copy embedded images
         Collection<File> embeddedImages = FileUtils.listFiles(source.getParentFile(), new String[]{reportImageExtension}, true);
         for (File image : embeddedImages) {
