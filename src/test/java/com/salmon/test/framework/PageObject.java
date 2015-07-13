@@ -10,9 +10,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ResourceBundle;
+
 public abstract class PageObject {
     private static final long DRIVER_WAIT_TIME = 10;
     private static final Logger LOG = LoggerFactory.getLogger(PageObject.class);
+    @Getter
+    private final ResourceBundle props;
     @Getter
     protected WebDriverWait wait;
     @Getter
@@ -22,6 +26,7 @@ public abstract class PageObject {
     protected PageObject() {
         this.webDriver = WebDriverHelper.getWebDriver();
         this.wait = new WebDriverWait(webDriver, DRIVER_WAIT_TIME);
+        this.props = ResourceBundle.getBundle("props/messages");
     }
 
     /**
@@ -53,8 +58,10 @@ public abstract class PageObject {
      * @param by                Element location found by css, xpath, id etc...
      * @param waitTimeInSeconds max time to wait until element is visible
      **/
+
     public WebElement waitForExpectedElement(final By by, long waitTimeInSeconds) {
         try {
+            WebDriverWait wait = new WebDriverWait(getWebDriver(), waitTimeInSeconds);
             return wait.until(visibilityOfElementLocated(by));
         } catch (NoSuchElementException e) {
             LOG.info(e.getMessage());
@@ -124,5 +131,4 @@ public abstract class PageObject {
     public String getElementByQueryJSExecutor(String cssSelector) {
         return ((JavascriptExecutor) webDriver).executeScript("return window.getComputedStyle(document.querySelector('" + cssSelector + "')").toString();
     }
-
 }

@@ -30,19 +30,18 @@ The test automation framework is comprised of following tools and libraries
 *Maven: - Build tool  
 *Jenkins: - Continuous Integration  
 *Lombok: - Java utility api  
-*PicoContainer: - Dependency Injection    
-*Git (optional): - Version Control  
+*PicoContainer: - Standard Dependency Injection     
+*Git OR SVN: - Version Control  
 *Github (optional): - Git repository hosted server  
 *Intellij Or Eclipse: - Integrated Development Environment  
 *Hamcrest: - Matcher's  
 *Loggers: - Simple Logging Facade for Java  
+*Resource Bundle: - Supporting i18n Localisation and Externalise String 
 *Joda-Time: - Java Date time Api  
 *SonarQube (optional): - Code Quality and Code Coverage  
 *DbUtils Mysql (optional): - Java Database utility api  
 *Rest-Assured (optional): - Restful Api framework     
 *PhantomJsDriver, GhostDriver: - Full web stack No browser required supporting headless testing
-
-
 
 Contact information
 ===================
