@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.ResourceBundle;
 
 public abstract class PageObject {
@@ -95,6 +96,47 @@ public abstract class PageObject {
         return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.urlMatches(regex));
     }
 
+    /**
+     * Find the dynamic element wait until its visible
+     *
+     * @param by Element location found by css, xpath, id etc...
+     **/
+    protected WebElement waitForExpectedElement(final By by) {
+        return wait.until(visibilityOfElementLocated(by));
+    }
+
+    /**
+     * Find the dynamic element wait until its visible for a specified time
+     *
+     * @param by                Element location found by css, xpath, id etc...
+     * @param waitTimeInSeconds max time to wait until element is visible
+     **/
+
+    public WebElement waitForExpectedElement(final By by, long waitTimeInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(getWebDriver(), waitTimeInSeconds);
+            return wait.until(visibilityOfElementLocated(by));
+        } catch (NoSuchElementException e) {
+            LOG.info(e.getMessage());
+            return null;
+        } catch (TimeoutException e) {
+            LOG.info(e.getMessage());
+            return null;
+        }
+    }
+
+    private ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
+        return driver -> {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                LOG.error(e.getMessage());
+            }
+            WebElement element = getWebDriver().findElement(by);
+            return element.isDisplayed() ? element : null;
+        };
+    }
+
 
     /**
      * An expectation for checking if the given text is present in the specified element.
@@ -103,7 +145,6 @@ public abstract class PageObject {
      * @param text    to be present in the element
      * @return true once the element contains the given text
      */
-
     public boolean textToBePresentInElement(WebElement element, String text) {
         return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.textToBePresentInElement(element, text));
     }
@@ -260,47 +301,60 @@ public abstract class PageObject {
         return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementSelectionStateToBe(by, selected));
     }
 
-
-    /**
-     * Find the dynamic element wait until its visible
-     *
-     * @param by Element location found by css, xpath, id etc...
-     **/
-    protected WebElement waitForExpectedElement(final By by) {
-        return wait.until(visibilityOfElementLocated(by));
+    public void waitForAlert() {
+        (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.alertIsPresent());
     }
 
     /**
-     * Find the dynamic element wait until its visible for a specified time
+     * An expectation for checking that all elements present on the web page that
+     * match the locator are visible. Visibility means that the elements are not
+     * only displayed but also have a height and width that is greater than 0.
      *
-     * @param by                Element location found by css, xpath, id etc...
-     * @param waitTimeInSeconds max time to wait until element is visible
-     **/
-
-    public WebElement waitForExpectedElement(final By by, long waitTimeInSeconds) {
-        try {
-            WebDriverWait wait = new WebDriverWait(getWebDriver(), waitTimeInSeconds);
-            return wait.until(visibilityOfElementLocated(by));
-        } catch (NoSuchElementException e) {
-            LOG.info(e.getMessage());
-            return null;
-        } catch (TimeoutException e) {
-            LOG.info(e.getMessage());
-            return null;
-        }
+     * @param by used to find the element
+     * @return the list of WebElements once they are located
+     */
+    public List<WebElement> visibilityOfAllElementsLocatedBy(final By by) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.visibilityOfAllElementsLocatedBy(by));
     }
 
-    private ExpectedCondition<WebElement> visibilityOfElementLocated(final By by) throws NoSuchElementException {
-        return driver -> {
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                LOG.error(e.getMessage());
-            }
-            WebElement element = getWebDriver().findElement(by);
-            return element.isDisplayed() ? element : null;
-        };
+
+    /**
+     * An expectation for checking that all elements present on the web page that
+     * match the locator are visible. Visibility means that the elements are not
+     * only displayed but also have a height and width that is greater than 0.
+     *
+     * @param elements list of WebElements
+     * @return the list of WebElements once they are located
+     */
+    public List<WebElement> visibilityOfAllElements(final List<WebElement> elements) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.visibilityOfAllElements(elements));
     }
+
+
+    /**
+     * An expectation for checking that there is at least one element present on a
+     * web page.
+     *
+     * @param by used to find the element
+     * @return the list of WebElements once they are located
+     */
+    public List<WebElement> presenceOfAllElementsLocatedBy(final By by) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+    }
+
+    /**
+     * An expectation for checking that an element, known to be present on the DOM
+     * of a page, is visible. Visibility means that the element is not only
+     * displayed but also has a height and width that is greater than 0.
+     *
+     * @param element the WebElement
+     * @return the (same) WebElement once it is visible
+     */
+
+    public WebElement visibilityOf(final WebElement element) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.visibilityOf(element));
+    }
+
 
     /**
      * An expectation for checking that an element is present on the DOM of a
