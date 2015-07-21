@@ -44,6 +44,224 @@ public abstract class PageObject {
     }
 
     /**
+     * An expectation for checking the title of a page.
+     *
+     * @param title the expected title, which must be an exact match
+     * @return true when the title matches, false otherwise
+     */
+    public boolean checkPageTitle(String title) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.titleIs(title));
+    }
+
+    /**
+     * An expectation for checking that the title contains a case-sensitive
+     * substring
+     *
+     * @param title the fragment of title expected
+     * @return true when the title matches, false otherwise
+     */
+    public boolean checkPageTitleContains(String title) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.titleContains(title));
+    }
+
+    /**
+     * An expectation for the URL of the current page to be a specific url.
+     *
+     * @param url the url that the page should be on
+     * @return <code>true</code> when the URL is what it should be
+     */
+    public boolean checkPageUrlToBe(String url) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.urlToBe(url));
+    }
+
+    /**
+     * An expectation for the URL of the current page to contain specific text.
+     *
+     * @param fraction the fraction of the url that the page should be on
+     * @return <code>true</code> when the URL contains the text
+     */
+    public boolean checkPageUrlContains(String fraction) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.urlContains(fraction));
+    }
+
+    /**
+     * Expectation for the URL to match a specific regular expression
+     *
+     * @param regex the regular expression that the URL should match
+     * @return <code>true</code> if the URL matches the specified regular expression
+     */
+
+    public boolean checkPageUrlMatches(String regex) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.urlMatches(regex));
+    }
+
+
+    /**
+     * An expectation for checking if the given text is present in the specified element.
+     *
+     * @param element the WebElement
+     * @param text    to be present in the element
+     * @return true once the element contains the given text
+     */
+
+    public boolean textToBePresentInElement(WebElement element, String text) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.textToBePresentInElement(element, text));
+    }
+
+
+    /**
+     * An expectation for checking if the given text is present in the element that matches
+     * the given locator.
+     *
+     * @param by   used to find the element
+     * @param text to be present in the element found by the locator
+     * @return true once the first element located by locator contains the given text
+     */
+    public boolean textToBePresentInElementLocated(final By by, final String text) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.textToBePresentInElementLocated(by, text));
+    }
+
+
+    /**
+     * An expectation for checking if the given text is present in the specified
+     * elements value attribute.
+     *
+     * @param element the WebElement
+     * @param text    to be present in the element's value attribute
+     * @return true once the element's value attribute contains the given text
+     */
+    public boolean textToBePresentInElementValue(final WebElement element, final String text) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.textToBePresentInElementValue(element, text));
+    }
+
+
+    /**
+     * An expectation for checking if the given text is present in the specified
+     * elements value attribute.
+     *
+     * @param by   used to find the element
+     * @param text to be present in the value attribute of the element found by the locator
+     * @return true once the value attribute of the first element located by locator contains
+     * the given text
+     */
+    public boolean textToBePresentInElementValue(final By by, final String text) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.textToBePresentInElementValue(by, text));
+    }
+
+
+    /**
+     * An expectation for checking whether the given frame is available to switch
+     * to. <p> If the frame is available it switches the given driver to the
+     * specified frame.
+     *
+     * @param frameLocator used to find the frame (id or name)
+     */
+    public WebDriver frameToBeAvailableAndSwitchToIt(final String frameLocator) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(frameLocator));
+    }
+
+
+    /**
+     * An expectation for checking whether the given frame is available to switch
+     * to. <p> If the frame is available it switches the given driver to the
+     * specified frame.
+     *
+     * @param by used to find the frame
+     */
+    public WebDriver frameToBeAvailableAndSwitchToIt(final By by) {
+        return new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
+    }
+
+
+    /**
+     * An expectation for checking that an element is either invisible or not
+     * present on the DOM.
+     *
+     * @param by used to find the element
+     */
+    public boolean invisibilityOfElementLocated(By by) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.invisibilityOfElementLocated(by));
+    }
+
+    /**
+     * An expectation for checking that an element with text is either invisible
+     * or not present on the DOM.
+     *
+     * @param by   used to find the element
+     * @param text of the element
+     */
+    public boolean invisibilityOfElementWithText(final By by, final String text) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.invisibilityOfElementWithText(by, text));
+    }
+
+
+    /**
+     * An expectation for checking an element is visible and enabled such that you
+     * can click it.
+     *
+     * @param by used to find the element
+     * @return the WebElement once it is located and clickable (visible and enabled)
+     */
+    public WebElement elementToBeClickable(By by) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementToBeClickable(by));
+    }
+
+
+    /**
+     * An expectation for checking an element is visible and enabled such that you
+     * can click it.
+     *
+     * @param element the WebElement
+     * @return the (same) WebElement once it is clickable (visible and enabled)
+     */
+
+    public WebElement elementToBeClickable(final WebElement element) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+
+    /**
+     * Wait until an element is no longer attached to the DOM.
+     *
+     * @param element The element to wait for.
+     * @return false is the element is still attached to the DOM, true
+     * otherwise.
+     */
+    public boolean stalenessOf(final WebElement element) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.stalenessOf(element));
+    }
+
+    /**
+     * An expectation for checking if the given element is selected.
+     */
+    public boolean elementToBeSelected(final By by) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementToBeSelected(by));
+    }
+
+    /**
+     * An expectation for checking if the given element is selected.
+     */
+    public boolean elementToBeSelected(final WebElement element) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementToBeSelected(element));
+    }
+
+    /**
+     * An expectation for checking if the given element is selected.
+     */
+    public boolean elementSelectionStateToBe(final WebElement element, final boolean selected) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementSelectionStateToBe(element, selected));
+    }
+
+    /**
+     * An expectation for checking if the given element is selected.
+     */
+    public boolean elementSelectionStateToBe(final By by,
+                                             final boolean selected) {
+        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementSelectionStateToBe(by, selected));
+    }
+
+
+    /**
      * Find the dynamic element wait until its visible
      *
      * @param by Element location found by css, xpath, id etc...
@@ -84,9 +302,17 @@ public abstract class PageObject {
         };
     }
 
-    protected boolean isElementPresent(final By by) {
+    /**
+     * An expectation for checking that an element is present on the DOM of a
+     * page. This does not necessarily mean that the element is visible.
+     *
+     * @param by used to find the element
+     * @return the WebElement once it is located
+     */
+    public boolean isElementPresent(final By by) {
         try {
             new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME).until(ExpectedConditions.presenceOfElementLocated(by));
+
         } catch (TimeoutException exception) {
             LOG.info(exception.getMessage());
             return false;
@@ -94,14 +320,6 @@ public abstract class PageObject {
         return true;
     }
 
-    protected WebElement waitForElementDisplayedAndClickable(By by) {
-        waitForExpectedElement(by);
-        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.elementToBeClickable(by));
-    }
-
-    protected boolean waitForElementToDisappear(By by) {
-        return (new WebDriverWait(getWebDriver(), DRIVER_WAIT_TIME)).until(ExpectedConditions.invisibilityOfElementLocated(by));
-    }
 
     public WebDriver getBrowserByPageTitle(String pageTitle) {
         for (String windowHandle : webDriver.getWindowHandles()) {
@@ -112,6 +330,7 @@ public abstract class PageObject {
         }
         return null;
     }
+
 
     public void navigateToPreviousPageUsingBrowserBackButton() {
         webDriver.navigate().back();
