@@ -20,7 +20,7 @@ public class MyAccountSummaryPage extends PageObject {
     private By personalInformation = By.cssSelector(".label + .info_content");
 
     public String getMyaccountSummaryTitle() {
-        return waitForElementDisplayedAndClickable(myaccountSummaryTitle).getText();
+        return waitForExpectedElement(myaccountSummaryTitle).getText();
     }
 
     public List<WebElement> getPersonalInformation() {
