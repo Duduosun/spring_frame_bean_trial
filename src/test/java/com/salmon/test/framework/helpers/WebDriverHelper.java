@@ -1,8 +1,12 @@
 package com.salmon.test.framework.helpers;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -64,7 +68,6 @@ public class WebDriverHelper extends EventFiringWebDriver {
         }
 
         try {
-
             if (BROWSER.equalsIgnoreCase("chrome")) {
                 REAL_DRIVER = (RemoteWebDriver) startChromeDriver();
             } else if (BROWSER.equalsIgnoreCase("firefox")) {
@@ -73,7 +76,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 startIEDriver();
             } else if (BROWSER.equalsIgnoreCase("phantomjs")) {
                 startPhantomJsDriver();
-            } else if (BROWSER.equalsIgnoreCase("appium")) {
+            } else if (BROWSER.equalsIgnoreCase("Browser")) {
                 startAppiumDriver();
             } else {
                 throw new IllegalArgumentException("Browser " + BROWSER + " or Platform "
@@ -126,8 +129,6 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
-
-
     }
 
     private static void startFireFoxDriver() {
@@ -158,16 +159,12 @@ public class WebDriverHelper extends EventFiringWebDriver {
     }
 
 
-    private static void startAppiumDriver() {
+    private static void startAppiumDriver()  {
         DesiredCapabilities capabilities = getAppiumDesiredCapabilities();
-
         try {
             REAL_DRIVER = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-
-
+            LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());        }
     }
 
     private static WebDriver startChromeDriver() {
@@ -183,11 +180,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
-
-
         REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
-
-
         return REAL_DRIVER;
     }
 
@@ -242,15 +235,12 @@ public class WebDriverHelper extends EventFiringWebDriver {
     }
 
     private static DesiredCapabilities getAppiumDesiredCapabilities() {
-        File app = new File("C:\\dev\\projects\\master_cucumber_testng\\tools\\ContactManager.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app-package", "com.example.android.contactmanager");
-        capabilities.setCapability("app-activity", ".ContactManager");
-        capabilities.setCapability("deviceName", "emulator-5554");
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("automationName", "Appium");
-
-        capabilities.setCapability("app", app.getAbsolutePath());
+        capabilities.setCapability("device", "Android");
+        capabilities.setCapability("app", "Chrome");
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,PLATFORM);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"42f7ab1fb7b59fab");
         return capabilities;
     }
 

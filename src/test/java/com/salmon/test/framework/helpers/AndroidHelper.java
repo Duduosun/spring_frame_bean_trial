@@ -52,7 +52,8 @@ public class AndroidHelper extends EventFiringWebDriver {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("app-package", "com.example.android.contactmanager");
         capabilities.setCapability("app-activity", ".ContactManager");
-        capabilities.setCapability("deviceName", "emulator-5554");
+//        capabilities.setCapability("deviceName", "emulator-5554");
+        capabilities.setCapability("deviceName", "42f7ab1fb7b59fab");
         capabilities.setCapability("platformName", "Android");
         capabilities.setCapability("automationName", "Appium");
 

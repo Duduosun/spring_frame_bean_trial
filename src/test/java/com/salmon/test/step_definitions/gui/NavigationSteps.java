@@ -13,6 +13,7 @@ public class NavigationSteps {
 
         if (pageName.equals("HOME")) {
             UrlBuilder.startAtHomePage();
+            Thread.sleep(20000);
         }
     }
 }
