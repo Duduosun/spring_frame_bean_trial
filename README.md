@@ -21,8 +21,10 @@ The framework incorporates design principle of BDD (Behaviour driven development
  (Product Owners, Business Analysts, Development and QA team) to understand and track the requirements
  
 Supports Custom Page Object model which represents the screens of AUT as a series of objects and 
-encapsulates the fields represented by a page which ultimately avoids duplication and improves code maintainability and readability.
+encapsulates the fields represented by a page which ultimately avoids duplication and improves code maintainability and readability.  
     
+Sonar Continuous Code Quality Management: -
+conventions (Checkstyle), bad practices (PMD) and potential bugs (FindBugs).
 
 
 Tools & libraries
