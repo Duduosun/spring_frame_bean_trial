@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -29,7 +30,7 @@ class ReportMerger {
      * @param reportDirectory report directory
      * @throws Exception
      */
-    private void mergeReports(File reportDirectory) throws Exception {
+    private void mergeReports(File reportDirectory) throws IOException {
         //merging js reports for parallel tests
         mergeResponse(reportDirectory, "js", "report.js");
         //merging json response for parallel tests
@@ -38,7 +39,7 @@ class ReportMerger {
         getListOfFailedScenarios(reportDirectory);
     }
 
-    private void mergeResponse(File reportDirectory, String format, String reportFileName) throws Exception {
+    private void mergeResponse(File reportDirectory, String format, String reportFileName) throws IOException {
         LOG.info("In ReportMerger--->Report directory: " + reportDirectory + "  File format: " + format + "  Report fileName: " + reportFileName);
         Collection<File> existingReports = FileUtils.listFiles(reportDirectory, new String[]{format}, true);
         File mergedReport = null;
@@ -81,7 +82,7 @@ class ReportMerger {
      * @param reportDirectory reportDirectory
      * @throws Exception
      */
-    private void getListOfFailedScenarios(File reportDirectory) throws Exception {
+    private void getListOfFailedScenarios(File reportDirectory) throws IOException {
         String rerunReportFileName = "rerun.txt";
         String rerunReportDirectory = "rerun/";
         Set<String> rerunFailedScenariosList = new HashSet();
@@ -106,7 +107,7 @@ class ReportMerger {
      * @param target target location
      * @param source source location
      */
-    private void mergeJsFiles(File target, File source) throws Exception {
+    private void mergeJsFiles(File target, File source) throws IOException {
         //copy embedded images
         Collection<File> embeddedImages = FileUtils.listFiles(source.getParentFile(), new String[]{reportImageExtension}, true);
         for (File image : embeddedImages) {
@@ -125,7 +126,7 @@ class ReportMerger {
      * @param jsonTarget target location
      * @param jsonSource source location
      */
-    private void mergeJsonFiles(File jsonTarget, File jsonSource) throws Exception {
+    private void mergeJsonFiles(File jsonTarget, File jsonSource) throws IOException {
         //copy embedded images
         Collection<File> embeddedImages = FileUtils.listFiles(jsonSource.getParentFile(), new String[]{reportImageExtension}, true);
         for (File image : embeddedImages) {
@@ -143,7 +144,7 @@ class ReportMerger {
      *
      * @param reportFile reportFile
      */
-    private void renameEmbeddedImages(File reportFile) throws Exception {
+    private void renameEmbeddedImages(File reportFile) throws IOException {
         File reportDirectory = reportFile.getParentFile();
         Collection<File> embeddedImages = FileUtils.listFiles(reportDirectory, new String[]{reportImageExtension}, true);
         String fileAsString = FileUtils.readFileToString(reportFile);

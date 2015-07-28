@@ -1,5 +1,6 @@
 package com.salmon.test.framework.helpers;
 
+import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,6 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Level;
@@ -27,8 +27,6 @@ import java.util.logging.Level;
 public class WebDriverHelper extends EventFiringWebDriver {
     private static final Logger LOG = LoggerFactory
             .getLogger(WebDriverHelper.class);
-    private static final Dimension BROWSER_WINDOW_SIZE = new Dimension(1280,
-            1024);
     private static RemoteWebDriver REAL_DRIVER = null;
     private static final Thread CLOSE_THREAD = new Thread() {
 
@@ -45,6 +43,9 @@ public class WebDriverHelper extends EventFiringWebDriver {
     private static String SELENIUM_HOST;
     private static String SELENIUM_PORT;
     private static String SELENIUM_REMOTE_URL;
+    private static Dimension BROWSER_WINDOW_SIZE;
+    private static Integer BROWSER_WINDOW_WIDTH;
+    private static Integer BROWSER_WINDOW_HEIGHT;
 
     static {
         SELENIUM_HOST = System.getProperty("driverhost");
@@ -52,6 +53,9 @@ public class WebDriverHelper extends EventFiringWebDriver {
         FILE_SEPARATOR = System.getProperty("file.separator");
         PLATFORM = LoadProperties.getRunProps().getProperty("platform");
         BROWSER = LoadProperties.getRunProps().getProperty("browser");
+        BROWSER_WINDOW_WIDTH = Integer.parseInt(LoadProperties.getRunProps().getProperty("browser.width"));
+        BROWSER_WINDOW_HEIGHT = Integer.parseInt(LoadProperties.getRunProps().getProperty("browser.height"));
+        BROWSER_WINDOW_SIZE = new Dimension(BROWSER_WINDOW_WIDTH, BROWSER_WINDOW_HEIGHT);
         DRIVER_ROOT_DIR = LoadProperties.getRunProps().getProperty(
                 "driver.root.dir");
 
@@ -64,7 +68,6 @@ public class WebDriverHelper extends EventFiringWebDriver {
         }
 
         try {
-
             if (BROWSER.equalsIgnoreCase("chrome")) {
                 REAL_DRIVER = (RemoteWebDriver) startChromeDriver();
             } else if (BROWSER.equalsIgnoreCase("firefox")) {
@@ -75,6 +78,8 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 startPhantomJsDriver();
             } else if (BROWSER.equalsIgnoreCase("appium")) {
                 startAppiumDriver();
+            } else if (BROWSER.equalsIgnoreCase("sauce")) {
+                startSauceDriver();
             } else {
                 throw new IllegalArgumentException("Browser " + BROWSER + " or Platform "
                         + PLATFORM + " type not supported");
@@ -126,8 +131,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
-
-
+        REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
     }
 
     private static void startFireFoxDriver() {
@@ -142,6 +146,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
+        REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
     }
 
     private static void startPhantomJsDriver() {
@@ -155,20 +160,28 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
+        REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
     }
 
 
     private static void startAppiumDriver() {
         DesiredCapabilities capabilities = getAppiumDesiredCapabilities();
-
         try {
             REAL_DRIVER = new RemoteWebDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         } catch (MalformedURLException e) {
-            e.printStackTrace();
+            LOG.error("Appium Server Error " + e.getMessage());
         }
-
-
     }
+
+    private static void startSauceDriver() {
+        DesiredCapabilities capabilities = getSauceCapabilities();
+        try {
+            REAL_DRIVER = new RemoteWebDriver(new URL("http://username-string:access-key-string@ondemand.saucelabs.com:80/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            LOG.error(" Error Sauce Url " + e.getMessage());
+        }
+    }
+
 
     private static WebDriver startChromeDriver() {
         DesiredCapabilities capabilities = getChromeDesiredCapabilities();
@@ -183,11 +196,7 @@ public class WebDriverHelper extends EventFiringWebDriver {
                 LOG.error(SELENIUM_REMOTE_URL + " Error " + e.getMessage());
             }
         }
-
-
         REAL_DRIVER.manage().window().setSize(BROWSER_WINDOW_SIZE);
-
-
         return REAL_DRIVER;
     }
 
@@ -242,15 +251,23 @@ public class WebDriverHelper extends EventFiringWebDriver {
     }
 
     private static DesiredCapabilities getAppiumDesiredCapabilities() {
-        File app = new File("C:\\dev\\projects\\master_cucumber_testng\\tools\\ContactManager.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("app-package", "com.example.android.contactmanager");
-        capabilities.setCapability("app-activity", ".ContactManager");
-        capabilities.setCapability("deviceName", "emulator-5554");
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("automationName", "Appium");
+        capabilities.setCapability("device", "Android");
+        capabilities.setCapability("app", "Chrome");
+        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, PLATFORM);
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "42f7ab1fb7b59fab");
+        return capabilities;
+    }
 
-        capabilities.setCapability("app", app.getAbsolutePath());
+
+    private static DesiredCapabilities getSauceCapabilities() {
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setCapability("browserName", BROWSER);
+        capabilities.setCapability("platform", PLATFORM);
+        capabilities.setCapability("sauce-advisor", false);
+        capabilities.setCapability("record-video", false);
+        capabilities.setCapability("record-screenshots", false);
         return capabilities;
     }
 
