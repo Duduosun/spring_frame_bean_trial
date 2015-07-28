@@ -3,9 +3,16 @@
 Salmon Test Automation Framework
 ================================
 This project is a template for Salmon's test automation framework, which provides structured and standard way of 
-creating automated test scripts for GUI and API level tests across salmon projects  
+creating automated test scripts for GUI, Mobile and API level tests across salmon projects  
 
-This is a reusable automation framework that blends together Selenium WebDriver and Cucumber JVM (incorporating Gherkin and the BDD 'Given, When Then' testing construct) 
+This is a reusable automation framework that blends together Selenium WebDriver, Appium, Android Driver, RestEasy, SauceLabs and Cucumber JVM (incorporating Gherkin and the BDD 'Given, When Then' testing construct)   
+
+This framework supports automation of : - 
+*Web Browsers (Firefox, Chrome, Internet Explorer, Safari)  
+*Web Browser Responsive Design with view ports configuration  
+*Mobile Automation on Emulated and Physical Devices, for Native, Hybrid, and Web App  
+*Mobile Automation on Cloud using SauceLabs
+  
 
 The framework incorporates design principle of BDD (Behaviour driven development) which promotes
  writing acceptance tests by describing behaviour of application under test in simple english language from
@@ -24,7 +31,11 @@ The test automation framework is comprised of following tools and libraries
 
 *Cucumber-JVM:- BDD Framework  
 *Custom Page Object Pattern and utility functions  
-*Selenium WebDriver : - Browser automation framework  
+*Selenium WebDriver: - Browser automation framework
+*Selenium Grid: - Distribute test Execution across several machines  
+*Android Driver: - Android Mobile Automation  
+*Appium: - Mobile Native app, Hybrid App, Web app  
+*SauceLabs: - Cloud Based testing of mobile and Web Apps  
 *JAVA: - Programming language  
 *TestNg: - TestNg Java testing framework  
 *Maven: - Build tool  
@@ -32,7 +43,7 @@ The test automation framework is comprised of following tools and libraries
 *Lombok: - Java utility api  
 *PicoContainer: - Standard Dependency Injection     
 *Git OR SVN: - Version Control  
-*Github (optional): - Git repository hosted server  
+*Github or Local Git Server: - Git repository hosted server  
 *Intellij Or Eclipse: - Integrated Development Environment  
 *Hamcrest: - Matcher's  
 *Loggers: - Simple Logging Facade for Java  
@@ -66,7 +77,7 @@ Machine Configuration
 ====================
 Configure Ubuntu / Windows and setup: -   
 *Java 8  
-*Git  
+*Git  / SVN  
 *Maven  
 
 
@@ -90,8 +101,7 @@ File >> Setting >> Plugins >> Browser Repositories>
 *Cucumber for Java
 *Gherkin
 *lombok
-*Git Integration
-*GitHub
+*Git Integration/ SVN Integration  
 *Maven Integration
 *SonarQube (optional)
 
