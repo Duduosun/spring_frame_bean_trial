@@ -38,7 +38,7 @@
 
 
                 <!--To Run parallel Test suite specify the type of Run Files which can be run in parallel -->
-                <testToRun>**/*ApiATSuite.class</testToRun>
+                <testToRun>**/*ATSuite.class</testToRun>
 
                 <!--Database Params -->
                 <jdbcUrl>jdbc:mysql://localhost:3306/sonar</jdbcUrl>
