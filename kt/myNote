@@ -1,3 +1,26 @@
-Dont use
+Dont use these names
+- HomePageSteps - step_definitions
+- MyAccountSummarySteps - step_definitions
 - NavigationSteps.java - step_definitions
+-- NewRegistrationStep - step_definitions
+-- SignInOrRegisterSteps - step_definitions
 - HomePage.java - page_objects
+- MobileContactsPage - page_objects
+- MyAccountSummaryPage - page_objects
+- NewRegistrationPage - page_objects
+- SignInOrRegisterPage - page_objects
+
+
+    @When("^User Complete Registration$")
+    public void User_Complete_Registration() throws Throwable {
+        //assertEquals(signInPage.getCurrentPageTitle(),signInPage.stringSignInPageTitle());
+        signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
+
+        signInPage.clickCreateAnAccountButton();
+        signInPage.selectTitle();
+        signInPage.fillFirstName();
+        signInPage.fillLastName();
+        signInPage.fillEmailAddress();
+        signInPage.fillConfirmPassword();
+        signInPage.fillPassword();
+        signInPage.clickCreateAnAccountButton();
