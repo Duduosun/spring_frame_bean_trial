@@ -1,0 +1,3 @@
+Dont use
+- NavigationSteps.java - step_definitions
+- HomePage.java - page_objects
