@@ -4,6 +4,7 @@ import com.salmon.test.page_objects.SignInPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -37,7 +38,7 @@ public class SignInSteps {
 
     @When("^User Complete Registration$")
     public void User_Complete_Registration() throws Throwable {
-        //assertEquals(signInPage.getCurrentPageTitle(),signInPage.stringSignInPageTitle());
+      //  assertEquals(signInPage.getCurrentPageTitle(),signInPage.stringSignInPageTitle());
         signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
 
         signInPage.clickCreateAnAccountButton();
@@ -67,7 +68,8 @@ public class SignInSteps {
     public void User_Enters_Username_and_Password() throws Throwable {
         assertTrue(signInPage.getCurrentPageTitle().contains("Selfridges"));
         signInPage.visibleAvatar();
-        signInPage.emailAddressLogon().sendKeys("regauto1001@salmon.com");
+        signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
+        signInPage.emailAddressLogon().sendKeys("master1001@salmon.com");
         signInPage.passwordLogon().sendKeys("salmon01");
         signInPage.clickSignInButton();
     }

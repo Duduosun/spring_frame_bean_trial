@@ -8,6 +8,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 public class SelfridgesHomePageSteps {
@@ -46,13 +47,13 @@ public class SelfridgesHomePageSteps {
     @When("^User Click Account Head$")
     public void User_Click_Account_Head() throws Throwable {
         selfridgesHomePage.clickAccountHead();
-        //assertEquals(signInPage.getCurrentPageTitle(), signInPage.stringSignInPageTitle());
+       // assertEquals(signInPage.getCurrentPageTitle(), signInPage.stringSignInPageTitle());
         selfridgesHomePage.visibleAvatar();
     }
 
     @Then("^User is Successfuly Signed Out of My Account$")
     public void User_is_Successfuly_Signed_Out_of_My_Account() throws Throwable {
-        //assertEquals(homePage.getCurrentPageTitle(), homePage.stringHomePageTitle());
+        assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
         selfridgesHomePage.visibleAvatar();
     }
 
@@ -71,7 +72,7 @@ public class SelfridgesHomePageSteps {
         assertTrue(selfridgesHomePage.stringWelcome().equals("WELCOME"));
         assertTrue(selfridgesHomePage.stringTopCategory().contains("TECHNOLOGY"));
         assertTrue(selfridgesHomePage.stringTopCategory().contains("BEAUTY"));
-        assertTrue(selfridgesHomePage.stringTopCategory().contains("CHRISTMAS"));
+        assertTrue(selfridgesHomePage.stringTopCategory().contains("KIDS"));
     }
 
     @Then("^User Can Interact with Header \"([^\"]*)\" and Footer \"([^\"]*)\" entries$")

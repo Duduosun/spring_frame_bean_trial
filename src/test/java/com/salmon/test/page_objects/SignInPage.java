@@ -78,19 +78,19 @@ public class SignInPage extends PageObject {
         webDriver.findElement(ddlTitle).sendKeys("Mrs");
     }
     public void fillFirstName(){
-        webDriver.findElement(firstName).sendKeys("fmo2703");
+        webDriver.findElement(firstName).sendKeys("master1001");
     }
     public void fillLastName(){
         webDriver.findElement(lastName).sendKeys("Salmon");
     }
     public void fillEmailAddress(){
-        webDriver.findElement(emailAddress).sendKeys("fmo2703@salmon.com");
+        webDriver.findElement(emailAddress).sendKeys("master1001@salmon.com");
     }
     public void fillConfirmPassword(){
-        webDriver.findElement(confirmPassword).sendKeys("salmon03");
+        webDriver.findElement(confirmPassword).sendKeys("salmon01");
     }
     public void fillPassword(){
-        webDriver.findElement(passWord).sendKeys("salmon03");
+        webDriver.findElement(passWord).sendKeys("salmon01");
     }
 
     public void visibleAvatar() {
