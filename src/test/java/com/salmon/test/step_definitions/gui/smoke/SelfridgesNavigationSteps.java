@@ -5,7 +5,7 @@ import com.salmon.test.framework.helpers.UrlBuilder;
 import com.salmon.test.page_objects.HomePage;
 import cucumber.api.java.en.Given;
 
-public class NavigationSteps {
+public class SelfridgesNavigationSteps {
 
     private HomePage homePage;
 
