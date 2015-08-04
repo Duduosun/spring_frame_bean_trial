@@ -39,7 +39,7 @@ public class SignInSteps {
     @When("^User Complete Registration$")
     public void User_Complete_Registration() throws Throwable {
       //  assertEquals(signInPage.getCurrentPageTitle(),signInPage.stringSignInPageTitle());
-        signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
+        //signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
 
         signInPage.clickCreateAnAccountButton();
         signInPage.selectTitle();
@@ -68,7 +68,7 @@ public class SignInSteps {
     public void User_Enters_Username_and_Password() throws Throwable {
         assertTrue(signInPage.getCurrentPageTitle().contains("Selfridges"));
         signInPage.visibleAvatar();
-        signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
+       // signInPage.clickSignInLink(); //work around due to Firefox Account Head Defect
         signInPage.emailAddressLogon().sendKeys("master1001@salmon.com");
         signInPage.passwordLogon().sendKeys("salmon01");
         signInPage.clickSignInButton();
