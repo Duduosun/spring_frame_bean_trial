@@ -35,6 +35,16 @@ public class SelfridgesHomePage extends PageObject {
     private By footerTop = By.id("footerTop");
     private By footerBody = By.id("footerBody");
     private By footerBottom = By.id("footerBottom");
+    private By xMEGAONE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[1]/a");
+    private By xMEGATWO = By.xpath(".//*[@id='megaMenu']/nav/ul/li[2]/a");
+    private By xMEGATHREE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[3]/a");
+    private By xMEGAFOUR = By.xpath(".//*[@id='megaMenu']/nav/ul/li[4]/a");
+    private By xMEGAFIVE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[5]/a");
+    private By xMEGASIX = By.xpath(".//*[@id='megaMenu']/nav/ul/li[6]/a");
+    private By xMEGASEVEN = By.xpath(".//*[@id='megaMenu']/nav/ul/li[7]/a");
+    private By xMEGAEIGHT = By.xpath(".//*[@id='megaMenu']/nav/ul/li[8]/a");
+    private By xMEGANINE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[9]/a");
+
 
     public String stringHomePageTitle(){
         return  homePageTitle;
@@ -61,6 +71,9 @@ public class SelfridgesHomePage extends PageObject {
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
+    public void clickMegaMenuOne(){waitForExpectedElement(xMEGAONE).click();}
+    public void clickMegaMenuTwo(){waitForExpectedElement(xMEGATWO).click();}
+
     public void visibleAvatar(){
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
