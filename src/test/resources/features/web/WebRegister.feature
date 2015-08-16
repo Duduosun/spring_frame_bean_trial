@@ -30,4 +30,4 @@ Feature: REGISTER:- As a new customer of Lloydspharmacy I would like to register
     Examples:
       | loginId | password | validationMessage      |
       |         |          | error.enterLogin       |
-      #| invalid | invalid  | error.incorrectDetails |
+      | invalid | invalid  | error.incorrectDetails |

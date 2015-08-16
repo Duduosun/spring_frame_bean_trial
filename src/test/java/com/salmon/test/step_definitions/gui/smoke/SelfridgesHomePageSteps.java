@@ -16,11 +16,10 @@ public class SelfridgesHomePageSteps {
     private SelfridgesHomePage selfridgesHomePage;
     private SignInPage signInPage;
 
-    public SelfridgesHomePageSteps(SelfridgesHomePage homePage) {
-        this.selfridgesHomePage = homePage;
+    public SelfridgesHomePageSteps(SelfridgesHomePage selfridgesHomePage) {
+        this.selfridgesHomePage = selfridgesHomePage;
         //this.signInPage = signInPage;
     }
-
 
     @Given("^i click \"(.*?)\" on the Home Page$")
     public void i_click_on_the_Home_Page(String pageToNavigate) throws Throwable {
