@@ -7,12 +7,6 @@ import com.salmon.test.page_objects.*;
  */
 public class CommonNavigationSteps {
 
-    private GridViewPage gridViewPage;
-    private MyDetailsPage myDetailsPage;
-    private SelfridgesCommonPage selfridgesCommonPage;
-    private SelfridgesHomePage selfridgesHomePage;
-    private SignInPage signInPage;
-
 
 
 

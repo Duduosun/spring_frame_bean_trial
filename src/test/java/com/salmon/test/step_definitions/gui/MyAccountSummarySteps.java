@@ -29,8 +29,5 @@ public class MyAccountSummarySteps {
         assertEquals(newRegistrationSteps.getAddress1Data(), address);
         assertEquals(newRegistrationSteps.getTownOrCityData(), townOrCity);
         assertEquals(newRegistrationSteps.getEmailAddressData(), emailAddress);
-
-
     }
-
 }

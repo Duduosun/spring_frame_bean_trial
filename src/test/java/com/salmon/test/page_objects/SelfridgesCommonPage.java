@@ -1,11 +1,13 @@
 package com.salmon.test.page_objects;
 
+import com.salmon.test.framework.PageObject;
 import org.openqa.selenium.By;
 
 /**
  * Created by tfasoyiro on 14/08/2015.
  */
-public class SelfridgesCommonPage {
+
+public class SelfridgesCommonPage extends PageObject {
 
     private String commonPageTitle = "Selfridges";
 
@@ -43,4 +45,46 @@ public class SelfridgesCommonPage {
     private By footerTop = By.id("footerTop");
     private By footerBody = By.id("footerBody");
     private By footerBottom = By.id("footerBottom");
+
+    public void clickMegaMenu(String menu) {
+
+        switch (menu) {
+            case "MegaMenuOne": {
+                waitForExpectedElement(xMEGAONE).click();
+                break;
+            }
+            case "MegaMenuTwo": {
+                waitForExpectedElement(xMEGATWO).click();
+                break;
+            }
+            case "MegaMenuThree": {
+                waitForExpectedElement(xMEGATHREE).click();
+                break;
+            }
+            case "MegaMenuFour": {
+                waitForExpectedElement(xMEGAFOUR).click();
+                break;
+            }
+            case "MegaMenuFive": {
+                waitForExpectedElement(xMEGAFIVE).click();
+                break;
+            }
+            case "MegaMenuSix": {
+                waitForExpectedElement(xMEGASIX).click();
+                break;
+            }
+            case "MegaMenuSeven": {
+                waitForExpectedElement(xMEGASEVEN).click();
+                break;
+            }
+            case "MegaMenuEight": {
+                waitForExpectedElement(xMEGAEIGHT).click();
+                break;
+            }
+            case "MegaMenuNine": {
+                waitForExpectedElement(xMEGANINE).click();
+                break;
+            }
+        }
+    }
 }

@@ -8,6 +8,13 @@
 
       Examples:
         | megamenu | product | productname |
-
-
+        | MegaMenuOne |  |  |
+        | MegaMenuTwo |  |  |
+        | MegaMenuThree |  |  |
+        | MegaMenuFour |  |  |
+        | MegaMenuFive |  |  |
+        | MegaMenuSix |  |  |
+        | MegaMenuSeven |  |  |
+        | MegaMenuEight |  |  |
+        | MegaMenuNine |  |  |
 

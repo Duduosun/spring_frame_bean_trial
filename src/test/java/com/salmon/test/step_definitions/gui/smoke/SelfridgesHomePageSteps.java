@@ -16,9 +16,9 @@ public class SelfridgesHomePageSteps {
     private SelfridgesHomePage selfridgesHomePage;
     private SignInPage signInPage;
 
-    public SelfridgesHomePageSteps(SelfridgesHomePage selfridgesHomePage) {
+    public SelfridgesHomePageSteps(SelfridgesHomePage selfridgesHomePage, SignInPage signInPage) {
         this.selfridgesHomePage = selfridgesHomePage;
-        //this.signInPage = signInPage;
+        this.signInPage = signInPage;
     }
 
     @Given("^i click \"(.*?)\" on the Home Page$")
