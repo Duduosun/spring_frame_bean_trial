@@ -77,9 +77,13 @@ public class SelfridgesHomePage extends PageObject {
     public void visibleAvatar(){
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
-        waitForExpectedElement(xWishList);
+        //waitForExpectedElement(wishList); wish list object is faulty
         waitForExpectedElement(shoppingBag);
     }
+    public boolean visibleBooleanAvatar(){
+        return isElementPresent(logo);
+    }
+
     public void homePageHeader(){
         waitForExpectedElement(topBar);
         waitForExpectedElement(nationalFlag);

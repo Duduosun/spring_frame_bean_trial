@@ -1,0 +1,6 @@
+Building Step Definitions
+- Import Page Objects to be used
+- Initiate Private OUR variable from imported Page Object
+- Create Constructor for INCOMING variable from imported Page Object
+- Include this command to distinguish between OUR and INCOMING variables
+--- if this command is omitted - the compiler will return java.lang.NullPointerException

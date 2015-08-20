@@ -36,6 +36,7 @@ public class MyDetailsSteps {
         myDetailsPage.visibleAvatar();
         myDetailsPage.clickAccountHead();
         myDetailsPage.clickSignOutButton();
+        //place a wait method here
         myDetailsPage.deleteFirefoxCookies();
     }
 }

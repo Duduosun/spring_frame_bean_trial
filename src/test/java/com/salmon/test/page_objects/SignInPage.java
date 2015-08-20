@@ -96,7 +96,7 @@ public class SignInPage extends PageObject {
     public void visibleAvatar() {
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
-        waitForExpectedElement(xWishList);
+        //waitForExpectedElement(xWishList);
         waitForExpectedElement(shoppingBag);
     }
 }

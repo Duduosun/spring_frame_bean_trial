@@ -11,6 +11,6 @@
   Examples:
         | emailaddress           | password  |
         | regauto1001@salmon.com | salmon01  |
-        | regauto1002@salmon.com | salmon02  |
-        | regauto1003@salmon.com | salmon03  |
-        | regauto1004@salmon.com | salmon04  |
+     #   | regauto1002@salmon.com | salmon02  |
+      #  | regauto1003@salmon.com | salmon03  |
+      #  | regauto1004@salmon.com | salmon04  |

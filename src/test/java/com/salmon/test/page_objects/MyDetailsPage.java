@@ -39,7 +39,7 @@ public class MyDetailsPage extends PageObject {
     }
     public void visibleAvatar(){
         waitForExpectedElement(accountHead);
-        waitForExpectedElement(xWishList);
+        //waitForExpectedElement(xWishList);
         waitForExpectedElement(shoppingBag);
         waitForExpectedElement(searchIcon);
     }

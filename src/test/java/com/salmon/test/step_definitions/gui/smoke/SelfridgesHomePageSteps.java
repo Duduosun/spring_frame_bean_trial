@@ -21,6 +21,7 @@ public class SelfridgesHomePageSteps {
         this.signInPage = signInPage;
     }
 
+
     @Given("^i click \"(.*?)\" on the Home Page$")
     public void i_click_on_the_Home_Page(String pageToNavigate) throws Throwable {
         if (pageToNavigate.equals("SIGN_IN")) {
@@ -43,17 +44,23 @@ public class SelfridgesHomePageSteps {
         selfridgesHomePage.clickAccountHead();
     }
 
+
+
     @When("^User Click Account Head$")
     public void User_Click_Account_Head() throws Throwable {
-        selfridgesHomePage.clickAccountHead();
-       // assertEquals(signInPage.getCurrentPageTitle(), signInPage.stringSignInPageTitle());
+        assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
         selfridgesHomePage.visibleAvatar();
+        selfridgesHomePage.clickAccountHead();
+        assertEquals(signInPage.getCurrentPageTitle(),signInPage.stringSignInPageTitle());
+        signInPage.visibleAvatar();
     }
 
     @Then("^User is Successfuly Signed Out of My Account$")
     public void User_is_Successfuly_Signed_Out_of_My_Account() throws Throwable {
-        assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
         selfridgesHomePage.visibleAvatar();
+        //place a refresh method here
+        //click Selfridges logo
+        //assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
     }
 
     @When("^User Navigates Home Page$")

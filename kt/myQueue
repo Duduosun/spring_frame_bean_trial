@@ -1,0 +1,22 @@
+Issue 1
+        waitForExpectedElement(wishList); wish list object is faulty - by id and by xpath
+- recapture Wish List Object
+
+Issue 2
+    @Then("^User is Successfuly Signed Out of My Account$")
+    public void User_is_Successfuly_Signed_Out_of_My_Account() throws Throwable {
+        selfridgesHomePage.visibleAvatar();
+- place a wait method here
+- click Selfridges logo
+        assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
+
+Issue 3
+    @When("^User Click Sign Out Option$")
+    public void User_Click_Sign_Out_Option() throws Throwable {
+        assertEquals(myDetailsPage.getCurrentPageTitle(),myDetailsPage.stringMyDetailsPageTitle());
+        myDetailsPage.visibleAvatar();
+        myDetailsPage.clickAccountHead();
+        myDetailsPage.clickSignOutButton();
+- place a wait method here
+        myDetailsPage.deleteFirefoxCookies();
+    }
