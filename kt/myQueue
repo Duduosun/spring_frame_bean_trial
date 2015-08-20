@@ -20,3 +20,21 @@ Issue 3
 - place a wait method here
         myDetailsPage.deleteFirefoxCookies();
     }
+
+Issue 4
+    private GridViewPage gridViewPage;
+    private MyDetailsPage myDetailsPage;
+    private SelfridgesCommonPage selfridgesCommonPage;
+    private SelfridgesHomePage selfridgesHomePage;
+    private SignInPage signInPage;
+
+    public SelfridgesCommonPageSteps(GridViewPage gridViewPage, MyDetailsPage myDetailsPage,
+                                 SelfridgesCommonPageSteps selfridgesCommonPageSteps,
+                                 SelfridgesHomePage selfridgesHomePage,
+                                 SignInPage signInPage){
+        this.gridViewPage = gridViewPage;
+        this.myDetailsPage = myDetailsPage;
+        this.selfridgesCommonPage = selfridgesCommonPage;
+        this.selfridgesHomePage = selfridgesHomePage;
+        this.signInPage = signInPage;
+    }
