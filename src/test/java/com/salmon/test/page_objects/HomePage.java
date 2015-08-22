@@ -17,7 +17,6 @@ public class HomePage extends PageObject {
     public void clickSignInLink() {
         waitForExpectedElement(headerSignInLink).click();
     }
-
     public void clickSignOutLink() {
         waitForExpectedElement(headerLogoutLink).click();
 

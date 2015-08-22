@@ -27,7 +27,7 @@ public class SelfridgesHomePage extends PageObject {
     private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
     private By accountHead = By.className("accountnavlink");
     private By wishList = By.className("wishlist topLevel");
-    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[3]/a");
+    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By shoppingBag = By.className("icon");
     private By searchIcon = By.className("searchIcon");
     private By topLevelCategory = By.id("megaMenu");
@@ -71,13 +71,11 @@ public class SelfridgesHomePage extends PageObject {
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
-    public void clickMegaMenuOne(){waitForExpectedElement(xMEGAONE).click();}
-    public void clickMegaMenuTwo(){waitForExpectedElement(xMEGATWO).click();}
 
     public void visibleAvatar(){
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
-        //waitForExpectedElement(wishList); wish list object is faulty
+        waitForExpectedElement(xWishList);
         waitForExpectedElement(shoppingBag);
     }
     public boolean visibleBooleanAvatar(){
@@ -98,6 +96,4 @@ public class SelfridgesHomePage extends PageObject {
         waitForExpectedElement(footerBody);
         waitForExpectedElement(footerBottom);
     }
-
-
 }

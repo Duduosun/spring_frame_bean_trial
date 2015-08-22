@@ -18,7 +18,6 @@ public class SelfridgesNavigationSteps {
 
     @Given("^Selfridges Home Page$")
     public void Selfridges_Home_Page() throws Throwable {
-
         UrlBuilder.startAtHomePage();
     }
 }

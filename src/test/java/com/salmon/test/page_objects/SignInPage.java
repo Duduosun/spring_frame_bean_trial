@@ -15,7 +15,7 @@ public class SignInPage extends PageObject {
     private By signInBody = By.id("signin");
     private By accountHead = By.className("accountnavlink");
     private By wishList = By.className("wishlist topLevel");
-    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[3]/a");
+    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By shoppingBag = By.className("icon");
     private By logo = By.id("logo");
     private By emailAddressLogon = By.id("logonId");
@@ -96,7 +96,7 @@ public class SignInPage extends PageObject {
     public void visibleAvatar() {
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
-        //waitForExpectedElement(xWishList);
+        waitForExpectedElement(xWishList);
         waitForExpectedElement(shoppingBag);
     }
 }

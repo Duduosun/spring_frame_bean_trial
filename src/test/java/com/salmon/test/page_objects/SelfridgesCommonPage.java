@@ -24,7 +24,7 @@ public class SelfridgesCommonPage extends PageObject {
     //Avatar
     private By accountHead = By.className("accountnavlink");
     private By wishList = By.className("wishlist topLevel");
-    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[3]/a");
+    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By shoppingBag = By.className("icon");
     private By searchIcon = By.className("searchIcon");
 

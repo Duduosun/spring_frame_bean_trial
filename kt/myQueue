@@ -1,4 +1,4 @@
-Issue 1
+Issue 1 - fixed
         waitForExpectedElement(wishList); wish list object is faulty - by id and by xpath
 - recapture Wish List Object
 

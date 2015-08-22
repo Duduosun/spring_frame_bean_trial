@@ -26,8 +26,9 @@ public class MyDetailsSteps {
 
     @Then("^User Successfully Access My Account$")
     public void User_Successfully_Access_My_Account() throws Throwable {
-        assertEquals(myDetailsPage.getCurrentPageTitle(),myDetailsPage.stringMyDetailsPageTitle());
         myDetailsPage.visibleAvatar();
+        assertEquals(myDetailsPage.getCurrentPageTitle(),myDetailsPage.stringMyDetailsPageTitle());
+        //myDetailsPage.deleteFirefoxCookies();
     }
 
     @When("^User Click Sign Out Option$")
