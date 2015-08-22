@@ -38,3 +38,10 @@ Issue 4
         this.selfridgesHomePage = selfridgesHomePage;
         this.signInPage = signInPage;
     }
+
+Issue 5
+     assertTrue(selfridgesHomePage.stringWelcome().equals("WELCOME"));
+     WELCOME label is missing from Test Environment Home Page
+
+Issue 6
+    No footers in Test Environment

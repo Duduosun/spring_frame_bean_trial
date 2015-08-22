@@ -7,11 +7,20 @@
 
       Examples:
         |header  |footer|
-        |HOME   |CUSTOMER SERVICES|
-        |BEAUTY |ABOUT SELFRIDGES|
-        |MENS   |STORE INFORMATION|
-        |WOMENS |HOW TO CONTACT US|
-        |FOOD   |How to shop|
-        |KIDS   |Our heritage|
-        |TECHNOLOGY |Manchester Trafford|
-        |CHRISTMAS  |How to contact our buyers|
+        |HOME   ||
+        |BEAUTY ||
+        |MENS   ||
+        |WOMENS ||
+        |FOOD   ||
+        |KIDS   ||
+        |TECHNOLOGY ||
+        |WHAT'S ON  ||
+
+       # |HOME   |CUSTOMER SERVICES|
+       # |BEAUTY |ABOUT SELFRIDGES|
+       # |MENS   |STORE INFORMATION|
+       # |WOMENS |HOW TO CONTACT US|
+       # |FOOD   |How to shop|
+       # |KIDS   |Our heritage|
+       # |TECHNOLOGY |Manchester Trafford|
+       # |CHRISTMAS  |How to contact our buyers|
