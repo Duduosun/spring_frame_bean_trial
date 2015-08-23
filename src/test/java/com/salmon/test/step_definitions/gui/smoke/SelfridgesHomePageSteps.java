@@ -21,31 +21,6 @@ public class SelfridgesHomePageSteps {
         this.signInPage = signInPage;
     }
 
-
-    @Given("^i click \"(.*?)\" on the Home Page$")
-    public void i_click_on_the_Home_Page(String pageToNavigate) throws Throwable {
-        if (pageToNavigate.equals("SIGN_IN")) {
-            selfridgesHomePage.clickSignInLink();
-        } else if (pageToNavigate.equals("SIGN_OUT")) {
-            selfridgesHomePage.clickSignOutLink();
-        }
-    }
-
-    @And("^i click Selfridges \"([^\"]*)\" on the Home page$")
-    public void i_click_Selfridges_on_the_Home_page(String pageToNavigate) throws Throwable {
-
-        if (pageToNavigate.equals("ACCOUNT_HEAD")) {
-            selfridgesHomePage.clickAccountHead();
-        }
-    }
-
-    @And("^i click Selfridges ACCOUNT_HEAD on the Home page$")
-    public void i_click_Selfridges_ACCOUNT_HEAD_on_the_Home_page() throws Throwable {
-        selfridgesHomePage.clickAccountHead();
-    }
-
-
-
     @When("^User Click Account Head$")
     public void User_Click_Account_Head() throws Throwable {
         assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());

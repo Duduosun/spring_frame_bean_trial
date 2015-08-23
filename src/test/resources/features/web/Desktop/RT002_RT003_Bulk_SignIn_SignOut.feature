@@ -1,4 +1,4 @@
-@Desktop
+@FrameworkSmoke
   Feature: As a Selfridges Website User, I want to bulk Sign In and Sign Out
     Scenario Outline: Bulk Sign In and Sign Out RT002 and RT003
       Given Selfridges Home Page

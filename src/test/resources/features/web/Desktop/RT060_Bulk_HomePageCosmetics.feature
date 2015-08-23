@@ -1,4 +1,4 @@
-@Desktop
+@FrameworkSmoke
   Feature: HOMEPAGE:- As a user of Selfridges website, I want to bulk navigate Selfridges home page UI
     Scenario Outline: Bulk Homepage Cosmetics Header and Footer RT060
       Given Selfridges Home Page

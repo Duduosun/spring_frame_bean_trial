@@ -1,4 +1,4 @@
-@Desktop
+@FrameworkSmoke
 Feature: SIGN IN:- As a registered user of Selfridges, I want to sign in from Selfridges home page
   Scenario: Sign in from homepage RT002
     Given Selfridges Home Page
