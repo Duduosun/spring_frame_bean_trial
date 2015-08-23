@@ -8,13 +8,13 @@
 
       Examples:
         | megamenu | product | productname |
-        | MegaMenuOne |  |  |
-        | MegaMenuTwo |  |  |
-        | MegaMenuThree |  |  |
-        | MegaMenuFour |  |  |
-        | MegaMenuFive |  |  |
-        | MegaMenuSix |  |  |
-        | MegaMenuSeven |  |  |
-        | MegaMenuEight |  |  |
-       # | MegaMenuNine |  |  |
+        | MegaMenuOne | ProductOne |  |
+        | MegaMenuTwo | ProductTwo |  |
+       # | MegaMenuThree | ProductThree  |  |
+       # | MegaMenuFour | ProductFour  |  |
+       # | MegaMenuFive |ProductFive  |  |
+       # | MegaMenuSix | ProductTen |  |
+       # | MegaMenuSeven | ProductTwelve  |  |
+       # | MegaMenuEight | ProductTwentySeven |  |
+       # | MegaMenuNine | ProductThirty |  |
 

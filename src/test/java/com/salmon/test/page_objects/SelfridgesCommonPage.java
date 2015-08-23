@@ -46,6 +46,8 @@ public class SelfridgesCommonPage extends PageObject {
     private By footerBody = By.id("footerBody");
     private By footerBottom = By.id("footerBottom");
 
+
+
     public void clickMegaMenu(String menu) {
 
         switch (menu) {

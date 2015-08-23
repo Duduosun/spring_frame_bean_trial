@@ -1,6 +1,20 @@
+Building Page Object Repository
+- Extend PageObject from framework package
+- Capture page objects and assign to Web Driver variables/fields
+- Create methods specific to objects on page
+
 Building Step Definitions
 - Import Page Objects to be used
 - Initiate Private OUR variable from imported Page Object
 - Create Constructor for INCOMING variable from imported Page Object
 - Include this command to distinguish between OUR and INCOMING variables
 --- if this command is omitted - the compiler will return java.lang.NullPointerException
+
+
+document.getElementsByClassName('productContainer')[0]
+
+driver.findElement(By.xpath("//input[2]"));
+
+//img[@title='Modify'][i]
+//img[@title='Modify'][0]
+(//img[@title='Modify'])[0]

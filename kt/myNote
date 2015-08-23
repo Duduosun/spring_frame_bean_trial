@@ -30,6 +30,6 @@ Git commit -m 'message'
 Git pull
 Git push
 
-Run Framework Smoke Test before Git Commit and Push
+Run Framework Smoke Test - RunSmokeSuite -  before Git Commit and Push
 - RT002 - Single and Bulk
 - RT060 - Single and Bulk

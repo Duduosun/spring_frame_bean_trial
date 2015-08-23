@@ -15,10 +15,8 @@ public class SelfridgesCommonPageSteps {
         this.selfridgesCommonPage = selfridgesCommonPage;
     }
 
-
     @When("^User Navigate Mega Menu \"([^\"]*)\"$")
     public void User_Navigate_Mega_Menu(String megamenu) throws Throwable {
         selfridgesCommonPage.clickMegaMenu(megamenu);
-
     }
 }
