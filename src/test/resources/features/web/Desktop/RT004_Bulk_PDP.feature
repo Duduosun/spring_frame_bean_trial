@@ -8,7 +8,7 @@
 
       Examples:
         | megamenu | product | productname |
-        | MegaMenuOne | ProductOne |  |
+        | MegaMenuOne | ProductThree |  |
         | MegaMenuTwo | ProductTwo |  |
        # | MegaMenuThree | ProductThree  |  |
        # | MegaMenuFour | ProductFour  |  |
