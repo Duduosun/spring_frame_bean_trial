@@ -1,7 +1,17 @@
+Feature Template
+@TestSuite
+Feature: USER STORY IN CAPS - As a User, I want to ....
+Given <Provision in Sentence>
+When <Action in Sentence>
+And <If Additional Action applies in Sentence>
+Then <Expected Result in Sentence>
+And <If Additional Expected Result applies in Sentence>
+
 Building Page Object Repository
 - Extend PageObject from framework package
 - Capture page objects and assign to Web Driver variables/fields
 - Create methods specific to objects on page
+-- Mandatory - Page Title String and Body
 
 Building Step Definitions
 - Import Page Objects to be used
