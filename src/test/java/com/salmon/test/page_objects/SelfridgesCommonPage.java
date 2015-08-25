@@ -2,6 +2,8 @@ package com.salmon.test.page_objects;
 
 import com.salmon.test.framework.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 /**
  * Created by tfasoyiro on 14/08/2015.
@@ -12,6 +14,8 @@ public class SelfridgesCommonPage extends PageObject {
     private String commonPageTitle = "Selfridges";
 
     //Header
+    private By plpBody = By.xpath(".//*[@id='screenR']");
+            //("//body");
     private By topBar = By.id("globalNav");
     private By cTopBar = By.className("wrapper");
     private By xTopBar = By.xpath(".//*[@id='globalNav']");
@@ -41,52 +45,74 @@ public class SelfridgesCommonPage extends PageObject {
     private By xMEGAEIGHT = By.xpath(".//*[@id='megaMenu']/nav/ul/li[8]/a");
     private By xMEGANINE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[9]/a");
 
+    //Category Title
+    private By categoryTitle = By.xpath(".//*[@id='main']/div[1]/h1");
+
     //Footer
     private By footerTop = By.id("footerTop");
     private By footerBody = By.id("footerBody");
     private By footerBottom = By.id("footerBottom");
-
-
 
     public void clickMegaMenu(String menu) {
 
         switch (menu) {
             case "MegaMenuOne": {
                 waitForExpectedElement(xMEGAONE).click();
+                waitForExpectedElement(xMEGAONE).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuTwo": {
                 waitForExpectedElement(xMEGATWO).click();
+                waitForExpectedElement(xMEGATWO).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuThree": {
                 waitForExpectedElement(xMEGATHREE).click();
+                waitForExpectedElement(xMEGATHREE).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuFour": {
                 waitForExpectedElement(xMEGAFOUR).click();
+                waitForExpectedElement(xMEGAFOUR).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuFive": {
                 waitForExpectedElement(xMEGAFIVE).click();
+                waitForExpectedElement(xMEGAFIVE).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuSix": {
                 waitForExpectedElement(xMEGASIX).click();
+                waitForExpectedElement(xMEGASIX).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuSeven": {
                 waitForExpectedElement(xMEGASEVEN).click();
+                waitForExpectedElement(xMEGASEVEN).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuEight": {
                 waitForExpectedElement(xMEGAEIGHT).click();
+                waitForExpectedElement(xMEGAEIGHT).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuNine": {
                 waitForExpectedElement(xMEGANINE).click();
+                waitForExpectedElement(xMEGANINE).sendKeys(Keys.RETURN);
                 break;
             }
         }
+    }
+
+    public void visibleAvatar(){
+        waitForExpectedElement(accountHead);
+        waitForExpectedElement(xWishList);
+        waitForExpectedElement(shoppingBag);
+        waitForExpectedElement(searchIcon);
+    }
+
+    public void verifyCategoryHeading(String category){
+        waitForExpectedElement(categoryTitle);
+        category = waitForExpectedElement(categoryTitle).getText();
     }
 }

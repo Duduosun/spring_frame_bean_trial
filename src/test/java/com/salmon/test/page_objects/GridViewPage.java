@@ -10,6 +10,16 @@ public class GridViewPage extends PageObject{
 
     private String gridViewPageTitle = "Selfridges | Shop Online";
 
+    //Avatar
+    private By accountHead = By.className("accountnavlink");
+    private By wishList = By.className("wishlist topLevel");
+    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
+    private By shoppingBag = By.className("icon");
+    private By searchIcon = By.className("searchIcon");
+
+    //Category Title
+    private By categoryTitle = By.xpath(".//*[@id='main']/div[1]/h1");
+
     //Products
     private By productIndexOne = By.className("(productContainer)[0]");
     private By productIndexTwo = By.className("(productContainer)[1]");
@@ -81,5 +91,14 @@ public class GridViewPage extends PageObject{
             }
         }
     }
-
+    public void verifyCategoryHeading(String category){
+        waitForExpectedElement(categoryTitle);
+        category = waitForExpectedElement(categoryTitle).getText();
+    }
+    public void visibleAvatar(){
+        waitForExpectedElement(accountHead);
+        waitForExpectedElement(xWishList);
+        waitForExpectedElement(shoppingBag);
+        waitForExpectedElement(searchIcon);
+    }
 }
