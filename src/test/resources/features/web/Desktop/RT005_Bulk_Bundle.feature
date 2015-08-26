@@ -1,4 +1,4 @@
-@Desktop
+@FrameworkSmoke
   Feature: BULK Bundle:- As Selfridges Customer, I want to navigate multiple Bundle Pages
     Scenario Outline: Bundle RT005
       Given Selfridges Home Page
@@ -9,3 +9,7 @@
 
       Examples:
         | megamenu | product | bundlex | bundley |
+        | MegaMenuSix | ProductOne | JUICY COUTURE | JUICY COUTURE |
+        #| MegaMenuSix | ProductTwo |  |  |
+        #| MegaMenuSix | ProductThree |  |  |
+        #| MegaMenuSix | ProductFour |  |  |

@@ -33,8 +33,6 @@ public class SelfridgesHomePageSteps {
     @Then("^User is Successfuly Signed Out of My Account$")
     public void User_is_Successfuly_Signed_Out_of_My_Account() throws Throwable {
         selfridgesHomePage.visibleAvatar();
-        //place a wait method here
-        //click Selfridges logo temporarily
         selfridgesHomePage.clickLogo();
         assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
     }

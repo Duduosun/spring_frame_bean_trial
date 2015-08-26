@@ -1,4 +1,4 @@
-@Desktop
+@FrameworkSmoke
   Feature: BULK PDP:- As Selfridges Customer, I want to navigate multiple PDP Pages
     Scenario Outline: PDP RT004
       Given Selfridges Home Page
@@ -8,13 +8,13 @@
 
       Examples:
         | megamenu | product | productname |
-        | MegaMenuTwo | ProductThree | Tola |
-        #| MegaMenuTwo | ProductTwo |  |
-       # | MegaMenuThree | ProductThree  |  |
-       # | MegaMenuFour | ProductFour  |  |
-       # | MegaMenuFive |ProductFive  |  |
-       # | MegaMenuSix | ProductTen |  |
-       # | MegaMenuSeven | ProductTwelve  |  |
-       # | MegaMenuEight | ProductTwentySeven |  |
+        | MegaMenuOne | ProductOne | CHRISTMAS |
+        | MegaMenuTwo | ProductTwo | DIOR |
+       # | MegaMenuThree | ProductThree  |  | # MEN Category is empty
+       # | MegaMenuFour | ProductFour  |  |   # WOMEN Category is empty
+        | MegaMenuFive |ProductFive  | JELLY BELLY |
+        | MegaMenuSix | ProductTen | RUARK AUDIO |
+        | MegaMenuSeven | ProductTwelve  | APPLE |
+       # | MegaMenuEight | ProductTwentySeven |  |  # WHAT'S ON Category is empty
        # | MegaMenuNine | ProductThirty |  |
 

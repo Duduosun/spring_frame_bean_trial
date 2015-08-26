@@ -13,11 +13,11 @@ Dont use these names
 
 RT004	PDP  RT004 - PDP
 - via search
-- via Mega Menu - Grid View - click product
+- via Mega Menu - Grid View - click product - done
 - via Mega Meu - Grid View - Quick View - View Details Link
 
 RT005	Bundle RT005 - Bundle
-- via Mega Menu - Grid View - click product
+- via Mega Menu - Grid View - click product - done
 - via Mega Meu - Grid View - Quick View - View Details Link
 
 RT007	Add to Bag RT007
@@ -31,5 +31,6 @@ Git pull
 Git push
 
 Run Framework Smoke Test - RunSmokeSuite -  before Git Commit and Push
-- RT002 - Single and Bulk
+- RT002_RT003 - Single and Bulk
 - RT060 - Single and Bulk
+- RT004 - Bulk

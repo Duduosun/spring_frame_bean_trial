@@ -5,6 +5,7 @@ import com.salmon.test.page_objects.SelfridgesCommonPage;
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Then;
 
+import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -24,10 +25,15 @@ public class ProductDetailsPageStep {
     public void PDP_Feature_is_displayed_with_Productname(String productname) throws Throwable {
         productDetailsPage.verifyPDP();
         selfridgesCommonPage.visibleAvatar();
-        productDetailsPage.verifyProductName(productname);
-        //assertTrue(productDetailsPage.verifyProductName().contains(productname));
+        //assertTrue(productDetailsPage.getProductName().contains(productname));
+        assertEquals(productDetailsPage.getProductName(),productname);
+    }
 
-
-
+    @Then("^Bundle Feature is displayed with Bundle X \"([^\"]*)\" and Bundle Y \"([^\"]*)\"$")
+    public void Bundle_Feature_is_displayed_with_Bundle_X_and_Bundle_Y(String bundlex, String bundley) throws Throwable {
+        productDetailsPage.verifyBundle();
+        selfridgesCommonPage.visibleAvatar();
+        assertEquals(productDetailsPage.getBundleNameX(),bundlex);
+        assertEquals(productDetailsPage.getBundleNameY(), bundley);
     }
 }

@@ -18,7 +18,7 @@ public class GridViewPageSteps {
     @And("^User Click Product \"([^\"]*)\"$")
     public void User_Click_Product(String product) throws Throwable {
         gridViewPage.visibleAvatar();
-        gridViewPage.verifyCategoryHeading("BEAUTY");
+        //gridViewPage.verifyCategoryHeading("BEAUTY");
         gridViewPage.clickProduct(product);
         gridViewPage.visibleAvatar();
 

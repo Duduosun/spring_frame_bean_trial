@@ -2,26 +2,7 @@ Issue 1 - fixed
         waitForExpectedElement(wishList); wish list object is faulty - by id and by xpath
 - recapture Wish List Object
 
-Issue 2
-    @Then("^User is Successfuly Signed Out of My Account$")
-    public void User_is_Successfuly_Signed_Out_of_My_Account() throws Throwable {
-        selfridgesHomePage.visibleAvatar();
-- place a wait method here
-- click Selfridges logo
-        assertEquals(selfridgesHomePage.getCurrentPageTitle(), selfridgesHomePage.stringHomePageTitle());
-
-Issue 3
-    @When("^User Click Sign Out Option$")
-    public void User_Click_Sign_Out_Option() throws Throwable {
-        assertEquals(myDetailsPage.getCurrentPageTitle(),myDetailsPage.stringMyDetailsPageTitle());
-        myDetailsPage.visibleAvatar();
-        myDetailsPage.clickAccountHead();
-        myDetailsPage.clickSignOutButton();
-- place a wait method here
-        myDetailsPage.deleteFirefoxCookies();
-    }
-
-Issue 4
+Issue 2 - fixed
     private GridViewPage gridViewPage;
     private MyDetailsPage myDetailsPage;
     private SelfridgesCommonPage selfridgesCommonPage;
@@ -29,7 +10,7 @@ Issue 4
     private SignInPage signInPage;
 
     public SelfridgesCommonPageSteps(GridViewPage gridViewPage, MyDetailsPage myDetailsPage,
-                                 SelfridgesCommonPageSteps selfridgesCommonPageSteps,
+                                 SelfridgesCommonPageSteps selfridgesCommonPageSteps, - incorrect variable
                                  SelfridgesHomePage selfridgesHomePage,
                                  SignInPage signInPage){
         this.gridViewPage = gridViewPage;
@@ -39,9 +20,12 @@ Issue 4
         this.signInPage = signInPage;
     }
 
-Issue 5
+Issue 3 - AUT setup
      assertTrue(selfridgesHomePage.stringWelcome().equals("WELCOME"));
      WELCOME label is missing from Test Environment Home Page
 
-Issue 6
+Issue 4 - AUT setup
     No footers in Test Environment
+
+Issue 5 - AUT setup
+    MEN and WOMEN Category return empty
