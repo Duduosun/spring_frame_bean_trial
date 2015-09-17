@@ -1,7 +1,17 @@
 @Explore
 Feature: SWITCH SHOPPING LOCATION - As a Selfridges website user,
   I want to switch my shopping location from on Country to another
-Given Selfridges Home Page
-When User Navigates Country
-And Change Location Preference
-Then New Country Flag and Currency is applied
+  Scenario Outline: Select and Switch Shopping Location
+    Given Selfridges Home Page
+    When User Navigate Country Tab
+    And Navigate to Location Preference Module
+    And Change to "<Country>"
+    Then Country Tab is switched to "<Country>" and "<Currency>"
+
+    Examples:
+      | Country | Currency |
+
+
+
+
+
