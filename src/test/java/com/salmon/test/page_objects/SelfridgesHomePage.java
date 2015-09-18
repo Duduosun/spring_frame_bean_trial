@@ -22,6 +22,7 @@ public class SelfridgesHomePage extends PageObject {
     private By xTopBar = By.xpath(".//*[@id='globalNav']");
     private By nationalFlag = By.className("translateFlag");
     private By xCurrency = By.xpath(".//*[@id='globalNav']/div/div/div/a/span");
+    private By currencyLink = By.id("currencyLink");
     private By logo = By.id("logo");
     private By welcome = By.className("em");
     private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
@@ -71,6 +72,7 @@ public class SelfridgesHomePage extends PageObject {
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
+    public void clickCurrency(){waitForExpectedElement(currencyLink).click();}
 
     public void visibleAvatar(){
         waitForExpectedElement(logo);
