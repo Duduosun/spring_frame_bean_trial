@@ -11,7 +11,7 @@ Building Page Object Repository
 - Extend PageObject from framework package
 - Capture page objects and assign to Web Driver variables/fields
 - Create methods specific to objects on page
--- Mandatory - Page Title String and Body
+-- Mandatory - Page Title String and Body - Nomenclature is smallcapsPageTitle e.g. homePageTitle
 
 Building Step Definitions
 - Import Page Objects to be used

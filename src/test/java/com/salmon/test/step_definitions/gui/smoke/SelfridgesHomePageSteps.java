@@ -3,6 +3,7 @@ package com.salmon.test.step_definitions.gui.smoke;
 
 import com.salmon.test.page_objects.SelfridgesHomePage;
 import com.salmon.test.page_objects.SignInPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -62,10 +63,12 @@ public class SelfridgesHomePageSteps {
         selfridgesHomePage.homePageBody();
         selfridgesHomePage.homePageFooter();
         //assertTrue(selfridgesHomePage.stringWelcome().equals("WELCOME"));
-
         assertTrue(selfridgesHomePage.stringTopCategory().contains(header));
         assertTrue(selfridgesHomePage.stringFooter().contains(footer));
+    }
 
-
+    @When("^User Click Country Tab$")
+    public void User_Click_Country_Tab() throws Throwable {
+        selfridgesHomePage.clickCurrency();
     }
 }

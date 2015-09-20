@@ -29,32 +29,3 @@ Issue 4 - AUT setup
 
 Issue 5 - AUT setup
     MEN and WOMEN Category return empty
-
-Issue 6
-    public String getCountry(String region) {
-
-
-        switch (region) {
-            case "RegionOneCountries": {
-                //return waitForExpectedElement(regionOneCountries).getText();
-                break;
-            }
-            case "RegionTwoCountries": {
-                //return waitForExpectedElement(regionTwoCountries).getText();
-                break;
-            }
-            case "RegionThreeCountries": {
-                //return waitForExpectedElement(regionThreeCountries).getText();
-                break;
-            }
-            case "RegionFourCountries": {
-                //return waitForExpectedElement(regionFourCountries).getText();
-                break;
-            }
-            case "RegionFiveCountries": {
-                //return waitForExpectedElement(regionFiveCountries).getText();
-                break;
-            }
-
-        }
-    }

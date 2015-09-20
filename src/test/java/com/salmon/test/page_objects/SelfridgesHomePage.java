@@ -59,6 +59,9 @@ public class SelfridgesHomePage extends PageObject {
     public String stringFooter(){
         return waitForExpectedElement(footerBody).getText();
     }
+    public boolean visibleBooleanAvatar(){
+        return isElementPresent(logo);
+    }
 
     public void clickSignInLink() {
         waitForExpectedElement(headerSignInLink).click();
@@ -73,17 +76,12 @@ public class SelfridgesHomePage extends PageObject {
         waitForExpectedElement(logo).click();
     }
     public void clickCurrency(){waitForExpectedElement(currencyLink).click();}
-
     public void visibleAvatar(){
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
         waitForExpectedElement(xWishList);
         waitForExpectedElement(shoppingBag);
     }
-    public boolean visibleBooleanAvatar(){
-        return isElementPresent(logo);
-    }
-
     public void homePageHeader(){
         waitForExpectedElement(topBar);
         waitForExpectedElement(nationalFlag);
@@ -98,4 +96,8 @@ public class SelfridgesHomePage extends PageObject {
         waitForExpectedElement(footerBody);
         waitForExpectedElement(footerBottom);
     }
+
+
+
+
 }
