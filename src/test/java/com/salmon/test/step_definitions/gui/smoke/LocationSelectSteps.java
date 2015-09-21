@@ -44,15 +44,22 @@ public class LocationSelectSteps {
     }
 
     @And("^User Can Interact with Location Preference Module \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void User_Can_Interact_with_Location_Preference_Module_and(String module, String moduletext) throws Throwable {
-        locationSelectPage.selectRegion(module);
-        assertEquals(locationSelectPage.returnRegion(module), moduletext);
-        assertTrue(locationSelectPage.returnRegion(module).equals(moduletext));
+    public void User_Can_Interact_with_Location_Preference_Module_and(String region, String regiontext) throws Throwable {
+        locationSelectPage.selectRegion(region);
+        assertEquals(locationSelectPage.returnRegion(region), regiontext);
+        assertTrue(locationSelectPage.returnRegion(region).equals(regiontext));
     }
 
     @And("^Change to \"([^\"]*)\"$")
     public void Change_to(String country) throws Throwable {
         locationSelectPage.enterCountry(country);
         locationSelectPage.clickContinue();
+    }
+
+    @And("^User Can View Shopping Location \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void User_Can_View_Shopping_Location_and(String region, String country) throws Throwable {
+        locationSelectPage.selectRegion(region);
+        //assertEquals(locationSelectPage.returnCountry(region), country);
+        assertTrue(locationSelectPage.returnCountry(region).contains(country));
     }
 }

@@ -22,11 +22,12 @@ public class LocationSelectPage extends PageObject {
     private By regionThree = By.xpath(".//*[@id='main']/div[1]/ul/li[3]/h4/span");
     private By regionFour = By.xpath(".//*[@id='main']/div[1]/ul/li[4]/h4/span");
     private By regionFive = By.xpath(".//*[@id='main']/div[1]/ul/li[5]/h4/span");
+    //private By regionOneCountries = By.className("countrylist.*");
     private By regionOneCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[1]");
-    private By regionTwoCountries = By.xpath(".//*[@id='main']/div[2]/ul/li[2]");
-    private By regionThreeCountries = By.xpath(".//*[@id='main']/div[3]/ul/li[3]");
-    private By regionFourCountries = By.xpath(".//*[@id='main']/div[4]/ul/li[4]");
-    private By regionFiveCountries = By.xpath(".//*[@id='main']/div[5]/ul/li[5]");
+    private By regionTwoCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[2]");
+    private By regionThreeCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[3]");
+    private By regionFourCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[4]");
+    private By regionFiveCountries = By.xpath(".//*[@id='main']/div[1]/ul/li[5]");
 
     public void enterCountry(String country){
         waitForExpectedElement(countrySearch).sendKeys(country);
@@ -101,23 +102,23 @@ public class LocationSelectPage extends PageObject {
         String retval = "";
 
         switch (region) {
-            case "RegionOneCountries": {
+            case "Region One": {
                 retval = waitForExpectedElement(regionOneCountries).getText();
                 break;
             }
-            case "RegionTwoCountries": {
+            case "Region Two": {
                 retval = waitForExpectedElement(regionTwoCountries).getText();
                 break;
             }
-            case "RegionThreeCountries": {
+            case "Region Three": {
                 retval = waitForExpectedElement(regionThreeCountries).getText();
                 break;
             }
-            case "RegionFourCountries": {
+            case "Region Four": {
                 retval = waitForExpectedElement(regionFourCountries).getText();
                 break;
             }
-            case "RegionFiveCountries": {
+            case "Region Five": {
                 retval = waitForExpectedElement(regionFiveCountries).getText();
                 break;
             }
