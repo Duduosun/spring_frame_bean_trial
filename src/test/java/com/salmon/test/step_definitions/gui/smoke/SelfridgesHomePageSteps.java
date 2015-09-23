@@ -71,4 +71,9 @@ public class SelfridgesHomePageSteps {
     public void User_Click_Country_Tab() throws Throwable {
         selfridgesHomePage.clickCurrency();
     }
+
+    @Then("^Shopping Location is Switched to Selected \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
+    public void Shopping_Location_is_Switched_to_Selected(String countrycode, String currency, String url) throws Throwable {
+
+    }
 }

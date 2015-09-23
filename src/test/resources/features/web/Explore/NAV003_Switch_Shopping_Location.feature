@@ -6,10 +6,14 @@ Feature: SWITCH SHOPPING LOCATION - As a Selfridges website user,
     When User Click Country Tab
     And User is taken to Location Preference Module
     And Change to "<Country>"
-    Then Shopping Location is Switched to Selected "<Country>" and "<Currency>" and "<URL>"
+    Then Shopping Location is Switched to Selected "<CountryCode>" "<Currency>" "<URL>"
 
     Examples:
-      | Country | Currency | URL |
+      | Country | CountryCode | Currency | URL |
+      | Nigeria | NG | GBP | http://www.slfst2p.selfridges.com/NG/en/ |
+
+
+
 
 
 

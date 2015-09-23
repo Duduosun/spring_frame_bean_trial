@@ -40,7 +40,6 @@ public class LocationSelectSteps {
     @And("^User Can Interact with Location Preference Module \"([^\"]*)\"$")
     public void User_Can_Interact_with_Location_Preference_Module(String module) throws Throwable {
         locationSelectPage.selectRegion(module);
-
     }
 
     @And("^User Can Interact with Location Preference Module \"([^\"]*)\" and \"([^\"]*)\"$")
