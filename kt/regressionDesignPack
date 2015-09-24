@@ -31,10 +31,7 @@ Detailed Navigation
 - Filters
 
 More Scenarios
-- Navigate Country - As a user of Selfridges website, I want access shopping from different Country
-      Given Selfridges Home Page
-      When User Navigates Country
-      Then User can see Location Preference Module
+
 
 - Switch Shopping Location - As a Selfridges website user, I want to switch my shopping location from on Country to another
       Given Selfridges Home Page

@@ -74,6 +74,10 @@ public class SelfridgesHomePageSteps {
 
     @Then("^Shopping Location is Switched to Selected \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
     public void Shopping_Location_is_Switched_to_Selected(String countrycode, String currency, String url) throws Throwable {
-
+        selfridgesHomePage.visibleAvatar();
+        assertTrue(selfridgesHomePage.returnLocation().contains(countrycode));
+        assertTrue(selfridgesHomePage.returnLocation().contains(currency));
+        assertTrue(selfridgesHomePage.checkPageUrlContains(url));
+        assertEquals(selfridgesHomePage.getCurrentUrl(), url);
     }
 }

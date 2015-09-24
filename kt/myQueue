@@ -29,3 +29,39 @@ Issue 4 - AUT setup
 
 Issue 5 - AUT setup
     MEN and WOMEN Category return empty
+
+
+Countries xObjects
+
+Europe
+.//*[@id='main']/div[1]/ul/li[1]/ul/li[1]/a
+.//*[@id='main']/div[1]/ul/li[1]/ul/li[2]/a
+.//*[@id='main']/div[1]/ul/li[1]/ul/li[3]/a
+
+.//*[@id='main']/div[1]/ul/li[1]/ul/li[27]/a
+.//*[@id='main']/div[1]/ul/li[1]/ul/li[28]/a
+.//*[@id='main']/div[1]/ul/li[1]/ul/li[29]/a
+
+
+US
+.//*[@id='main']/div[1]/ul/li[2]/ul/li[1]/a
+.//*[@id='main']/div[1]/ul/li[2]/ul/li[2]/a
+
+
+ME
+.//*[@id='main']/div[1]/ul/li[3]/ul/li[1]/a
+.//*[@id='main']/div[1]/ul/li[3]/ul/li[8]/a
+.//*[@id='main']/div[1]/ul/li[3]/ul/li[9]/a
+.//*[@id='main']/div[1]/ul/li[3]/ul/li[10]/a
+
+AP
+.//*[@id='main']/div[1]/ul/li[4]/ul/li[1]/a
+.//*[@id='main']/div[1]/ul/li[4]/ul/li[18]/a
+
+
+
+RoW
+.//*[@id='main']/div[1]/ul/li[5]/ul/li[1]/a
+.//*[@id='main']/div[1]/ul/li[5]/ul/li[2]/a
+.//*[@id='main']/div[1]/ul/li[5]/ul/li[3]/a
+.//*[@id='main']/div[1]/ul/li[5]/ul/li[4]/a

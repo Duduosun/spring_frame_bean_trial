@@ -36,7 +36,7 @@ public class LocationSelectPage extends PageObject {
     public void clickContinue(){
         waitForExpectedElement(continueButton).click();
     }
-    public void selectRegion(String region){
+    public void clickRegion(String region){
 
         switch (region){
             case "Region One": {
@@ -61,6 +61,7 @@ public class LocationSelectPage extends PageObject {
             }
         }
     }
+    public void clickCountry(String country){}
     public void vpCountrySelect(){
         waitForExpectedElement(countrySelectBody).isDisplayed();
         waitForExpectedElement(countryFlagWrapper).isDisplayed();
