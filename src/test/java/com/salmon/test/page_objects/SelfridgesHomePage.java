@@ -2,6 +2,8 @@ package com.salmon.test.page_objects;
 
 import com.salmon.test.framework.PageObject;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 
 /**
  * Sample page object class which defines all the elements for a specific page.
@@ -31,6 +33,7 @@ public class SelfridgesHomePage extends PageObject {
     private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By shoppingBag = By.className("icon");
     private By searchIcon = By.className("searchIcon");
+    private By searchInput = By.className("searchInput");
     private By topLevelCategory = By.id("megaMenu");
     private By xTopLevelCategory = By.xpath(".//*[@id='megaMenu']");
     private By footerTop = By.id("footerTop");
@@ -66,6 +69,7 @@ public class SelfridgesHomePage extends PageObject {
         return waitForExpectedElement(currencyLink).getText();
     }
 
+
     public void clickSignInLink() {
         waitForExpectedElement(headerSignInLink).click();
     }
@@ -79,6 +83,9 @@ public class SelfridgesHomePage extends PageObject {
         waitForExpectedElement(logo).click();
     }
     public void clickCurrency(){waitForExpectedElement(currencyLink).click();}
+    public void clickSearch(){waitForExpectedElement(searchIcon).click();}
+
+
     public void visibleAvatar(){
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
@@ -99,8 +106,10 @@ public class SelfridgesHomePage extends PageObject {
         waitForExpectedElement(footerBody);
         waitForExpectedElement(footerBottom);
     }
-
-
+    public void searchString(String search){
+        waitForExpectedElement(searchInput).sendKeys(search);
+        waitForExpectedElement(searchInput).sendKeys(Keys.RETURN);
+    }
 
 
 

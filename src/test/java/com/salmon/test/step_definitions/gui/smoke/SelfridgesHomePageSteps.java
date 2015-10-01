@@ -80,4 +80,10 @@ public class SelfridgesHomePageSteps {
         assertTrue(selfridgesHomePage.checkPageUrlContains(url));
         assertEquals(selfridgesHomePage.getCurrentUrl(), url);
     }
+
+    @When("^User Search Selfridges \"([^\"]*)\"$")
+    public void User_Search_Selfridges(String search) throws Throwable {
+        selfridgesHomePage.clickSearch();
+        selfridgesHomePage.searchString(search);
+    }
 }
