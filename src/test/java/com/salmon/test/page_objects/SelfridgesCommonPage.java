@@ -15,7 +15,8 @@ public class SelfridgesCommonPage extends PageObject {
 
     //Header
     private By plpBody = By.xpath(".//*[@id='screenR']");
-            //("//body");
+    private By plpSearch = By.xpath(".//*[@id='plp-search']");
+
     private By topBar = By.id("globalNav");
     private By cTopBar = By.className("wrapper");
     private By xTopBar = By.xpath(".//*[@id='globalNav']");
@@ -103,16 +104,19 @@ public class SelfridgesCommonPage extends PageObject {
             }
         }
     }
-
     public void visibleAvatar(){
         waitForExpectedElement(accountHead);
         waitForExpectedElement(xWishList);
         waitForExpectedElement(shoppingBag);
         waitForExpectedElement(searchIcon);
     }
-
     public void verifyCategoryHeading(String category){
         waitForExpectedElement(categoryTitle);
         category = waitForExpectedElement(categoryTitle).getText();
     }
+
+    public String returnPLPSearchResult (){
+       return waitForExpectedElement(plpSearch) .getText();
+    }
+
 }

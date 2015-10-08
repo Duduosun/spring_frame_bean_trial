@@ -1,4 +1,4 @@
-@ExploreSmokeREM
+@ExploreSmoke
 Feature: SEARCH WORD AND PHRASE - As a Selfridges website user, I want to search
   Scenario Outline: Search Word and Phrase
     Given Selfridges Home Page
@@ -7,5 +7,5 @@ Feature: SEARCH WORD AND PHRASE - As a Selfridges website user, I want to search
 
     Examples:
       | searchstring | word | phrase |
-      | coffee | espresso | coffee grinder |
+      | tv | connect | full hd |
       | coffee | capuccino | ground coffee |
