@@ -8,13 +8,13 @@
 
       Examples:
         | Region | Country |
-        | Region One | Austria |
+        | Region One | France |
         | Region Two | Canada |
-        | Region Three | Bahrain |
-        | Region Four | Australia |
-        | Region Five | Mexico |
-        | Region One | Sweden |
+#        | Region Three | Bahrain |
+        | Region Three | Australia |
+#        | Region Five | Mexico |
+        | Region One | Germany |
         | Region Two | United States |
-        | Region Three | United Arab Emirates |
-        | Region Four | Vietnam |
-        | Region Five | Nigeria |
+#        | Region Three | United Arab Emirates |
+        | Region Three | Hong Kong |
+#        | Region Five | Nigeria |

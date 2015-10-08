@@ -1,4 +1,4 @@
-@Desktop
+@FrameworkSmokeOccasional
 Feature: BULK REGISTER:- As Selfridges website user, I want to bulk register from Selfridges home page
 Scenario Outline: Bulk Register new users from homepage RT001
   Given Selfridges Home Page

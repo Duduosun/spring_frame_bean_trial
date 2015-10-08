@@ -34,34 +34,62 @@ Issue 5 - AUT setup
 Countries xObjects
 
 Europe
-.//*[@id='main']/div[1]/ul/li[1]/ul/li[1]/a
-.//*[@id='main']/div[1]/ul/li[1]/ul/li[2]/a
-.//*[@id='main']/div[1]/ul/li[1]/ul/li[3]/a
+Country Two Region One
+Country Five Region One
+Country Seven Region One
+Country Twenty Seven Region One
+Country Twenty Eight Region One
+Country Twenty Nine Region One
 
-.//*[@id='main']/div[1]/ul/li[1]/ul/li[27]/a
-.//*[@id='main']/div[1]/ul/li[1]/ul/li[28]/a
-.//*[@id='main']/div[1]/ul/li[1]/ul/li[29]/a
+Country One Region Two
+Country Two Region Two
+
+Country One Region Three
+Country Eight Region Three
+Country Nine Region Three
+Country Ten Region Three
+
+Country Two Region Four
+Country Six Region Four
+Country Fourteen Region Four
+Country Eighteen Region Four
+
+Country One Region Five
+Country Two Region Five
+Country Three Region Five
+Country Four Region Five
 
 
-US
-.//*[@id='main']/div[1]/ul/li[2]/ul/li[1]/a
-.//*[@id='main']/div[1]/ul/li[2]/ul/li[2]/a
+Removed Locations
+      | Bahrain | BH | GBP | http://www.slfst2p.selfridges.com/BH/en/ |
+      | Cyprus | CY | EUR | http://www.slfst2p.selfridges.com/CY/en/ |
+      | United Arab Emirates | AE | GBP | http://www.slfst2p.selfridges.com/AE/en/ |
+      | Bangladesh | BD | GBP | http://www.slfst2p.selfridges.com/BD/en/ |
+      | Mexico | MX | GBP | http://www.slfst2p.selfridges.com/MX/en/ |
+      | Nigeria | NG | GBP | http://www.slfst2p.selfridges.com/NG/en/ |
+      | South Africa | ZA | GBP | http://www.slfst2p.selfridges.com/ZA/en/ |
 
+      | Region One |Country Two Region One | BE | EUR | http://www.slfst2p.selfridges.com/BE/en/ |
+      | Region One |Country Five Region One | FI | EUR | http://www.slfst2p.selfridges.com/FI/en/ |
+      | Region One |Country Seven Region One | ES | EUR | http://www.slfst2p.selfridges.com/ES/en/ |
+      | Region One | Country Twenty Seven Region One | SE | EUR | http://www.slfst2p.selfridges.com/SE/en/ |
+      | Region One | Country Twenty Eight Region One | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region One | Country Twenty Nine Region One | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |
 
-ME
-.//*[@id='main']/div[1]/ul/li[3]/ul/li[1]/a
-.//*[@id='main']/div[1]/ul/li[3]/ul/li[8]/a
-.//*[@id='main']/div[1]/ul/li[3]/ul/li[9]/a
-.//*[@id='main']/div[1]/ul/li[3]/ul/li[10]/a
+      | Region Two | Country One Region Two |  |  | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Two | Country Two Region Two |  |  | http://www.slfst2p.selfridges.com/GB/en/ |
 
-AP
-.//*[@id='main']/div[1]/ul/li[4]/ul/li[1]/a
-.//*[@id='main']/div[1]/ul/li[4]/ul/li[18]/a
+      | Region Three | Country One Region Three | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Three | Country Eight Region Three | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |
+      | Region Three | Country Nine Region Three | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Three | Country Ten Region Three | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |
 
+      | Region Four | Country Two Region Four | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Four | Country Six Region Four | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |
+      | Region Four | Country Fourteen Region Four | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Four | Country Eighteen Region Four | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |
 
-
-RoW
-.//*[@id='main']/div[1]/ul/li[5]/ul/li[1]/a
-.//*[@id='main']/div[1]/ul/li[5]/ul/li[2]/a
-.//*[@id='main']/div[1]/ul/li[5]/ul/li[3]/a
-.//*[@id='main']/div[1]/ul/li[5]/ul/li[4]/a
+      | Region Five | Country One Region Five | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Five | Country Two Region Five | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |
+      | Region Five | Country Three Region Five | CH | EUR | http://www.slfst2p.selfridges.com/CH/en/ |
+      | Region Five | Country Four Region Five | GB | EUR | http://www.slfst2p.selfridges.com/GB/en/ |

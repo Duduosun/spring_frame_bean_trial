@@ -1,4 +1,4 @@
-@Explore
+@ExploreSmokeREM
   Feature: SEARCH BUNDLE - As a Selfridges website user, I want to search bundled products
     Scenario Outline: : Search for Bundled Products
       Given Selfridges Home Page

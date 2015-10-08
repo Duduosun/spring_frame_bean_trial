@@ -64,6 +64,8 @@ public class LocationSelectSteps {
 
     @And("^User Click \"([^\"]*)\" and \"([^\"]*)\"$")
     public void User_Click_and(String region, String country) throws Throwable {
-
+        locationSelectPage.clickRegion(region);
+        locationSelectPage.clickCountry(country);
+        locationSelectPage.clickContinue();
     }
 }

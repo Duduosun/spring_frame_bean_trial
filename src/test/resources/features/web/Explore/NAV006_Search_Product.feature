@@ -1,4 +1,4 @@
-@Explore
+@ExploreSmokeREM
 Feature: SEARCH PRODUCT - As a Selfridges website user, I want to search products
   Scenario Outline: : Search for Products
     Given Selfridges Home Page

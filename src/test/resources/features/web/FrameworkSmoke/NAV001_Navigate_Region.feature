@@ -10,7 +10,7 @@
         | Region | RegionText |
         | Region One | UK & Europe |
         | Region Two | United States & Canada |
-        | Region Three | Middle East |
-        | Region Four | Asia Pacific |
-        | Region Five | Rest of the World |
+#        | Region Three | Middle East |
+        | Region Three | Asia Pacific |
+ #       | Region Five | Rest of the World |
 
