@@ -1,4 +1,4 @@
-@ExploreSmoke
+@FrameworkSmoke
 Feature: SEARCH PRODUCT - As a Selfridges website user, I want to search products
   Scenario Outline: : Search and Return PLP then PDP
     Given Selfridges Home Page

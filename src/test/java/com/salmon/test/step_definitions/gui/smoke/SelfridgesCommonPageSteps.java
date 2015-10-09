@@ -29,8 +29,8 @@ public class SelfridgesCommonPageSteps {
         selfridgesCommonPage.visibleAvatar();
     }
 
-    @Then("^Search Result contain \"([^\"]*)\" and \"([^\"]*)\"$")
-    public void Search_Result_contain_and(String word, String phrase) throws Throwable {
+    @Then("^Search Result contains \"([^\"]*)\" and \"([^\"]*)\"$")
+    public void Search_Result_contains_and(String word, String phrase) throws Throwable {
         selfridgesCommonPage.visibleAvatar();
         assertTrue(selfridgesCommonPage.returnPLPSearchResult().contains(word));
         assertTrue(selfridgesCommonPage.returnPLPSearchResult().contains(phrase));

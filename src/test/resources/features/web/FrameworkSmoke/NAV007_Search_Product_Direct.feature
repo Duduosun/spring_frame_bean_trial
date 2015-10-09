@@ -1,4 +1,4 @@
-@ExploreSmoke
+@FrameworkSmoke
 Feature: SEARCH PRODUCT - As a Selfridges website user, I want to search products directly by SKU/BRAND
   Scenario Outline: : Search and Return PDP
     Given Selfridges Home Page

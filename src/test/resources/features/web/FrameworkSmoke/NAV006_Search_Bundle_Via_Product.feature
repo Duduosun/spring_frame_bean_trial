@@ -1,4 +1,4 @@
-@ExploreSmoke
+@FrameworkSmoke
   Feature: SEARCH BUNDLE VIA PRODUCT - As a Selfridges website user, I want to search bundled products
     Scenario Outline: : Search and Return PLP then Bundled Page
       Given Selfridges Home Page

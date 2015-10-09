@@ -40,7 +40,7 @@ Smoke Test
 Verify Home page/Mega menu  2 - High - Done - RT060
 Verify PLP page functionality  2 - High - Refinement and Clearing Refinement
 Verify the PDP page Verify the PDP page  2 - High - Done - RT004 n RT005
-Verify the search functionality  2 - High - Valid - NAV005 n NAV006 and Invalid - Autocomplete
+Verify the search functionality  2 - High - Valid - NAV005 n NAV006 - Done and Invalid - Autocomplete
 Verify the Basket page  2 - High
 Verify the Wishlist page   2 - High
 Verify the Login/Register functionality  2 - High - Done RT

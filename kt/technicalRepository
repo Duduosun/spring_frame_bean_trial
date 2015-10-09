@@ -39,3 +39,12 @@ Refresh
 - driver.findElement(By.xpath("//body")).sendKeys(Keys.F5);
 
 WebDriverHelper.getWebDriver().navigate().refresh();
+
+
+    public void clickOneOfMany(int position){
+        List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(By.cssSelector(""));
+        for(WebElement element: plpProducts){
+            element.click();
+        }
+        plpProducts.get(position).click();
+    }

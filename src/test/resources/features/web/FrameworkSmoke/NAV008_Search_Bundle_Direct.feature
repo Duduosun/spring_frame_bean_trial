@@ -1,4 +1,4 @@
-@ExploreSmoke
+@FrameworkSmoke
   Feature: SEARCH BUNDLE DIRECT - As a Selfridges website user, I want to search bundled products
     Scenario Outline: : Search and Return Bundle Page
       Given Selfridges Home Page

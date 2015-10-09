@@ -92,7 +92,6 @@ public class SignInPage extends PageObject {
     public void fillPassword(){
         webDriver.findElement(passWord).sendKeys("salmon01");
     }
-
     public void visibleAvatar() {
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
