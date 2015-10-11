@@ -22,6 +22,10 @@ RT005	Bundle RT005 - Bundle
 - via Mega Meu - Grid View - Quick View - View Details Link
 
 RT007	Add to Bag RT007
+- via Top Level Category - Megamenu -- PLP
+- via Multi Level Category - Megamenu -- 2nd level -- 3rd level -- PLP
+- via Quickview
+
 RT014	Change personal details RT014 - Change personal details
 
 
@@ -43,7 +47,7 @@ Verify the PDP page Verify the PDP page  2 - High - Done - RT004 n RT005
 Verify the search functionality  2 - High - Valid - NAV005 n NAV006 - Done and Invalid - Autocomplete
 Verify the Basket page  2 - High
 Verify the Wishlist page   2 - High
-Verify the Login/Register functionality  2 - High - Done RT
+Verify the Login/Register functionality  2 - High - Done
 Sign-out functionality  2 - High - Done RT002
 Forgot password functionality  2 - High
 My Account -Personal details page  2 - High - add and save
