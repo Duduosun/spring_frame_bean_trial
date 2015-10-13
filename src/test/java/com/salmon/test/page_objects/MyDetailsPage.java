@@ -12,6 +12,7 @@ public class MyDetailsPage extends PageObject {
 
     private By myDetailsBody = By.id("pgmydetails");
     private By signOutButton = By.className("logoff");
+    private By cssSignOutButton = By.cssSelector(".logoff>a");
     private By xSignOutButton = By.xpath(".//*[@id='myaccountnavInner']/ul/li[5]/a");
     private By topBar = By.className("wrapper");
     private By topLevelCategory = By.id("megaMenu");
@@ -33,7 +34,7 @@ public class MyDetailsPage extends PageObject {
     public void clickAccountHead(){
         waitForExpectedElement(accountHead).click();
     }
-    public void clickSignOutButton(){waitForExpectedElement(signOutButton).click();}
+    public void clickSignOutButton(){ waitForExpectedElement(cssSignOutButton).click();}
     public void deleteFirefoxCookies(){
         webDriver.manage().deleteAllCookies();
     }

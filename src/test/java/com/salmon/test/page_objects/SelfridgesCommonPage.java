@@ -12,19 +12,21 @@ import org.openqa.selenium.WebElement;
 public class SelfridgesCommonPage extends PageObject {
 
     private String commonPageTitle = "Selfridges";
+    private String homePageTitle = "Designer Fashion, Accessories & More - Shop Online at Selfridges";
 
     //Header
     private By plpBody = By.xpath(".//*[@id='screenR']");
     private By plpSearch = By.xpath(".//*[@id='plp-search']");
 
     private By topBar = By.id("globalNav");
-    private By cTopBar = By.className("wrapper");
     private By xTopBar = By.xpath(".//*[@id='globalNav']");
+    private By cTopBar = By.className("wrapper");
     private By nationalFlag = By.className("translateFlag");
     private By xCurrency = By.xpath(".//*[@id='globalNav']/div/div/div/a/span");
     private By logo = By.id("logo");
     private By welcome = By.className("em");
     private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
+    private By cssHelloUser = By.cssSelector(".personsName>b");
 
     //Avatar
     private By accountHead = By.className("accountnavlink");
@@ -110,6 +112,9 @@ public class SelfridgesCommonPage extends PageObject {
         waitForExpectedElement(shoppingBag);
         waitForExpectedElement(searchIcon);
     }
+    public void clickLogo(){
+        waitForExpectedElement(logo).click();
+    }
     public void verifyCategoryHeading(String category){
         waitForExpectedElement(categoryTitle);
         category = waitForExpectedElement(categoryTitle).getText();
@@ -118,5 +123,10 @@ public class SelfridgesCommonPage extends PageObject {
     public String returnPLPSearchResult (){
        return waitForExpectedElement(plpSearch) .getText();
     }
-
+    public String stringRegisteredUser(){
+        return waitForExpectedElement(cssHelloUser).getText();
+    }
+    public String stringHomePageTitle(){
+        return homePageTitle;
+    }
 }

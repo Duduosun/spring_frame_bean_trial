@@ -21,8 +21,8 @@
                 <!-- Application under test-->
                 <!--site.url>http://www.lloydspharmacy.com/</site.url-->
                 <!--site.url>http://www.slfst4p.selfridges.com</site.url-->
-                <site.url>http://www.slfst2p.selfridges.com</site.url>
-                <!--site.url>http://www.slfst3p.selfridges.com</site.url-->
+                <!--site.url>http://www.slfst2p.selfridges.com</site.url-->
+                <site.url>http://www.slfst3p.selfridges.com</site.url>
                 <!--site.url>http://www.slfst4p.selfridges.com</site.url-->
                 <!--site.url>http://www.selfridges.com</site.url-->
                 <!-- Service under test-->

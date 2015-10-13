@@ -60,3 +60,13 @@ Checkout - As Registered user  1 - Critical
 Checkout with remember user  1 - Critical
 Click and collect order  1 - Critical
 Basket Merging items 3 - Medium
+
+
+FMO Smoke Test
+- Orderline Status Sequence Customer n CSR n Mobile
+- Order Details-Customer n CSR n Mobile
+- Order Details-CSR
+- Refund Details Module-Customer n CSR
+- Returns Module-Customer n CSR
+- Delivery Group Module Customer n CSR
+- Track Order CTA Customer n CSR

@@ -1,0 +1,42 @@
+Single		Multiple
+UK			UK
+DS			DS
+Int EU
+Int Non EU
+CnC
+
+- Individual Gifting
+- Group Gifting
+
+Payment
+- Auth Req
+- Auth not Reg
+- Mix - Auth Req + Auth not Req
+
+Journey
+- Sign in before
+- Sign in during
+- Guest
+
+FMO Smoke Test
+
+-Order Details-CSR
+-Refund Details Module-Customer n CSR
+-Returns Module-Customer n CSR
+-Delivery Group Module Customer n CSR
+-Track Order CTA Customer n CSR
+
+FMO Smoke Test
+- Orderline Status Sequence Customer n CSR n Mobile
+-- Sign In - Go to My Account - Orders & Returns
+-- Verify that Information Icon is displayed for all Statuses
+-- Click 3 or more Information Icons with different Status --- Verify that for each status, Popup is displayed with Status Messages
+-- Close Information Icon -- Order History Page displayed
+
+- MP-4151-Order Details-Customer n CSR n Mobile
+-- Complete a UK Single Line Delivery Order
+-- Go to My Account - Orders & Returns --- Order Number is visible on Order History Page
+-- Click Order Number --- Order Details Page is displayed with Order Details Header - Delivery Group Module - Payment Module
+-- Click Print Order -- Order is Printed
+-- Click View Receipt -- Receipt is displayed
+-- Click BACK TO ORDER HISTORY -- Order History Page is displayed
