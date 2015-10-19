@@ -1,0 +1,98 @@
+For desktop Safari, firefox and Chrome and Ipad safari  will be the coverage
+
+The desktop site should be up and customer facing
+User should be able to search and browse the site
+User should be able to add to the basket
+User should be able to create an account as a new user and checkout
+User should be able to checkout as a guest user
+User should be able to checkout as an existing user
+User should be able to checkout using the standard UK delivery method
+User should be able to checkout using the click and collect method
+User should be able to checkout using Paypal for a UK resident
+User should be able to checkout using non UK orders
+User should be able to checkout using Paypal for non UK orders
+User should be able to use a gift card as a part or full payment
+Verify the Contact US form is not broken
+All content has been checked and verified on the desktop site for the Release
+A Sanity test is run against the site covering the main functionality 
+The business have checked and signed off the the site in Live.
+Instant online Staff discount working as intended
+SEO to confirm robot,.txt has not been impacted
+Verify CSR portal is functioning
+Verify Management Centre is functioning
+Verify Accelerator is functioning
+
+For mobile IPhone devices will be the coverage?
+
+The Mobile site should be up and customer facing
+User should be able to search and browse the site
+User should be able to add to the basket
+User should be able to create an account as a new user and checkout
+User should be able to checkout as a guest user
+User should be able to checkout as an existing user
+User should be able to checkout using the standard UK delivery method
+User should be able to checkout using the click and collect method
+User should be able to checkout using Paypal for a UK resident
+User should be able to checkout using non UK orders
+User should be able to checkout using Paypal for non UK orders
+User should be able to use a gift card as a part or full payment
+Verify the Contact US form is not broken
+All content has been checked and verified on the desktop site for the Release
+A Sanity test is run against the site covering the main functionality 
+The business have checked and signed off the the site in Live.
+SEO to confirm robot,.txt has not been impacted
+
+
+FMO
+Verify order dispatch (single line ,multi line,consol)--done
+Verify pick failure (single line ,multi line,consol) --done
+Verify pack abandonment (single line ,multi line,consol)
+Verify order dispatch for a C&C order --done
+Verify order dispatch for a multi delivery group order --done
+Verify pick failure for a multi delivery group order --done
+Verify pack abandonment for a multi delivery group order --done
+Verify tracking url for the above dispatched orders (single parcel, multi parcel)
+
+
+DS Product
+Verify order dispatch (single line ,multi line,consol)
+Verify pick failure (single line ,multi line,consol)
+Verify tracking url for the above dispatched orders (single parcel, multi parcel)
+
+Verify order dispatch (single line ,multi line,consol)
+Verify tracking url for the above dispatched orders (single parcel, multi parcel)
+
+Verify WOLCAN message sent to RETEX for the pick failures.
+Verify WOLRET message sent to RETEX for PBA
+Verify POS basket transactions for all the above orders
+
+Verify front end order details page changes for all the above orders (Customer ,CSR) --done
+Verify Order details page for all the above orders on mobile
+ Fraud review email  - We can ask Leon to reject the order
+ Wonder Room Ready for collection – we can place and see
+
+
+Returns
+Returns button disable check
+Full order return & refund – EU order (Shipping , Gift box)  - Email to be verified
+Full order return , partial reject and partial refund –UK order  - Email to be verified
+Full order return and refund –Non-EU order  - Email to be verified
+Partial order return -any  - Email to be verified
+Return – full reject – any  - Email to be verified
+Instore return  - Email to be verified
+Combination of goodwill refund & blind return  - Email to be verified
+Old world return (Return request simulated test- new RAC code to be used to generated RAC for a return with return request)  - Email to be verified
+WOLRET checks
+
+
+Personalisation
+Happy path personalised
+Abandonment order
+1 personalised and 1 non personalised – same product.
+1 personalised and 1 non personalised - different products
+Consolidated order
+Click & Collect order
+DS&CC order
+International order
+Personalisation with gift box
+Personalisation and non-personalised with a gift box

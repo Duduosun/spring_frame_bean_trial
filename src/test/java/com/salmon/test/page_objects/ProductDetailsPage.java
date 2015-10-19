@@ -19,7 +19,7 @@ public class ProductDetailsPage extends PageObject {
     private By xProductName = By.xpath(".//*[@id='masterContent']/div/aside[2]/div/p/a");
     private By xProductDescription = By.xpath(".//*[@id='masterContent']/div/aside[2]/div");
     private By addToBag = By.name("addToBagButton");
-    private By xProductImage = By.xpath(".//*[@id='masterContent']/div/div[1]/div/img");
+    //private By xProductImage = By.xpath(".//*[@id='masterContent']/div/div[1]/div/img");
     private By addToWishList = By.className("addToWishlist");
     private By xMinus = By.xpath(".//*[@id='masterContent']/div/aside[2]/div/div[3]/form/fieldset/div[1]/span[1]");
     private By xPlus = By.xpath(".//*[@id='masterContent']/div/aside[2]/div/div[3]/form/fieldset/div[1]/span[2]");
@@ -44,7 +44,9 @@ public class ProductDetailsPage extends PageObject {
     private By cssSelfridgesSays = By.cssSelector(".infoBlockTabs");
     private By cssAddToBag = By.cssSelector(".addToBag.btnN.btnN2L");
     private By cssProductDescription = By.cssSelector(".prodDescInnerWrap");
-    private By cssProductImage = By.cssSelector(".initialized>img");
+    private By cssProductImage = By.cssSelector(".initialized");
+    private  By cProductImage = By.className("initialized");
+    private By xProductImage = By.xpath(".//*[@id='masterContent']/div/div[1]/div/div/div/div/ul/li[1]");
     private By cssBundledProducts = By.cssSelector(".collectionItems");
     private By cssPopUpBag = By.cssSelector("#miniInner");
     private By cssBundleX = By.cssSelector(".description>a");
@@ -55,7 +57,7 @@ public class ProductDetailsPage extends PageObject {
     public void verifyPDP(){
         waitForExpectedElement(pdpBody);
         waitForExpectedElement(cssProductDescription);
-        waitForExpectedElement(cssProductImage);
+        //waitForExpectedElement(xProductImage);
     }
     public void verifyBundle(){
         waitForExpectedElement(xBundleName);

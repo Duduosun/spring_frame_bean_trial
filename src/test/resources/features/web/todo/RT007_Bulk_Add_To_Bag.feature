@@ -9,3 +9,4 @@
 
       Examples:
         | megamenu | product | productname |
+        | MegaMenuOne | ProductOne | DIOR |
