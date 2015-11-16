@@ -5,7 +5,7 @@ import com.salmon.test.framework.helpers.UrlBuilder;
 import cucumber.api.java.en.Given;
 
 
-public class SelfridgesNavigationSteps {
+public class HabitatNavigationSteps {
 
     // this is Navigation Class used to trigger entry into AUT
     @Given("^i navigate to Selfridges \"([^\"]*)\" page$")
@@ -16,8 +16,8 @@ public class SelfridgesNavigationSteps {
         }
     }
 
-    @Given("^Selfridges Home Page$")
-    public void Selfridges_Home_Page() throws Throwable {
+    @Given("^Habitat Home Page$")
+    public void Habitat_Home_Page() throws Throwable {
         UrlBuilder.startAtHomePage();
     }
 }

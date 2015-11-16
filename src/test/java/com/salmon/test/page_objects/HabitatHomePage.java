@@ -11,9 +11,9 @@ import org.openqa.selenium.WebElement;
  * This gives access to the webdriver object and utility methods
  * USE CSS,ID,NAME,CLASSNAME selectors instead of xpath
  */
-public class SelfridgesHomePage extends PageObject {
+public class HabitatHomePage extends PageObject {
 
-    private String homePageTitle = "Designer Fashion, Accessories & More - Shop Online at Selfridges";
+    private String homePageTitle = "Home page";
 
     private By headerSignInLink = By.cssSelector("#headerSignInLink a");
     private By headerLogoutLink = By.id("headerLogout");
@@ -28,7 +28,7 @@ public class SelfridgesHomePage extends PageObject {
     private By logo = By.id("logo");
     private By welcome = By.className("em");
     private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
-    private By accountHead = By.className("accountnavlink");
+    private By accountHead = By.className("hbt-account-icon icon-HABITAT_ACCOUNT_ICON_01");
     private By wishList = By.className("wishlist topLevel");
     private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By shoppingBag = By.className("icon");

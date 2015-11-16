@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
  * Created by tfasoyiro on 14/08/2015.
  */
 
-public class SelfridgesCommonPage extends PageObject {
+public class HabitatCommonPage extends PageObject {
 
     private String commonPageTitle = "Selfridges";
     private String homePageTitle = "Designer Fashion, Accessories & More - Shop Online at Selfridges";
