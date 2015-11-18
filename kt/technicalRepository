@@ -40,7 +40,7 @@ Refresh
 
 WebDriverHelper.getWebDriver().navigate().refresh();
 
-
+Clicking all objects of many - consecutively
     public void clickOneOfMany(int position){
         List<WebElement> plpProducts = WebDriverHelper.getWebDriver().findElements(By.cssSelector(""));
         for(WebElement element: plpProducts){
@@ -48,3 +48,35 @@ WebDriverHelper.getWebDriver().navigate().refresh();
         }
         plpProducts.get(position).click();
     }
+
+    public void clickLogin(int oIndex){
+        List<WebElement> loginButtons = getWebDriver().findElements(login);
+        for (WebElement element: loginButtons) {
+            loginButtons.get(oIndex).click();
+        }
+
+    public WebElement passwordText(int oIndex){
+        List<WebElement> passwordInputBoxes = getWebDriver().findElements(password);
+            passwordInputBoxes.get(7);
+        return passwordInputBoxes.get(7);
+    }
+
+    public void clickLogin(int oIndex){
+        List<WebElement> loginButtons = getWebDriver().findElements(login);
+        for (WebElement element: loginButtons) {
+            loginButtons.get(oIndex).click();
+        }
+
+    }
+
+Debugging
+Thread.sleep(1000);
+        WebElement e = WebDriverHelper.getWebDriver().findElement(By.cssSelector(".main #email"));
+        e.click();
+        e.clear();
+        e.sendKeys("success");
+
+        customerLoginPage.emailAddress().click();
+        customerLoginPage.emailAddress().clear();
+
+

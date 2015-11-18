@@ -10,7 +10,7 @@ import org.openqa.selenium.WebElement;
  */
 public class SignInPage extends PageObject {
 
-    private String signInPageTitle = "Sign in - Selfridges | Shop Online";
+    private String signInPageTitle = "Customer Login";
 
     private By signInBody = By.id("signin");
     private By accountHead = By.className("accountnavlink");
@@ -18,9 +18,9 @@ public class SignInPage extends PageObject {
     private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By shoppingBag = By.className("icon");
     private By logo = By.id("logo");
-    private By emailAddressLogon = By.id("logonId");
-    private By passwordLogon = By.id("logonPassword");
-    private By signInButton = By.className("btnN btnN3");
+    private By emailAddressLogon = By.cssSelector("#email"); // .//*[@id='email']
+    private By passwordLogon = By.cssSelector("#pass"); // .//*[@id='pass']
+    private By signInButton = By.cssSelector("#send2"); //  .//*[@id='send2']
     private By xSignInButton = By.xpath("//*[@id='sign_in']/div[2]/div/div/form/fieldset/button");
     private By signOutButton = By.className("logoff");
     private By xSignOutButton = By.xpath(".//*[@id='myaccountnavInner']/ul/li[5]/a");
@@ -67,7 +67,7 @@ public class SignInPage extends PageObject {
     }
 
     public void clickSignInButton(){
-        waitForExpectedElement(xSignInButton).click();
+        waitForExpectedElement(signInButton).click();
     }
     public void clickSignOutButton(){waitForExpectedElement(signOutButton).click();}
     public void clickCreateAnAccountButton(){

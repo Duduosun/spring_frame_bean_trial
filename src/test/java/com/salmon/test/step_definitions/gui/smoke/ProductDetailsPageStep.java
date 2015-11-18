@@ -1,8 +1,7 @@
 package com.salmon.test.step_definitions.gui.smoke;
 
 import com.salmon.test.page_objects.ProductDetailsPage;
-import com.salmon.test.page_objects.SelfridgesCommonPage;
-import cucumber.api.PendingException;
+import com.salmon.test.page_objects.HabitatCommonPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 
@@ -15,17 +14,17 @@ import static org.testng.Assert.assertTrue;
 public class ProductDetailsPageStep {
 
     private ProductDetailsPage productDetailsPage;
-    private SelfridgesCommonPage selfridgesCommonPage;
+    private HabitatCommonPage habitatCommonPage;
 
-    public ProductDetailsPageStep(ProductDetailsPage productDetailsPage, SelfridgesCommonPage selfridgesCommonPage){
+    public ProductDetailsPageStep(ProductDetailsPage productDetailsPage, HabitatCommonPage habitatCommonPage){
         this.productDetailsPage = productDetailsPage;
-        this.selfridgesCommonPage = selfridgesCommonPage;
+        this.habitatCommonPage = habitatCommonPage;
     }
 
     @Then("^PDP Feature is displayed with Productname \"([^\"]*)\"$")
     public void PDP_Feature_is_displayed_with_Productname(String productname) throws Throwable {
         productDetailsPage.verifyPDP();
-        selfridgesCommonPage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
         //assertTrue(productDetailsPage.getProductName().contains(productname));
         assertEquals(productDetailsPage.getProductName(),productname);
     }
@@ -33,7 +32,7 @@ public class ProductDetailsPageStep {
     @Then("^Bundle Feature is displayed with Bundle X \"([^\"]*)\" and Bundle Y \"([^\"]*)\"$")
     public void Bundle_Feature_is_displayed_with_Bundle_X_and_Bundle_Y(String bundlex, String bundley) throws Throwable {
         productDetailsPage.verifyBundle();
-        selfridgesCommonPage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
         assertEquals(productDetailsPage.getBundleNameX(),bundlex);
         assertEquals(productDetailsPage.getBundleNameY(), bundley);
     }

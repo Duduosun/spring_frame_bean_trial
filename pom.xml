@@ -20,11 +20,12 @@
             <properties>
                 <!-- Application under test-->
                 <!--site.url>http://www.lloydspharmacy.com/</site.url-->
-                <!--site.url>http://www.slfst4p.selfridges.com</site.url-->
-                <site.url>http://www.slfst2p.selfridges.com</site.url>
-                <!--site.url>http://www.slfst3p.selfridges.com</site.url-->
-                <!--site.url>http://www.slfst4p.selfridges.com</site.url-->
-                <!--site.url>http://www.selfridges.com</site.url-->
+                <!--site.url>http://www.slfst2p.selfridges.com</site.url-->
+                <site.url>http://www.systest2.habitat.salmon-cloud.com/</site.url>
+                <!--site.url>https://www.systest2.habitat.salmon-cloud.com/backend</site.url-->
+                <!--site.url>http://http://www.uat.habitat.salmon-cloud.com//</site.url-->
+                <!--site.url>https://www.uat.habitat.salmon-cloud.com/backend</site.url-->
+                <!--site.url>http://www.habitat.co.uk/</site.url-->
                 <!-- Service under test-->
                 <api.url>http://www.dulux.com.sg</api.url>
                 <!-- AUT has default desired port-->

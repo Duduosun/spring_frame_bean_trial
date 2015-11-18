@@ -21,12 +21,12 @@ public class HabitatCommonPageSteps {
     @When("^User Navigate Mega Menu \"([^\"]*)\"$")
     public void User_Navigate_Mega_Menu(String megamenu) throws Throwable {
         habitatCommonPage.clickMegaMenu(megamenu);
-        habitatCommonPage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
     }
 
     @Then("^Search Result contains \"([^\"]*)\" and \"([^\"]*)\"$")
     public void Search_Result_contains_and(String word, String phrase) throws Throwable {
-        habitatCommonPage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
         assertTrue(habitatCommonPage.returnPLPSearchResult().contains(word));
         assertTrue(habitatCommonPage.returnPLPSearchResult().contains(phrase));
     }

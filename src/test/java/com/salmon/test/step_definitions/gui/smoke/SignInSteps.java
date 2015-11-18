@@ -17,7 +17,7 @@ public class SignInSteps {
     // Constructor with variable from POM class(imported) object
     // Constructor is using variables from imported class
     public SignInSteps(SignInPage signInPage){
-        this.signInPage =signInPage;
+        this.signInPage = signInPage;
     }
 
     @When("^i fill in registered customers logon fields$")
@@ -74,7 +74,7 @@ public class SignInSteps {
         signInPage.clickSignInButton();
     }
 
-    @And("^Enter emailaddress \"([^\"]*)\" and password \"([^\"]*)\"$")
+    @And("^PreviousEnter emailaddress \"([^\"]*)\" and password \"([^\"]*)\"$")
     public void Enter_emailaddress_and_password(String emailaddress, String password) throws Throwable {
         signInPage.emailAddressLogon().sendKeys(emailaddress);
         signInPage.passwordLogon().sendKeys(password);

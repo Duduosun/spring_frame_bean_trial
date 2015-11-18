@@ -15,102 +15,39 @@ public class HabitatHomePage extends PageObject {
 
     private String homePageTitle = "Home page";
 
-    private By headerSignInLink = By.cssSelector("#headerSignInLink a");
-    private By headerLogoutLink = By.id("headerLogout");
-    private By homeBody = By.id("homepage");
-    private By bodyClass = By.className("reachedTop");
-    private By topBar = By.id("globalNav");
-    private By cTopBar = By.className("wrapper");
-    private By xTopBar = By.xpath(".//*[@id='globalNav']");
-    private By nationalFlag = By.className("translateFlag");
-    private By xCurrency = By.xpath(".//*[@id='globalNav']/div/div/div/a/span");
-    private By currencyLink = By.id("currencyLink"); //.//*[@id='currencyLink']/span
-    private By logo = By.id("logo");
-    private By welcome = By.className("em");
-    private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
-    private By accountHead = By.className("hbt-account-icon icon-HABITAT_ACCOUNT_ICON_01");
-    private By wishList = By.className("wishlist topLevel");
-    private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
-    private By shoppingBag = By.className("icon");
-    private By searchIcon = By.className("searchIcon");
-    private By searchInput = By.className("searchInput");
-    private By topLevelCategory = By.id("megaMenu");
-    private By xTopLevelCategory = By.xpath(".//*[@id='megaMenu']");
-    private By footerTop = By.id("footerTop");
-    private By footerBody = By.id("footerBody");
-    private By footerBottom = By.id("footerBottom");
-    private By xMEGAONE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[1]/a");
-    private By xMEGATWO = By.xpath(".//*[@id='megaMenu']/nav/ul/li[2]/a");
-    private By xMEGATHREE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[3]/a");
-    private By xMEGAFOUR = By.xpath(".//*[@id='megaMenu']/nav/ul/li[4]/a");
-    private By xMEGAFIVE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[5]/a");
-    private By xMEGASIX = By.xpath(".//*[@id='megaMenu']/nav/ul/li[6]/a");
-    private By xMEGASEVEN = By.xpath(".//*[@id='megaMenu']/nav/ul/li[7]/a");
-    private By xMEGAEIGHT = By.xpath(".//*[@id='megaMenu']/nav/ul/li[8]/a");
-    private By xMEGANINE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[9]/a");
+    private By homeBody = By.cssSelector(".cms-index-index.cms-home");
+    private By shoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
+    private By searchMiniForm = By.cssSelector("#search_mini_form");
+    private By habitatDialogBox = By.className("dialog");
+    private By closeHomeDialog = By.className("habitat-dialog_close");
+    private By habitatStartPage = By.cssSelector("#habitat-custom-wrapper");
+    private By logo = By.cssSelector(".logo>img");
+    private By accountHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_01");
+
 
 
     public String stringHomePageTitle(){
         return  homePageTitle;
     }
-    public String stringWelcome(){
-        return waitForExpectedElement(welcome).getText();
-    }
-    public String stringTopCategory(){
-        return waitForExpectedElement(topLevelCategory).getText();
-    }
-    public String stringFooter(){
-        return waitForExpectedElement(footerBody).getText();
-    }
+
     public boolean visibleBooleanAvatar(){
         return isElementPresent(logo);
     }
-    public String returnLocation(){
-        return waitForExpectedElement(currencyLink).getText();
-    }
 
-
-    public void clickSignInLink() {
-        waitForExpectedElement(headerSignInLink).click();
-    }
-    public void clickSignOutLink() {
-        waitForExpectedElement(headerLogoutLink).click();
-    }
     public void clickAccountHead(){
         waitForExpectedElement(accountHead).click();
     }
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
-    public void clickCurrency(){waitForExpectedElement(currencyLink).click();}
-    public void clickSearch(){waitForExpectedElement(searchIcon).click();}
-
-
     public void visibleAvatar(){
         waitForExpectedElement(logo);
         waitForExpectedElement(accountHead);
-        waitForExpectedElement(xWishList);
+        waitForExpectedElement(searchMiniForm);
         waitForExpectedElement(shoppingBag);
     }
-    public void homePageHeader(){
-        waitForExpectedElement(topBar);
-        waitForExpectedElement(nationalFlag);
-        waitForExpectedElement(xCurrency);
-        waitForExpectedElement(topLevelCategory);
+    public void dialogBoxHandler(){
+        waitForExpectedElement(habitatDialogBox);
+        waitForExpectedElement(closeHomeDialog).click();
     }
-    public void homePageBody(){
-        waitForExpectedElement(homeBody);
-    }
-    public void homePageFooter(){
-        waitForExpectedElement(footerTop);
-        waitForExpectedElement(footerBody);
-        waitForExpectedElement(footerBottom);
-    }
-    public void searchString(String search){
-        waitForExpectedElement(searchInput).sendKeys(search);
-        waitForExpectedElement(searchInput).sendKeys(Keys.RETURN);
-    }
-
-
-
 }

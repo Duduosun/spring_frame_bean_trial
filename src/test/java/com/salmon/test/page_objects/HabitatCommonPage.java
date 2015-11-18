@@ -11,8 +11,45 @@ import org.openqa.selenium.WebElement;
 
 public class HabitatCommonPage extends PageObject {
 
-    private String commonPageTitle = "Selfridges";
-    private String homePageTitle = "Designer Fashion, Accessories & More - Shop Online at Selfridges";
+    private String commonPageTitle = "";
+
+    private By pageGUI = By.cssSelector(".page");
+    private By helloHeader = By.cssSelector(".label");
+    private By signOut = By.cssSelector(".main .last>a");
+    private By emptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
+    private By nonEmptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_02");
+    private By search = By.cssSelector("#search");
+    private By searchMiniForm = By.cssSelector("#search_mini_form");
+    private By habitatDialogBox = By.className("dialog");
+    private By closeHomeDialog = By.className("habitat-dialog_close");
+    private By habitatStartPageImages = By.cssSelector("#habitat-custom-wrapper");
+    private By logo = By.cssSelector(".logo>img");
+    private By guestUserHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_01");
+    private By regUserHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_02");
+
+    public void clickSignOut(){ waitForExpectedElement(signOut).click();}
+    public void defaultAvatar(){
+        waitForExpectedElement(logo);
+        waitForExpectedElement(guestUserHead);
+        waitForExpectedElement(searchMiniForm);
+        waitForExpectedElement(emptyShoppingBag);
+    }
+    public void goToSearch(){
+        waitForExpectedElement(search).isDisplayed();
+    }
+    public void registeredUserSession(){
+        waitForExpectedElement(regUserHead);
+    }
+    public void guestUserSession(){waitForExpectedElement(guestUserHead);}
+    public boolean visibleRegisteredUser(){
+        return isElementPresent(regUserHead);
+    }
+    public boolean visibleGuestUser(){return  isElementPresent(guestUserHead);}
+
+
+
+
+
 
     //Header
     private By plpBody = By.xpath(".//*[@id='screenR']");
@@ -23,16 +60,15 @@ public class HabitatCommonPage extends PageObject {
     private By cTopBar = By.className("wrapper");
     private By nationalFlag = By.className("translateFlag");
     private By xCurrency = By.xpath(".//*[@id='globalNav']/div/div/div/a/span");
-    private By logo = By.id("logo");
+
     private By welcome = By.className("em");
     private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
     private By cssHelloUser = By.cssSelector(".personsName>b");
 
     //Avatar
-    private By accountHead = By.className("accountnavlink");
+
     private By wishList = By.className("wishlist topLevel");
     private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
-    private By shoppingBag = By.className("icon");
     private By searchIcon = By.className("searchIcon");
 
     //Mega Menu
@@ -106,12 +142,7 @@ public class HabitatCommonPage extends PageObject {
             }
         }
     }
-    public void visibleAvatar(){
-        waitForExpectedElement(accountHead);
-        waitForExpectedElement(xWishList);
-        waitForExpectedElement(shoppingBag);
-        waitForExpectedElement(searchIcon);
-    }
+
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
@@ -126,7 +157,5 @@ public class HabitatCommonPage extends PageObject {
     public String stringRegisteredUser(){
         return waitForExpectedElement(cssHelloUser).getText();
     }
-    public String stringHomePageTitle(){
-        return homePageTitle;
-    }
+
 }
