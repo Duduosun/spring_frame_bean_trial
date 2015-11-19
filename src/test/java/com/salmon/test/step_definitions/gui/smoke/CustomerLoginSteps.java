@@ -18,7 +18,6 @@ public class CustomerLoginSteps {
     public CustomerLoginSteps(CustomerLoginPage customerLoginPage, HabitatCommonPage habitatCommonPage) {
         this.customerLoginPage = customerLoginPage;
         this.habitatCommonPage = habitatCommonPage;
-
     }
 
 
@@ -30,6 +29,4 @@ public class CustomerLoginSteps {
         customerLoginPage.passwordText().sendKeys(password);
         customerLoginPage.clickLogin();
     }
-
-
 }

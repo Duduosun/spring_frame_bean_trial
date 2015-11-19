@@ -2,11 +2,13 @@ package com.salmon.test.step_definitions.gui.smoke;
 
 import com.salmon.test.page_objects.MyAccountPage;
 import com.salmon.test.page_objects.HabitatCommonPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 /**
@@ -33,6 +35,8 @@ public class MyAccountSteps {
     public void User_Successfully_Access_My_Account() throws Throwable {
         habitatCommonPage.registeredUserSession();
         assertEquals(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
+        assertTrue(habitatCommonPage.visibleRegisteredUser(), "True");
+        assertTrue(habitatCommonPage.visibleGuestUser(), "False");
         habitatCommonPage.clickLogo();
         //assertEquals(habitatCommonPage.getCurrentPageTitle(), habitatCommonPage.stringHomePageTitle() );
 
@@ -44,7 +48,11 @@ public class MyAccountSteps {
         //assertEquals(habitatCommonPage.getCurrentPageTitle(), habitatCommonPage.stringHomePageTitle());
         habitatCommonPage.registeredUserSession();
         habitatCommonPage.clickSignOut();
-        myAccountPage.deleteFirefoxCookies();
+        //habitatCommonPage.wait(10);
+        habitatCommonPage.guestUserSession();
+        habitatCommonPage.defaultAvatar();
+        habitatCommonPage.deleteFirefoxCookies();
+
     }
 
     @And("^More Users are Registered$")
@@ -58,5 +66,15 @@ public class MyAccountSteps {
         assertTrue(habitatCommonPage.stringRegisteredUser().contains($firstname));
         assertEquals(habitatCommonPage.stringRegisteredUser(), $firstname);
         myAccountPage.deleteFirefoxCookies();
+    }
+
+    @Then("^User \"([^\"]*)\" Successfully Access My Account$")
+    public void User_Successfully_Access_My_Account(String user) throws Throwable {
+        habitatCommonPage.registeredUserSession();
+        assertEquals(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
+        assertTrue(habitatCommonPage.visibleRegisteredUser(), "True");
+        assertFalse(habitatCommonPage.visibleGuestUser(), "False");
+        assertTrue(myAccountPage.stringUserDashboard().contains(user));
+        habitatCommonPage.clickLogo();
     }
 }

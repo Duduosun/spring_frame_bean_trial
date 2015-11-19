@@ -1,6 +1,8 @@
 package com.salmon.test.step_definitions.gui.smoke;
 
 
+import com.salmon.test.page_objects.CustomerLoginPage;
+import com.salmon.test.page_objects.HabitatCommonPage;
 import com.salmon.test.page_objects.HabitatHomePage;
 import com.salmon.test.page_objects.SignInPage;
 import cucumber.api.java.en.Then;
@@ -12,21 +14,25 @@ import static org.testng.Assert.assertTrue;
 public class HabitatHomePageSteps {
 
     private HabitatHomePage habitatHomePage;
+    private HabitatCommonPage habitatCommonPage;
     private SignInPage signInPage;
+    private CustomerLoginPage customerLoginPage;
 
-    public HabitatHomePageSteps(HabitatHomePage habitatHomePage, SignInPage signInPage) {
+    public HabitatHomePageSteps(HabitatHomePage habitatHomePage, HabitatCommonPage habitatCommonPage,
+                                CustomerLoginPage customerLoginPage, SignInPage signInPage) {
         this.habitatHomePage = habitatHomePage;
+        this.habitatCommonPage = habitatCommonPage;
+        this.customerLoginPage = customerLoginPage;
         this.signInPage = signInPage;
     }
 
     @When("^User Click Account Head$")
     public void User_Click_Account_Head() throws Throwable {
         assertEquals(habitatHomePage.getCurrentPageTitle(), habitatHomePage.stringHomePageTitle());
-        //habitatHomePage.dialogBoxHandler();
-        habitatHomePage.visibleAvatar();
-        habitatHomePage.clickAccountHead();
-        assertEquals(signInPage.getCurrentPageTitle(),signInPage.stringSignInPageTitle());
-        //signInPage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
+        habitatCommonPage.clickGuestUser();
+        assertEquals(customerLoginPage.getCurrentPageTitle(), customerLoginPage.stringCustomerLoginPageTitle());
+        habitatCommonPage.defaultAvatar();
     }
 
     @Then("^User is Successfuly Signed Out of My Account$")
@@ -39,13 +45,13 @@ public class HabitatHomePageSteps {
     @When("^User Navigates Home Page$")
     public void User_Navigates_Home_Page() throws Throwable {
         habitatHomePage.clickLogo();
-        habitatHomePage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
     }
 
     @Then("^User Can Interact with UI$")
     public void User_Can_Interact_with_UI() throws Throwable {
 
-        habitatHomePage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
 
         //assertTrue(habitatHomePage.stringWelcome().equals("WELCOME"));
         //assertTrue(habitatHomePage.stringTopCategory().contains("TECHNOLOGY"));
@@ -56,8 +62,8 @@ public class HabitatHomePageSteps {
     @Then("^User Can Interact with Header \"([^\"]*)\" and Footer \"([^\"]*)\" entries$")
     public void User_Can_Interact_with_Header_and_Footer_entries(String header, String footer) throws Throwable {
 
-        habitatHomePage.visibleAvatar();
-;
+        habitatCommonPage.defaultAvatar();
+
         //assertTrue(habitatHomePage.stringWelcome().equals("WELCOME"));
         //assertTrue(habitatHomePage.stringTopCategory().contains(header));
         //assertTrue(habitatHomePage.stringFooter().contains(footer));
@@ -70,7 +76,7 @@ public class HabitatHomePageSteps {
 
     @Then("^Shopping Location is Switched to Selected \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
     public void Shopping_Location_is_Switched_to_Selected(String countrycode, String currency, String url) throws Throwable {
-        habitatHomePage.visibleAvatar();
+        habitatCommonPage.defaultAvatar();
 
         assertTrue(habitatHomePage.checkPageUrlContains(url));
         assertEquals(habitatHomePage.getCurrentUrl(), url);

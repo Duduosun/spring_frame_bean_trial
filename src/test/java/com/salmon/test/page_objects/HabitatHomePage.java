@@ -16,35 +16,21 @@ public class HabitatHomePage extends PageObject {
     private String homePageTitle = "Home page";
 
     private By homeBody = By.cssSelector(".cms-index-index.cms-home");
-    private By shoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
+
     private By searchMiniForm = By.cssSelector("#search_mini_form");
     private By habitatDialogBox = By.className("dialog");
     private By closeHomeDialog = By.className("habitat-dialog_close");
     private By habitatStartPage = By.cssSelector("#habitat-custom-wrapper");
     private By logo = By.cssSelector(".logo>img");
-    private By accountHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_01");
-
-
 
     public String stringHomePageTitle(){
         return  homePageTitle;
     }
-
     public boolean visibleBooleanAvatar(){
         return isElementPresent(logo);
     }
-
-    public void clickAccountHead(){
-        waitForExpectedElement(accountHead).click();
-    }
     public void clickLogo(){
         waitForExpectedElement(logo).click();
-    }
-    public void visibleAvatar(){
-        waitForExpectedElement(logo);
-        waitForExpectedElement(accountHead);
-        waitForExpectedElement(searchMiniForm);
-        waitForExpectedElement(shoppingBag);
     }
     public void dialogBoxHandler(){
         waitForExpectedElement(habitatDialogBox);

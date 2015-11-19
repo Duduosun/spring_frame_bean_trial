@@ -15,18 +15,22 @@ public class HabitatCommonPage extends PageObject {
 
     private By pageGUI = By.cssSelector(".page");
     private By helloHeader = By.cssSelector(".label");
-    private By signOut = By.cssSelector(".main .last>a");
+    private By signOut = By.cssSelector(".links .last>a");
+
+    //private By signOut = By.xpath(".//*[@id='header-account']/div/ul/li[6]/a");
+    //private By signIn = By.xpath(".//*[@id='header-account']/div/ul/li[5]/a");
     private By emptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
     private By nonEmptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_02");
     private By search = By.cssSelector("#search");
     private By searchMiniForm = By.cssSelector("#search_mini_form");
     private By habitatDialogBox = By.className("dialog");
     private By closeHomeDialog = By.className("habitat-dialog_close");
-    private By habitatStartPageImages = By.cssSelector("#habitat-custom-wrapper");
     private By logo = By.cssSelector(".logo>img");
     private By guestUserHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_01");
     private By regUserHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_02");
 
+    public void clickGuestUser(){waitForExpectedElement(guestUserHead).click();}
+    public void clickRegisteredUser(){waitForExpectedElement(regUserHead).click();}
     public void clickSignOut(){ waitForExpectedElement(signOut).click();}
     public void defaultAvatar(){
         waitForExpectedElement(logo);
@@ -45,7 +49,9 @@ public class HabitatCommonPage extends PageObject {
         return isElementPresent(regUserHead);
     }
     public boolean visibleGuestUser(){return  isElementPresent(guestUserHead);}
-
+    public void deleteFirefoxCookies(){
+        webDriver.manage().deleteAllCookies();
+    }
 
 
 
