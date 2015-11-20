@@ -4,6 +4,7 @@ import com.salmon.test.framework.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 /**
  * Created by tfasoyiro on 14/08/2015.
@@ -15,10 +16,7 @@ public class HabitatCommonPage extends PageObject {
 
     private By pageGUI = By.cssSelector(".page");
     private By helloHeader = By.cssSelector(".label");
-    private By signOut = By.cssSelector(".links .last>a");
-
-    //private By signOut = By.xpath(".//*[@id='header-account']/div/ul/li[6]/a");
-    //private By signIn = By.xpath(".//*[@id='header-account']/div/ul/li[5]/a");
+    private By signOut = By.cssSelector("#header-account .links .last>a[title=\"Sign Out\"]");
     private By emptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
     private By nonEmptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_02");
     private By search = By.cssSelector("#search");
@@ -45,6 +43,13 @@ public class HabitatCommonPage extends PageObject {
         waitForExpectedElement(regUserHead);
     }
     public void guestUserSession(){waitForExpectedElement(guestUserHead);}
+    public void mouseOverRegUser(){
+        mouseOverExpectedElement(webElementRegUser());
+    }
+    public WebElement webElementRegUser(){
+        return waitForExpectedElement(regUserHead);
+    }
+
     public boolean visibleRegisteredUser(){
         return isElementPresent(regUserHead);
     }
@@ -52,6 +57,9 @@ public class HabitatCommonPage extends PageObject {
     public void deleteFirefoxCookies(){
         webDriver.manage().deleteAllCookies();
     }
+
+
+
 
 
 

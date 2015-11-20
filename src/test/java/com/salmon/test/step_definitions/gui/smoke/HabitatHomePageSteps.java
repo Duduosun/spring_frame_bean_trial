@@ -37,7 +37,6 @@ public class HabitatHomePageSteps {
 
     @Then("^User is Successfuly Signed Out of My Account$")
     public void User_is_Successfuly_Signed_Out_of_My_Account() throws Throwable {
-        // place Common Page Assertion here
         habitatHomePage.clickLogo();
         assertEquals(habitatHomePage.getCurrentPageTitle(), habitatHomePage.stringHomePageTitle());
     }

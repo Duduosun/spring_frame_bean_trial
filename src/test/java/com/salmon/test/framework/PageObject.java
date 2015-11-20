@@ -404,4 +404,13 @@ public abstract class PageObject {
     public String getElementByQueryJSExecutor(String cssSelector) {
         return ((JavascriptExecutor) webDriver).executeScript("return window.getComputedStyle(document.querySelector('" + cssSelector + "')").toString();
     }
+
+    public void mouseOverExpectedElement(WebElement webElement){
+        Actions acMouse = new Actions(webDriver);
+        acMouse.moveToElement(webElement);
+        acMouse.perform();
+    }
+
+
+
 }

@@ -16,6 +16,7 @@ public class CustomerLoginPage extends PageObject {
     private By emailAddress = By.cssSelector(".main #email");
     private By password = By.cssSelector(".main #pass");
     private By login = By.cssSelector(".main #send2");
+    private By createAnAccount = By.cssSelector(".main .button");
 
     public String stringCustomerLoginPageTitle(){
         return customerLoginPageTitle;
@@ -28,5 +29,5 @@ public class CustomerLoginPage extends PageObject {
     public void clickLogin(){
         waitForExpectedElement(login).click();
     }
-
+    public void clickCreateAnAccount(){waitForExpectedElement(createAnAccount).click();}
 }

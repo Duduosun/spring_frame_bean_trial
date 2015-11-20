@@ -1,0 +1,9 @@
+Issue 1
+- Unable to uniquely capture Sign Out link
+
+   #When User Click Sign Out Option
+   #Then User is Successfuly Signed Out of My Account
+
+    private By signOut = By.cssSelector(".links .last>a");
+    private By signOut = By.xpath(".//*[@id='header-account']/div/ul/li[6]/a");
+    private By signIn = By.xpath(".//*[@id='header-account']/div/ul/li[5]/a");

@@ -38,21 +38,16 @@ public class MyAccountSteps {
         assertTrue(habitatCommonPage.visibleRegisteredUser(), "True");
         assertTrue(habitatCommonPage.visibleGuestUser(), "False");
         habitatCommonPage.clickLogo();
-        //assertEquals(habitatCommonPage.getCurrentPageTitle(), habitatCommonPage.stringHomePageTitle() );
-
     }
 
     @When("^User Click Sign Out Option$")
     public void User_Click_Sign_Out_Option() throws Throwable {
-        //assertEquals(myAccountPage.getCurrentPageTitle(),myAccountPage.stringMyDetailsPageTitle());
-        //assertEquals(habitatCommonPage.getCurrentPageTitle(), habitatCommonPage.stringHomePageTitle());
         habitatCommonPage.registeredUserSession();
+        habitatCommonPage.mouseOverRegUser();
         habitatCommonPage.clickSignOut();
-        //habitatCommonPage.wait(10);
         habitatCommonPage.guestUserSession();
         habitatCommonPage.defaultAvatar();
         habitatCommonPage.deleteFirefoxCookies();
-
     }
 
     @And("^More Users are Registered$")

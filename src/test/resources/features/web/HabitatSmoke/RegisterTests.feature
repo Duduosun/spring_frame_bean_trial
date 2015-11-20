@@ -1,8 +1,10 @@
-@FrameworkSmokeOccasional
-Feature: BULK REGISTER:- As Selfridges website user, I want to bulk register from Selfridges home page
-Scenario Outline: Bulk Register new users from homepage RT001
-  Given Selfridges Home Page
+@HabitatSmoke
+Feature: Test if registration works as expected by navigating to homepage, clicking on registration,
+         filling form, signing up newsletters and registering. Use the registered email and verify login.
+Scenario Outline: Register New Users
+  Given Habitat Home Page
   When User Click Account Head
+  And Click Create An Account
   And User Enter title "<title>" firstname "<firstname>" lastname "<lastname>" emailaddress "<emailaddress>" password "<password>"
   Then User Successfully Access My Account
   And User Session "<firstname>" is active

@@ -3,6 +3,7 @@ package com.salmon.test.step_definitions.gui.smoke;
 import com.salmon.test.framework.helpers.WebDriverHelper;
 import com.salmon.test.page_objects.CustomerLoginPage;
 import com.salmon.test.page_objects.HabitatCommonPage;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -28,5 +29,10 @@ public class CustomerLoginSteps {
         customerLoginPage.emailAddressText().sendKeys(emailaddress);
         customerLoginPage.passwordText().sendKeys(password);
         customerLoginPage.clickLogin();
+    }
+
+    @And("^Click Create An Account$")
+    public void Click_Create_An_Account() throws Throwable {
+        customerLoginPage.clickCreateAnAccount();
     }
 }
