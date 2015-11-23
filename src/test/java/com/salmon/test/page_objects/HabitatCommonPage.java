@@ -15,7 +15,6 @@ public class HabitatCommonPage extends PageObject {
     private String commonPageTitle = "";
 
     private By pageGUI = By.cssSelector(".page");
-    private By helloHeader = By.cssSelector(".label");
     private By signOut = By.cssSelector("#header-account .links .last>a[title=\"Sign Out\"]");
     private By emptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
     private By nonEmptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_02");
@@ -26,6 +25,18 @@ public class HabitatCommonPage extends PageObject {
     private By logo = By.cssSelector(".logo>img");
     private By guestUserHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_01");
     private By regUserHead = By.cssSelector(".hbt-account-icon.icon-HABITAT_ACCOUNT_ICON_02");
+    private By helloAccountUser = By.cssSelector(".hbt-account.skip-link.skip-account.logged-in");
+
+    //Megamenu
+    private By megaMenuHeader = By.cssSelector("#header-nav");
+    private By megaONE = By.cssSelector(".level0.nav-1.parent");
+    private By megaTWO = By.cssSelector(".level0.nav-2.parent");
+    private By megaTHREE = By.cssSelector(".level0.nav-3.parent");
+    private By megaFOUR = By.cssSelector(".level0.nav-4.parent");
+    private By megaFIVE = By.cssSelector(".level0.nav-5.parent");
+    private By megaSIX = By.cssSelector(".level0.nav-6.parent");
+    private By megaSEVEN = By.cssSelector(".level0.nav-7.parent");
+    private By megaEIGHT = By.cssSelector(".level0.nav-8.parent");
 
     public void clickGuestUser(){waitForExpectedElement(guestUserHead).click();}
     public void clickRegisteredUser(){waitForExpectedElement(regUserHead).click();}
@@ -46,6 +57,10 @@ public class HabitatCommonPage extends PageObject {
     public void mouseOverRegUser(){
         mouseOverExpectedElement(webElementRegUser());
     }
+    public void deleteFirefoxCookies(){
+        webDriver.manage().deleteAllCookies();
+    }
+
     public WebElement webElementRegUser(){
         return waitForExpectedElement(regUserHead);
     }
@@ -54,16 +69,6 @@ public class HabitatCommonPage extends PageObject {
         return isElementPresent(regUserHead);
     }
     public boolean visibleGuestUser(){return  isElementPresent(guestUserHead);}
-    public void deleteFirefoxCookies(){
-        webDriver.manage().deleteAllCookies();
-    }
-
-
-
-
-
-
-
 
     //Header
     private By plpBody = By.xpath(".//*[@id='screenR']");
@@ -77,26 +82,11 @@ public class HabitatCommonPage extends PageObject {
 
     private By welcome = By.className("em");
     private By xWelcome = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[1]/span");
-    private By cssHelloUser = By.cssSelector(".personsName>b");
 
     //Avatar
-
     private By wishList = By.className("wishlist topLevel");
     private By xWishList = By.xpath(".//*[@id='xhrUncachedNav']/ul/li[2]/a");
     private By searchIcon = By.className("searchIcon");
-
-    //Mega Menu
-    private By topLevelCategory = By.id("megaMenu");
-    private By xTopLevelCategory = By.xpath(".//*[@id='megaMenu']");
-    private By xMEGAONE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[1]/a");
-    private By xMEGATWO = By.xpath(".//*[@id='megaMenu']/nav/ul/li[2]/a");
-    private By xMEGATHREE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[3]/a");
-    private By xMEGAFOUR = By.xpath(".//*[@id='megaMenu']/nav/ul/li[4]/a");
-    private By xMEGAFIVE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[5]/a");
-    private By xMEGASIX = By.xpath(".//*[@id='megaMenu']/nav/ul/li[6]/a");
-    private By xMEGASEVEN = By.xpath(".//*[@id='megaMenu']/nav/ul/li[7]/a");
-    private By xMEGAEIGHT = By.xpath(".//*[@id='megaMenu']/nav/ul/li[8]/a");
-    private By xMEGANINE = By.xpath(".//*[@id='megaMenu']/nav/ul/li[9]/a");
 
     //Category Title
     private By categoryTitle = By.xpath(".//*[@id='main']/div[1]/h1");
@@ -110,48 +100,48 @@ public class HabitatCommonPage extends PageObject {
 
         switch (menu) {
             case "MegaMenuOne": {
-                waitForExpectedElement(xMEGAONE).click();
-                waitForExpectedElement(xMEGAONE).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaONE).click();
+                waitForExpectedElement(megaONE).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuTwo": {
-                waitForExpectedElement(xMEGATWO).click();
-                waitForExpectedElement(xMEGATWO).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaTWO).click();
+                waitForExpectedElement(megaTWO).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuThree": {
-                waitForExpectedElement(xMEGATHREE).click();
-                waitForExpectedElement(xMEGATHREE).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaTHREE).click();
+                waitForExpectedElement(megaTHREE).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuFour": {
-                waitForExpectedElement(xMEGAFOUR).click();
-                waitForExpectedElement(xMEGAFOUR).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaFOUR).click();
+                waitForExpectedElement(megaFOUR).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuFive": {
-                waitForExpectedElement(xMEGAFIVE).click();
-                waitForExpectedElement(xMEGAFIVE).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaFIVE).click();
+                waitForExpectedElement(megaFIVE).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuSix": {
-                waitForExpectedElement(xMEGASIX).click();
-                waitForExpectedElement(xMEGASIX).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaSIX).click();
+                waitForExpectedElement(megaSIX).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuSeven": {
-                waitForExpectedElement(xMEGASEVEN).click();
-                waitForExpectedElement(xMEGASEVEN).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaSEVEN).click();
+                waitForExpectedElement(megaSEVEN).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuEight": {
-                waitForExpectedElement(xMEGAEIGHT).click();
-                waitForExpectedElement(xMEGAEIGHT).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaEIGHT).click();
+                waitForExpectedElement(megaEIGHT).sendKeys(Keys.RETURN);
                 break;
             }
             case "MegaMenuNine": {
-                waitForExpectedElement(xMEGANINE).click();
-                waitForExpectedElement(xMEGANINE).sendKeys(Keys.RETURN);
+                waitForExpectedElement(megaEIGHT).click();
+                waitForExpectedElement(megaEIGHT).sendKeys(Keys.RETURN);
                 break;
             }
         }
@@ -169,7 +159,6 @@ public class HabitatCommonPage extends PageObject {
        return waitForExpectedElement(plpSearch) .getText();
     }
     public String stringRegisteredUser(){
-        return waitForExpectedElement(cssHelloUser).getText();
+        return waitForExpectedElement(helloAccountUser).getText();
     }
-
 }

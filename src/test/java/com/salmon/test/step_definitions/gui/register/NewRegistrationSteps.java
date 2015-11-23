@@ -34,41 +34,9 @@ public class NewRegistrationSteps {
         this.newCustomerPage = newCustomerPage;
     }
 
-
-    @When("^i fill in the registration form on New Registration page$")
-    public void i_fill_in_the_registration_form_on_New_Registration_page() throws Throwable {
-        Assert.assertTrue(newCustomerPage.checkNewRegistrationForm(), "New Registration Form is Displayed");
-        enterUserRegistrationDetails();
-
-    }
+        //newCustomerPage.acceptTermsAndConditions(true);
 
 
-    public void enterUserRegistrationDetails() {
-
-        newCustomerPage.loginIdText().sendKeys(loginIdData);
-        newCustomerPage.passwordText().sendKeys(passwordData);
-        newCustomerPage.verifyPasswordText().sendKeys(passwordData);
-
-        newCustomerPage.selectTitle().selectByVisibleText(titleData);
-        newCustomerPage.firstNameText().sendKeys(firstNameData);
-        newCustomerPage.lastNameText().sendKeys(lastNameData);
-
-        newCustomerPage.postCodeText().sendKeys(postCodeData);
-        newCustomerPage.address1Text().sendKeys(address1Data);
-        newCustomerPage.townOrCityText().sendKeys(townOrCityData);
-
-        newCustomerPage.emailAddressText().sendKeys(emailAddressData);
-        newCustomerPage.confirmEmailAddressText().sendKeys(emailAddressData);
-
-        newCustomerPage.birthDayText().selectByVisibleText(birthDateData);
-        newCustomerPage.birthMonthText().selectByVisibleText(birthMonthData);
-        newCustomerPage.birthYearText().selectByVisibleText(birthYearData);
-
-        newCustomerPage.acceptTermsAndConditions(true);
-
-        newCustomerPage.submitRegistration();
-
-    }
 
 
 }

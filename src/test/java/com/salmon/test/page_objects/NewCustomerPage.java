@@ -17,17 +17,16 @@ public class NewCustomerPage extends PageObject {
 
     private By createAccountForm = By.cssSelector(".account-create");
     private By createAnAccountLabel = By.cssSelector("#checkout-welcome");
-
     private By title = By.cssSelector("#prefix");
-    private By firstName = By.cssSelector("#firstname");
-    private By lastName = By.cssSelector("#lastname");
-    private By emailAddress = By.cssSelector("#email_address");
-    private By mobile = By.cssSelector("#mobile_number");
-    private By password = By.cssSelector("#password");
+    private By firstName = By.cssSelector(".main #firstname");
+    private By lastName = By.cssSelector(".main #lastname");
+    private By emailAddress = By.cssSelector(".main #email_address");
+    private By mobile = By.cssSelector(".main #mobile_number");
+    private By password = By.cssSelector(".main #password");
     private By confirmPassword = By.cssSelector("#confirmation");
     private By preferredStore = By.cssSelector("#preferred_store");
     private By newsletterCheckBox = By.cssSelector("#is_subscribed");
-    private By registerButton = By.cssSelector(".button");
+    private By registerButton = By.cssSelector(".main .button>span>span");
     private By phoneSuggestLink = By.cssSelector(".telephone-reveal.suggestion");
     private By telephone = By.cssSelector("#telephone");
     private By backLink = By.cssSelector(".back-link");
@@ -55,12 +54,10 @@ public class NewCustomerPage extends PageObject {
     }
     public WebElement preferredStoreText(){return waitForExpectedElement(preferredStore);}
 
-
-
-
     public boolean checkCreateAccountForm() {
         return waitForExpectedElement(createAccountForm).isDisplayed();
     }
+
     public void acceptNewsletter(boolean yesOrNo) {
         WebElement newsletterWebElement = getWebDriver().findElement(newsletterCheckBox);
         boolean selected = newsletterWebElement.isSelected();

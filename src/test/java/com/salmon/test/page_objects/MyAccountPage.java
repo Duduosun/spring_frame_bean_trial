@@ -22,12 +22,12 @@ public class MyAccountPage extends PageObject {
     public String stringUserDashboard(){
         return waitForExpectedElement(helloDashboard).getText();
     }
+
     public void verifyMyAccountModule (){
         waitForExpectedElement(myAccountBody).isDisplayed();
         waitForExpectedElement(myAccountLHS).isDisplayed();
         waitForExpectedElement(myDashboard).isDisplayed();
     }
-
     public void deleteFirefoxCookies(){
         webDriver.manage().deleteAllCookies();
     }

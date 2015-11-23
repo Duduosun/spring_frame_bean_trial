@@ -36,8 +36,7 @@ public class MyAccountSteps {
         habitatCommonPage.registeredUserSession();
         assertEquals(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
         assertTrue(habitatCommonPage.visibleRegisteredUser(), "True");
-        assertTrue(habitatCommonPage.visibleGuestUser(), "False");
-        habitatCommonPage.clickLogo();
+        assertFalse(habitatCommonPage.visibleGuestUser(), "False");
     }
 
     @When("^User Click Sign Out Option$")
@@ -59,7 +58,11 @@ public class MyAccountSteps {
     public void User_Session_is_active(String firstname) throws Throwable {
         String $firstname = firstname.toUpperCase();
         assertTrue(habitatCommonPage.stringRegisteredUser().contains($firstname));
-        assertEquals(habitatCommonPage.stringRegisteredUser(), $firstname);
+        habitatCommonPage.registeredUserSession();
+        assertTrue(habitatCommonPage.visibleRegisteredUser(), "True");
+        assertFalse(habitatCommonPage.visibleGuestUser(), "False");
+        assertTrue(myAccountPage.stringUserDashboard().contains(firstname));
+        habitatCommonPage.clickLogo();
         myAccountPage.deleteFirefoxCookies();
     }
 
