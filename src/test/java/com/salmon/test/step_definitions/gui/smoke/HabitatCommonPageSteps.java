@@ -18,8 +18,12 @@ public class HabitatCommonPageSteps {
         this.habitatCommonPage = habitatCommonPage;
     }
 
-    @When("^User Navigate Mega Menu \"([^\"]*)\"$")
-    public void User_Navigate_Mega_Menu(String megamenu) throws Throwable {
+    @When("^Guest User Navigate Mega Menu \"([^\"]*)\"$")
+    public void Guest_User_Navigate_Mega_Menu(String megamenu) throws Throwable {
+        habitatCommonPage.pageHeaderCheck();
+        habitatCommonPage.pageFooterCheck();
+        habitatCommonPage.guestUserSession();
+        habitatCommonPage.guestUserMouseOverCheck();
         habitatCommonPage.clickMegaMenu(megamenu);
         habitatCommonPage.defaultAvatar();
     }

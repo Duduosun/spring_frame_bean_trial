@@ -10,6 +10,7 @@ import cucumber.api.java.en.When;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
+import org.assertj.core.api.Assertions.*;
 
 public class HabitatHomePageSteps {
 
@@ -60,12 +61,13 @@ public class HabitatHomePageSteps {
 
     @Then("^User Can Interact with Header \"([^\"]*)\" and Footer \"([^\"]*)\" entries$")
     public void User_Can_Interact_with_Header_and_Footer_entries(String header, String footer) throws Throwable {
-
-        habitatCommonPage.defaultAvatar();
-
-        //assertTrue(habitatHomePage.stringWelcome().equals("WELCOME"));
-        //assertTrue(habitatHomePage.stringTopCategory().contains(header));
-        //assertTrue(habitatHomePage.stringFooter().contains(footer));
+        String $header = header.toLowerCase();
+        assertTrue(habitatCommonPage.stringCheckPageHeader().contains($header));
+        assertTrue(habitatCommonPage.stringCheckPageFooter().contains(footer));
+        assertTrue(habitatCommonPage.stringFooterLinks().contains("STORE LOCATOR"));
+        assertTrue(habitatCommonPage.stringFooterLinks().contains("CONTACT US"));
+        assertTrue(habitatCommonPage.stringFooterLinks().contains("DELIVERY & SHIPPING"));
+        assertTrue(habitatCommonPage.stringFooterLinks().contains("VISIT OUR BLOG"));
     }
 
     @When("^User Click Country Tab$")
