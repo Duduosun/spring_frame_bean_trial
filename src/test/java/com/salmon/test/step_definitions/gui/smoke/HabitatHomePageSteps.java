@@ -10,7 +10,7 @@ import cucumber.api.java.en.When;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import org.assertj.core.api.Assertions.*;
+
 
 public class HabitatHomePageSteps {
 
@@ -48,26 +48,18 @@ public class HabitatHomePageSteps {
         habitatCommonPage.defaultAvatar();
     }
 
-    @Then("^User Can Interact with UI$")
-    public void User_Can_Interact_with_UI() throws Throwable {
-
-        habitatCommonPage.defaultAvatar();
-
-        //assertTrue(habitatHomePage.stringWelcome().equals("WELCOME"));
-        //assertTrue(habitatHomePage.stringTopCategory().contains("TECHNOLOGY"));
-        //assertTrue(habitatHomePage.stringTopCategory().contains("BEAUTY"));
-        //assertTrue(habitatHomePage.stringTopCategory().contains("KIDS"));
-    }
-
     @Then("^User Can Interact with Header \"([^\"]*)\" and Footer \"([^\"]*)\" entries$")
     public void User_Can_Interact_with_Header_and_Footer_entries(String header, String footer) throws Throwable {
-        String $header = header.toLowerCase();
-        assertTrue(habitatCommonPage.stringCheckPageHeader().contains($header));
+        String homeLabel = "Home";
+        assertTrue(habitatCommonPage.stringCheckPageHeader().contains(header));
         assertTrue(habitatCommonPage.stringCheckPageFooter().contains(footer));
         assertTrue(habitatCommonPage.stringFooterLinks().contains("STORE LOCATOR"));
         assertTrue(habitatCommonPage.stringFooterLinks().contains("CONTACT US"));
         assertTrue(habitatCommonPage.stringFooterLinks().contains("DELIVERY & SHIPPING"));
         assertTrue(habitatCommonPage.stringFooterLinks().contains("VISIT OUR BLOG"));
+        assertTrue(habitatCommonPage.stringBreadcrumbs().contains(header));
+        assertTrue(habitatCommonPage.stringBreadcrumbs().contains(homeLabel));
+        habitatCommonPage.deleteFirefoxCookies();
     }
 
     @When("^User Click Country Tab$")
@@ -83,9 +75,16 @@ public class HabitatHomePageSteps {
         assertEquals(habitatHomePage.getCurrentUrl(), url);
     }
 
-    @When("^User Search Selfridges \"([^\"]*)\"$")
-    public void User_Search_Selfridges(String search) throws Throwable {
-        //habitatHomePage.clickSearch();
-        //habitatHomePage.searchString(search);
+    @When("^User Search Habitat \"([^\"]*)\"$")
+    public void User_Search_Habitat(String search) throws Throwable {
+        String label = "Search Results for";
+        String fullsearch = "'" + search + "'";
+        String heading = label +' '+ fullsearch;
+        assertEquals(habitatHomePage.getCurrentPageTitle(), (habitatHomePage.stringHomePageTitle()));
+        habitatCommonPage.searchInput().sendKeys(search);
+        habitatCommonPage.clickSearchButton();
+        assertTrue(habitatCommonPage.getCurrentPageTitle().contains(search));
+        assertTrue(habitatCommonPage.searchResultHeading().contains(search));
+        assertEquals(habitatCommonPage.searchResultHeading(), heading.toUpperCase());
     }
 }

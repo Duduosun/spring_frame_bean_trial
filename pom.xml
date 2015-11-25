@@ -405,12 +405,12 @@
         <!--mysql database driver-->
 
         <!-- assertj -->
-        <dependency>
+        <!--dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
             <version>2.2.0</version>
             <scope>test</scope>
         </dependency>
-        <!-- assertj -->
+        < assertj -->
     </dependencies>
 </project>

@@ -4,7 +4,7 @@ import com.salmon.test.framework.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.assertj.core.api.Assertions.*;
+
 
 /**
  * Created by tfasoyiro on 14/08/2015.
@@ -15,17 +15,22 @@ public class HabitatCommonPage extends PageObject {
     private String commonPageTitle = "";
 
     private By pageGUI = By.cssSelector(".page");
+    private By searchResultPage = By.cssSelector(".catalogsearch-result-index");
+    private By searchResultHeader = By.cssSelector(".main .page-title>h1");
+    private By plpSearch = By.cssSelector(".main");
     private By signOut = By.cssSelector("#header-account .links .last>a[title=\"Sign Out\"]");
     private By habitatDialogBox = By.className("dialog");
     private By closeHomeDialog = By.className("habitat-dialog_close");
     private By helloAccountUser = By.cssSelector(".hbt-account.skip-link.skip-account.logged-in");
     private By accountMenu = By.cssSelector("#header-account");
+    private By breadcrumbs = By.cssSelector(".breadcrumbs");
 
     //Header
     private By pageHeaderContainer = By.cssSelector(".page-header-container");
     private By topRHS = By.cssSelector(".loc-help-links");
     private By logo = By.cssSelector(".logo>img");
     private By search = By.cssSelector("#search");
+    private By searchButton = By.cssSelector(".search-button");
     private By searchMiniForm = By.cssSelector("#search_mini_form");
     private By accountBagContainer = By.cssSelector(".account-cart-wrapper");
     private By emptyShoppingBag = By.cssSelector(".hbt-bag-icon.icon-HABITAT_BAG_ICON_01");
@@ -41,14 +46,14 @@ public class HabitatCommonPage extends PageObject {
     private By newsletterForm = By.cssSelector("#newsletter-validate-detail");
 
     //Megamenu
-    private By megaONE = By.cssSelector(".level0.nav-1.parent");
-    private By megaTWO = By.cssSelector(".level0.nav-2.parent");
-    private By megaTHREE = By.cssSelector(".level0.nav-3.parent");
-    private By megaFOUR = By.cssSelector(".level0.nav-4.parent");
-    private By megaFIVE = By.cssSelector(".level0.nav-5.parent");
-    private By megaSIX = By.cssSelector(".level0.nav-6.parent");
-    private By megaSEVEN = By.cssSelector(".level0.nav-7.parent");
-    private By megaEIGHT = By.cssSelector(".level0.nav-8.parent");
+    private By megaONE = By.cssSelector("a[class^=level0][title='Sofas & Armchairs']");
+    private By megaTWO = By.cssSelector("a[class^=level0][title='Furniture']");
+    private By megaTHREE = By.cssSelector("a[class^=level0][title='Sale']");
+    private By megaFOUR = By.cssSelector("a[class^=level0][title='Accessories']");
+    private By megaFIVE = By.cssSelector("a[class^=level0][title='Lighting']");
+    private By megaSIX = By.cssSelector("a[class^=level0][title='Kitchen']");
+    private By megaSEVEN = By.cssSelector("a[class^=level0][title='Soft Furnishing']");
+    private By megaEIGHT = By.cssSelector("a[class^=level0][title='Our Habitat']");
 
     //actions
     public void clickGuestUser(){waitForExpectedElement(guestUserHead).click();}
@@ -71,11 +76,9 @@ public class HabitatCommonPage extends PageObject {
     public void mouseOverRegUser() {
         mouseOverExpectedElement(webElementRegUser());
     }
-
     public void mouseOverGuestUser(){
         mouseOverExpectedElement(webElementGuestUser());
     }
-
     public void deleteFirefoxCookies(){
         webDriver.manage().deleteAllCookies();
     }
@@ -84,47 +87,47 @@ public class HabitatCommonPage extends PageObject {
         switch (menu) {
             case "MegaMenuOne": {
                 waitForExpectedElement(megaONE).click();
-                mouseOverExpectedElement(waitForExpectedElement(megaONE));
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuTwo": {
                 waitForExpectedElement(megaTWO).click();
-                //waitForExpectedElement(megaTWO).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuThree": {
                 waitForExpectedElement(megaTHREE).click();
-                //waitForExpectedElement(megaTHREE).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuFour": {
                 waitForExpectedElement(megaFOUR).click();
-                //waitForExpectedElement(megaFOUR).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuFive": {
                 waitForExpectedElement(megaFIVE).click();
-                //waitForExpectedElement(megaFIVE).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuSix": {
                 waitForExpectedElement(megaSIX).click();
-                //waitForExpectedElement(megaSIX).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuSeven": {
                 waitForExpectedElement(megaSEVEN).click();
-                waitForExpectedElement(megaSEVEN).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuEight": {
                 waitForExpectedElement(megaEIGHT).click();
-                //waitForExpectedElement(megaEIGHT).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
             case "MegaMenuNine": {
                 waitForExpectedElement(megaEIGHT).click();
-                //waitForExpectedElement(megaEIGHT).sendKeys(Keys.RETURN);
+                mouseOverExpectedElement(waitForExpectedElement(pageHeaderContainer));
                 break;
             }
         }
@@ -132,7 +135,6 @@ public class HabitatCommonPage extends PageObject {
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
-
     public void pageHeaderCheck(){
         waitForExpectedElement(pageHeaderContainer).isDisplayed();
         waitForExpectedElement(topRHS).isDisplayed();
@@ -151,9 +153,12 @@ public class HabitatCommonPage extends PageObject {
         mouseOverGuestUser();
         waitForExpectedElement(accountMenu).isDisplayed();
     }
-    public void regUserMouseOverCheck(){
+    public void regUserMouseOverCheck() {
         mouseOverRegUser();
         waitForExpectedElement(accountMenu).isDisplayed();
+    }
+    public void clickSearchButton(){
+        waitForExpectedElement(searchButton).click();
     }
 
     public WebElement webElementRegUser(){
@@ -162,32 +167,32 @@ public class HabitatCommonPage extends PageObject {
     public WebElement webElementGuestUser(){
         return waitForExpectedElement(guestUserHead);
     }
+    public WebElement searchInput(){
+        return waitForExpectedElement(search);
+    }
 
+    public String searchResultHeading( ){
+        return waitForExpectedElement(searchResultHeader).getText();
+    }
     public String stringCheckPageHeader(){
         return waitForExpectedElement(pageHeaderContainer).getText(); }
     public String stringCheckPageFooter(){
         return waitForExpectedElement(pageFooterContainer).getText();
     }
+    public String stringBreadcrumbs(){
+        return waitForExpectedElement(breadcrumbs).getText();
+    }
     public String stringFooterLinks(){return waitForExpectedElement(footerLinks).getText();}
-
-    public String elementCheck(){
-        return waitForExpectedElement(footerLinks).getAttribute("value");
+    public String returnPLPSearchResult (){
+        return waitForExpectedElement(searchResultPage).getText();
+    }
+    public String stringRegisteredUser(){
+        return waitForExpectedElement(helloAccountUser).getText();
     }
 
     public boolean visibleRegisteredUser(){
         return isElementPresent(regUserHead);
     }
     public boolean visibleGuestUser(){return  isElementPresent(guestUserHead);
-    }
-
-    //Header
-    private By plpBody = By.xpath(".//*[@id='screenR']");
-    private By plpSearch = By.xpath(".//*[@id='plp-search']");
-
-    public String returnPLPSearchResult (){
-       return waitForExpectedElement(plpSearch) .getText();
-    }
-    public String stringRegisteredUser(){
-        return waitForExpectedElement(helloAccountUser).getText();
     }
 }

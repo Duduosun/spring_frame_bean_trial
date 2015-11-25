@@ -411,6 +411,12 @@ public abstract class PageObject {
         acMouse.perform();
     }
 
+    public void mouseAwayFromElement(WebElement webElement) {
+        Actions acMouse = new Actions(webDriver);
+        acMouse.moveByOffset(200, 200);
+        acMouse.build();
+        acMouse.perform();
+    }
 
 
 }

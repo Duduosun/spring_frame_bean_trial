@@ -15,16 +15,3 @@
       | reg1003@salmon.com | salmon03  | reg1003 |
       #| reg1004@salmon.com | salmon04  | reg1004 |
       | reg1005@salmon.com | salmon05  | reg1005 |
-
-
-  @FrameworkSmoke
-  Feature: Navigates to login page logs in and verifies if megamenu and submenu exists
-    Scenario Outline: Login and Navigate Mega Menu Levels
-      Given Habitat Home Page
-      When User Click Account Head
-      And Enter emailaddress "<emailaddress>" and password "<password>"
-      And User Navigate Mega Menu "<megamenu>"
-      Then User Can Interact with Header "<header>" and Footer "<footer>" entries
-
-      Examples:
-        | emailaddress | password | megamenu | header | footer |
