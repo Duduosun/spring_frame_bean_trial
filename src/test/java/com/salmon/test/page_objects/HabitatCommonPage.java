@@ -29,7 +29,7 @@ public class HabitatCommonPage extends PageObject {
     private By pageHeaderContainer = By.cssSelector(".page-header-container");
     private By topRHS = By.cssSelector(".loc-help-links");
     private By logo = By.cssSelector(".logo>img");
-    private By search = By.cssSelector("#search");
+    private By search = By.cssSelector("#hbt-search");
     private By searchButton = By.cssSelector(".search-button");
     private By searchMiniForm = By.cssSelector("#search_mini_form");
     private By accountBagContainer = By.cssSelector(".account-cart-wrapper");

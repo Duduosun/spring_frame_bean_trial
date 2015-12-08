@@ -20,6 +20,12 @@ Building Step Definitions
 - Include this command to distinguish between OUR and INCOMING variables
 --- if this command is omitted - the compiler will return java.lang.NullPointerException
 
+Strategy
+- Page Verification Point - nomenclature - stringPageTitle, pageNameCheck
+-- Page Title Verification - nomenclature - smallCapsPageTitle e.g. myAccountPageTitle
+-- Body ID or Class Verification - nomenclature - pageBody - e.g. myAccountBody
+-- Unique Object to Page
+
 
 document.getElementsByClassName('productContainer')[0]
 

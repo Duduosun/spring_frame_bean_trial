@@ -29,6 +29,12 @@ public class HabitatHomePage extends PageObject {
     public boolean visibleBooleanAvatar(){
         return isElementPresent(logo);
     }
+
+    public void homePageCheck(){
+        waitForExpectedElement(habitatDialogBox).isDisplayed();
+        waitForExpectedElement(closeHomeDialog).click();
+        waitForExpectedElement(homeBody).isDisplayed();
+    }
     public void clickLogo(){
         waitForExpectedElement(logo).click();
     }
