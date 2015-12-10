@@ -10,6 +10,7 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.Keys;
 
 import static org.testng.Assert.*;
 
@@ -135,7 +136,7 @@ public class MyAccountSteps {
     public void User_Can_View_Defaults_on_Account_Dashboard(String fullname, String emailaddress) throws Throwable {
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.myDashboardCAPS));
         assertTrue(myAccountPage.stringUserDashboard().contains(fullname));
-        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.myDashboardSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.myDashboardSTATEMENT));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.accountInformationCAPS));
         assertTrue(myAccountPage.webElementContactInformation().isDisplayed());
         assertTrue(myAccountPage.webElementContactInformation().getText().contains(fullname));
@@ -146,12 +147,99 @@ public class MyAccountSteps {
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultShippingAddressCAPS));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.noDefaultAddressSENTENCE + testDataConstant.defaultBillingAddressCAPS.toLowerCase()));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.noDefaultAddressSENTENCE + testDataConstant.defaultShippingAddressCAPS.toLowerCase()));
+    }
 
+    @When("^New User Click Address Book$")
+    public void New_User_Click_Address_Book() throws Throwable {
+        myAccountPage.clickMyAccount("addressBook");
+        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.myAccountPageTitle);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
+        assertTrue(myAccountPage.stringMyAccountInformation().contains(testDataConstant.addNewAddressSENTENCE.toUpperCase()));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.addNewAddressSENTENCE.toUpperCase()));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.contactInformationCAPS));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.personalDetailsSTATEMENT));
+    }
 
+    @Then("^User Can Add Address Mobile \"([^\"]*)\" Telephone \"([^\"]*)\" Address \"([^\"]*)\"$")
+    public void User_Can_Add_Address_Mobile_Telephone_Postcode(String mobile, String telephone, String address) throws Throwable {
+        newCustomerPage.mobileText().sendKeys(mobile);
+        newCustomerPage.telephoneText().sendKeys(telephone);
+        newCustomerPage.addressText().sendKeys(address);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_RIGHT);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_RIGHT);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.RETURN);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.RETURN);
+        newCustomerPage.registerNewCustomer();
+
+        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.myAccountPageTitle);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
+
+        assertTrue(myAccountPage.webElementDefaultAddress().isDisplayed());
+        assertTrue(myAccountPage.webElementAdditionalAddress().isDisplayed());
+
+        assertFalse(myAccountPage.stringMyAccountRHS().contains(testDataConstant.contactInformationCAPS));
+        assertFalse(myAccountPage.stringMyAccountRHS().contains(testDataConstant.addNewAddressSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultBillingAddressSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultShippingAddressSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(mobile));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(telephone));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(address));
     }
 
     @When("^User Click Address Book$")
     public void User_Click_Address_Book() throws Throwable {
+        myAccountPage.clickMyAccount("addressBook");
+        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE.toUpperCase());
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.myAccountPageTitle);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
 
+        assertTrue(myAccountPage.webElementDefaultAddress().isDisplayed());
+        assertTrue(myAccountPage.webElementAdditionalAddress().isDisplayed());
+    }
+
+    @Then("^User Can Change Current Address \"([^\"]*)\" to New Address \"([^\"]*)\"$")
+    public void User_Can_Change_Current_Address_to_New_Address(String currentaddress, String newaddress) throws Throwable {
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(currentaddress));
+        myAccountPage.clickEditAddress();
+        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.editAddressSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.myAccountPageTitle);
+
+        assertTrue(myAccountPage.stringMyAccountInformation().contains(testDataConstant.editAddressSENTENCE.toUpperCase()));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.editAddressSENTENCE.toUpperCase()));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.contactInformationCAPS));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.personalDetailsSTATEMENT));
+
+        newCustomerPage.addressText().sendKeys(newaddress);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_RIGHT);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_RIGHT);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.RETURN);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.ARROW_DOWN);
+        newCustomerPage.addressText().sendKeys(Keys.RETURN);
+        newCustomerPage.registerNewCustomer();
+
+        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.myAccountPageTitle);
+        assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
+
+        assertTrue(myAccountPage.webElementDefaultAddress().isDisplayed());
+        assertTrue(myAccountPage.webElementAdditionalAddress().isDisplayed());
+
+        assertFalse(myAccountPage.stringMyAccountRHS().contains(testDataConstant.contactInformationCAPS));
+        assertFalse(myAccountPage.stringMyAccountRHS().contains(testDataConstant.addNewAddressSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultBillingAddressSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultShippingAddressSENTENCE));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(newaddress));
     }
 }

@@ -30,6 +30,10 @@ public class MyAccountPage extends PageObject {
     private By confirmNewPassword = By.cssSelector("#confirmation");
     private By contactInformation = By.cssSelector(".info-box");
     private By manageAddresses = By.cssSelector(".box-head>a");
+    private By successAddAddress = By.cssSelector(".success-msg>ul>li");
+    private By defaultAddressBlock = By.cssSelector(".col-1.addresses-primary>ol");
+    private By additionalAddressBlock = By.cssSelector(".col-2.addresses-additional");
+    private By editAddress = By.cssSelector(".main .button.button-secondary");
 
     private By accountDashboard = By.cssSelector(".main .block-content li:nth-child(1) a");
     private By accountInformation = By.cssSelector(".main .block-content li:nth-child(2) a");
@@ -59,6 +63,8 @@ public class MyAccountPage extends PageObject {
     public WebElement webElementManageAddresses(){
         return waitForExpectedElement(manageAddresses);
     }
+    public WebElement webElementDefaultAddress(){return waitForExpectedElement(defaultAddressBlock);}
+    public WebElement webElementAdditionalAddress(){return waitForExpectedElement(additionalAddressBlock);}
 
     public void myAccountPageCheck(String menu){
         waitForExpectedElement(myAccountLHS).isDisplayed();
@@ -130,7 +136,8 @@ public class MyAccountPage extends PageObject {
     public void deleteFirefoxCookies(){
         webDriver.manage().deleteAllCookies();
     }
-    public void clickChangePassword(){waitForExpectedElement(changePasswordCheckBox).click(); }
+    public void clickChangePassword() {
+        waitForExpectedElement(changePasswordCheckBox).click(); }
     public void changeUserPassword(String currentpw, String newpw){
         waitForExpectedElement(currentPassword).sendKeys(currentpw);
         waitForExpectedElement(newPassword).sendKeys(newpw);
@@ -139,5 +146,6 @@ public class MyAccountPage extends PageObject {
     public void defaultDashboard(String fullname, String email){
         waitForExpectedElement(helloDashboard).isDisplayed();
     }
+    public void clickEditAddress(){waitForExpectedElement(editAddress).click();}
 
 }

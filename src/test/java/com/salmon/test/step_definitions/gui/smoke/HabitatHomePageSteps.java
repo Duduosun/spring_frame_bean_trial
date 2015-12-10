@@ -30,7 +30,6 @@ public class HabitatHomePageSteps {
     @When("^User Click Account Head$")
     public void User_Click_Account_Head() throws Throwable {
         assertEquals(habitatHomePage.getCurrentPageTitle(), habitatHomePage.stringHomePageTitle());
-
         habitatCommonPage.defaultAvatar();
         habitatCommonPage.clickGuestUser();
         assertEquals(customerLoginPage.getCurrentPageTitle(), customerLoginPage.stringCustomerLoginPageTitle());

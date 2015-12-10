@@ -30,6 +30,9 @@ public class NewCustomerPage extends PageObject {
     private By phoneSuggestLink = By.cssSelector(".telephone-reveal.suggestion");
     private By telephone = By.cssSelector("#telephone");
     private By backLink = By.cssSelector(".back-link");
+    private By address = By.cssSelector("#street_1");
+
+
 
     public String stringNewCustomerPageTitle(){
         return newCustomerPageTitle;
@@ -53,6 +56,8 @@ public class NewCustomerPage extends PageObject {
         return waitForExpectedElement(confirmPassword);
     }
     public WebElement preferredStoreText(){return waitForExpectedElement(preferredStore);}
+    public WebElement telephoneText(){return waitForExpectedElement(telephone);}
+    public WebElement addressText(){return waitForExpectedElement(address);}
 
     public boolean checkCreateAccountForm() {
         return waitForExpectedElement(createAccountForm).isDisplayed();

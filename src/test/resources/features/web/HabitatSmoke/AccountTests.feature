@@ -21,7 +21,6 @@
       #| regauto1002@salmon.com | salmon02 | regauto1002 | Miss | regauto1002 | Salmon | 01002001002 |
       #| regauto1003@salmon.com | salmon03 | regauto1003 | Mrs | regauto1003 | Salmon | 01003001003 |
 
-
   Scenario Outline: testAccountContent - Verify if change password works
     Given Habitat Home Page
     When User Click Account Head
@@ -36,7 +35,6 @@
       #| regauto1002@salmon.com | salmon02 | regauto1002 | salmon123 |
       #| regauto1003@salmon.com | salmon03 | regauto1003 | salmon123 |
 
-
   Scenario Outline: testMyAccountLoggedIn - Check Defaults for Account Dashboard
     Given Habitat Home Page
     When User Click Account Head
@@ -48,18 +46,29 @@
       | emailaddress | password | registereduser | fullname |
       | regauto1001@salmon.com | salmon01 | regauto1001 | regauto1001 Salmon |
 
-Scenario Outline: testAddressBook - Verify Add Address
+  Scenario Outline: testAddressBook - Verify Add Address
   Given Habitat Home Page
   When User Click Account Head
   And Enter emailaddress "<emailaddress>" and password "<password>"
   Then User "<registereduser>" Successfully Access My Account
-  When User Click Address Book
-  Then User Can Add Address Mobile "<mobile>" Telephone "<telephone>" Postcode "<postcode>"
+  When New User Click Address Book
+  Then User Can Add Address Mobile "<mobile>" Telephone "<telephone>" Address "<address>"
 
-Scenario Outline: testAddressBook - Verify Change Address
-  Given Habitat Home Page
-  When User Click Account Head
-  And Enter emailaddress "<emailaddress>" and password "<password>"
-  Then User "<registereduser>" Successfully Access My Account
-  When User Click Address Book
-  Then User Can Change Address Book
+  Examples:
+    | emailaddress | password | registereduser | mobile | telephone | address |
+    #| regauto1001@salmon.com | salmon01 | regauto1001 | 0111111111 | 44010111111 | Glasgow |
+    | regauto1002@salmon.com | salmon02 | regauto1002 | 0222222222 | 44020222222 | Watford |
+
+    Scenario Outline: testAddressBook - Verify Change Address
+      Given Habitat Home Page
+      When User Click Account Head
+      And Enter emailaddress "<emailaddress>" and password "<password>"
+      Then User "<registereduser>" Successfully Access My Account
+      When User Click Address Book
+      Then User Can Change Current Address "<address>" to New Address "<newaddress>"
+
+      Examples:
+        | emailaddress | password | registereduser | address | newaddress |
+        | regauto1001@salmon.com | salmon01 | regauto1001 | Glasgow | Liverpool |
+
+

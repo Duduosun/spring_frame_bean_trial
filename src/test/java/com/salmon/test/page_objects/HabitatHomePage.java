@@ -22,6 +22,7 @@ public class HabitatHomePage extends PageObject {
     private By closeHomeDialog = By.className("habitat-dialog_close");
     private By habitatStartPage = By.cssSelector("#habitat-custom-wrapper");
     private By logo = By.cssSelector(".logo>img");
+    private By registerSuccess = By.cssSelector(".success-msg>ul>li");
 
     public String stringHomePageTitle(){
         return  homePageTitle;
