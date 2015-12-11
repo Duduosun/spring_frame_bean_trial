@@ -34,6 +34,8 @@ public class MyAccountPage extends PageObject {
     private By defaultAddressBlock = By.cssSelector(".col-1.addresses-primary>ol");
     private By additionalAddressBlock = By.cssSelector(".col-2.addresses-additional");
     private By editAddress = By.cssSelector(".main .button.button-secondary");
+    private By editBillingAddress = By.xpath(".//*[@id='top']/body/div[3]/div/div[2]/div/div[3]/div/div[2]/div[1]/ol/li[1]/p/a");
+    private By editShippingAddress = By.xpath(".//*[@id='top']/body/div[3]/div/div[2]/div/div[3]/div/div[2]/div[1]/ol/li[2]/p/a");
 
     private By accountDashboard = By.cssSelector(".main .block-content li:nth-child(1) a");
     private By accountInformation = By.cssSelector(".main .block-content li:nth-child(2) a");
@@ -146,6 +148,6 @@ public class MyAccountPage extends PageObject {
     public void defaultDashboard(String fullname, String email){
         waitForExpectedElement(helloDashboard).isDisplayed();
     }
-    public void clickEditAddress(){waitForExpectedElement(editAddress).click();}
-
+    public void clickEditBillingAddress(){waitForExpectedElement(editBillingAddress).click();}
+    public void clickEditShippingAddress(){waitForExpectedElement(editShippingAddress).click();}
 }

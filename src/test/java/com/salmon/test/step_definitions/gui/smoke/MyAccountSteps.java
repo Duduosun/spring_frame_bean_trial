@@ -190,12 +190,13 @@ public class MyAccountSteps {
         assertTrue(myAccountPage.stringMyAccountRHS().contains(mobile));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(telephone));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(address));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.addressSaved));
     }
 
     @When("^User Click Address Book$")
     public void User_Click_Address_Book() throws Throwable {
         myAccountPage.clickMyAccount("addressBook");
-        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE.toUpperCase());
+        assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE);
         assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
         assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.myAccountPageTitle);
         assertNotSame(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
@@ -207,7 +208,7 @@ public class MyAccountSteps {
     @Then("^User Can Change Current Address \"([^\"]*)\" to New Address \"([^\"]*)\"$")
     public void User_Can_Change_Current_Address_to_New_Address(String currentaddress, String newaddress) throws Throwable {
         assertTrue(myAccountPage.stringMyAccountRHS().contains(currentaddress));
-        myAccountPage.clickEditAddress();
+        myAccountPage.clickEditBillingAddress();
         assertEquals(myAccountPage.getCurrentPageTitle(), testDataConstant.editAddressSENTENCE);
         assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addNewAddressSENTENCE);
         assertNotSame(myAccountPage.getCurrentPageTitle(), testDataConstant.addressBookSENTENCE);
@@ -218,6 +219,7 @@ public class MyAccountSteps {
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.contactInformationCAPS));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.personalDetailsSTATEMENT));
 
+        newCustomerPage.addressText().clear();
         newCustomerPage.addressText().sendKeys(newaddress);
         newCustomerPage.addressText().sendKeys(Keys.ARROW_RIGHT);
         newCustomerPage.addressText().sendKeys(Keys.ARROW_RIGHT);
@@ -241,5 +243,6 @@ public class MyAccountSteps {
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultBillingAddressSENTENCE));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.defaultShippingAddressSENTENCE));
         assertTrue(myAccountPage.stringMyAccountRHS().contains(newaddress));
+        assertTrue(myAccountPage.stringMyAccountRHS().contains(testDataConstant.addressSaved));
     }
 }

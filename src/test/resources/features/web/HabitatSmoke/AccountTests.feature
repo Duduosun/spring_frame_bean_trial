@@ -7,7 +7,7 @@
     It then verifies if the address has been successfully changed
     testMyAccountLoggedIn - Navigates to login page, enters credentials and verifies if the user is on My Account page on logging in.
 
-  Scenario Outline: testAccountContent - Account Information Field Validation
+ Scenario Outline: testAccountContent - Account Information Field Validation
     Given Habitat Home Page
     When User Click Account Head
     And Enter emailaddress "<emailaddress>" and password "<password>"
@@ -21,7 +21,7 @@
       #| regauto1002@salmon.com | salmon02 | regauto1002 | Miss | regauto1002 | Salmon | 01002001002 |
       #| regauto1003@salmon.com | salmon03 | regauto1003 | Mrs | regauto1003 | Salmon | 01003001003 |
 
-  Scenario Outline: testAccountContent - Verify if change password works
+ Scenario Outline: testAccountContent - Verify if change password works
     Given Habitat Home Page
     When User Click Account Head
     And Enter emailaddress "<emailaddress>" and password "<password>"
@@ -35,7 +35,7 @@
       #| regauto1002@salmon.com | salmon02 | regauto1002 | salmon123 |
       #| regauto1003@salmon.com | salmon03 | regauto1003 | salmon123 |
 
-  Scenario Outline: testMyAccountLoggedIn - Check Defaults for Account Dashboard
+ Scenario Outline: testMyAccountLoggedIn - Check Defaults for Account Dashboard
     Given Habitat Home Page
     When User Click Account Head
     And Enter emailaddress "<emailaddress>" and password "<password>"
@@ -46,7 +46,7 @@
       | emailaddress | password | registereduser | fullname |
       | regauto1001@salmon.com | salmon01 | regauto1001 | regauto1001 Salmon |
 
-  Scenario Outline: testAddressBook - Verify Add Address
+ Scenario Outline: testAddressBook - Verify Add Address
   Given Habitat Home Page
   When User Click Account Head
   And Enter emailaddress "<emailaddress>" and password "<password>"
@@ -56,10 +56,10 @@
 
   Examples:
     | emailaddress | password | registereduser | mobile | telephone | address |
-    #| regauto1001@salmon.com | salmon01 | regauto1001 | 0111111111 | 44010111111 | Glasgow |
-    | regauto1002@salmon.com | salmon02 | regauto1002 | 0222222222 | 44020222222 | Watford |
+    | regauto1001@salmon.com | salmon01 | regauto1001 | 0111111111 | 44010111111 | Glasgow |
+    #| regauto1002@salmon.com | salmon02 | regauto1002 | 0222222222 | 44020222222 | Watford |
 
-    Scenario Outline: testAddressBook - Verify Change Address
+ Scenario Outline: testAddressBook - Verify Change Address
       Given Habitat Home Page
       When User Click Account Head
       And Enter emailaddress "<emailaddress>" and password "<password>"
