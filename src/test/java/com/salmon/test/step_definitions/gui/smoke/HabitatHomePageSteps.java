@@ -34,6 +34,8 @@ public class HabitatHomePageSteps {
         habitatCommonPage.clickGuestUser();
         assertEquals(customerLoginPage.getCurrentPageTitle(), customerLoginPage.stringCustomerLoginPageTitle());
         habitatCommonPage.defaultAvatar();
+
+        //getProps().getString()
     }
 
     @Then("^User is Successfuly Signed Out of My Account$")

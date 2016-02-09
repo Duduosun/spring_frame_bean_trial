@@ -17,7 +17,7 @@ public class RunSmokeSuite extends AbstractTestNGCucumberTests {
 
 }
 
-//@CucumberOptions(features = "target/test-classes/features/web",tags = {"@FrameworkSmoke"}, monochrome = true,
+//@CucumberOptions(features = "target/test-classes/features/web",tags = {"@FrameworkTemplate"}, monochrome = true,
 //plugin = {"pretty","html:target/cucumber-report/RunSmokeSuite/html-reports",
 //        "json:target/cucumber-report/RunSmokeSuite/cucumber.json",
 //       "rerun:target/cucumber-report/RunSmokeSuite/rerun.txt"},
