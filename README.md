@@ -1,6 +1,6 @@
 ![Salmon](/salmonlogo.png)
 ================================
-Salmon Test Automation Framework
+Salmon Test Automation Framework - Customised for Habitat
 ================================
 This project is a template for Salmon's test automation framework, which provides structured and standard way of 
 creating automated test scripts for GUI, Mobile and API level tests across salmon projects  
