@@ -19,9 +19,10 @@
             </activation>
             <properties>
                 <!-- Application under test-->
+                <site.url>http://audi-magento-systest.salmon.com/</site.url>
                 <!--site.url>http://www.lloydspharmacy.com/</site.url-->
                 <!--site.url>http://www.slfst2p.selfridges.com</site.url-->
-                <site.url>http://www.systest2.habitat.salmon-cloud.com/</site.url>
+                <!--site.url>http://www.systest2.habitat.salmon-cloud.com/</site.url-->
                 <!--site.url>https://www.systest2.habitat.salmon-cloud.com/backend</site.url-->
                 <!--site.url>http://http://www.uat.habitat.salmon-cloud.com//</site.url-->
                 <!--site.url>https://www.uat.habitat.salmon-cloud.com/backend</site.url-->
@@ -107,7 +108,7 @@
 
     <properties>
         <cucumber.version>1.2.2</cucumber.version>
-        <selenium.version>2.46.0</selenium.version>
+        <selenium.version>2.53.0</selenium.version>
         <junit.version>4.12</junit.version>
         <phantomjs.version>1.2.1</phantomjs.version>
         <slf4jVersion>1.7.7</slf4jVersion>
@@ -130,6 +131,11 @@
         <joda-time>2.5</joda-time>
         <java-version>1.8</java-version>
         <mysql>5.1.6</mysql>
+
+        <spring-core-version>4.2.2.RELEASE</spring-core-version>
+        <spring-beans-version>4.2.2.RELEASE</spring-beans-version>
+        <spring-context-version>4.2.2.RELEASE</spring-context-version>
+        <spring-test-version>4.2.2.RELEASE</spring-test-version>
     </properties>
 
 
@@ -403,6 +409,33 @@
             <version>${mysql}</version>
         </dependency>
         <!--mysql database driver-->
+
+        <!-- Spring dependencies-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-core-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring-beans-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-context-version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-test-version}</version>
+        </dependency>
+
+
 
         <!-- assertj -->
         <!--dependency>

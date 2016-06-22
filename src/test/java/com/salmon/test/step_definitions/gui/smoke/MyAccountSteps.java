@@ -1,12 +1,9 @@
 package com.salmon.test.step_definitions.gui.smoke;
 
-import com.salmon.test.page_objects.CustomerLoginPage;
-import com.salmon.test.page_objects.MyAccountPage;
-import com.salmon.test.page_objects.HabitatCommonPage;
-import com.salmon.test.page_objects.NewCustomerPage;
 import com.salmon.test.models.TestDataConstant;
-
-import cucumber.api.PendingException;
+import com.salmon.test.page_objects.HabitatCommonPage;
+import com.salmon.test.page_objects.MyAccountPage;
+import com.salmon.test.page_objects.NewCustomerPage;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -80,7 +77,7 @@ public class MyAccountSteps {
         assertEquals(myAccountPage.getCurrentPageTitle(), myAccountPage.stringMyAccountPageTitle());
         assertTrue(habitatCommonPage.visibleRegisteredUser(), "True");
         assertFalse(habitatCommonPage.visibleGuestUser(), "False");
-        assertTrue(myAccountPage.stringUserDashboard().contains(user));
+//        assertTrue(myAccountPage.stringUserDashboard().contains(user));
         //habitatCommonPage.clickLogo();
     }
 

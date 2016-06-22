@@ -2,8 +2,8 @@
 ================================
 Habitat Test Automation Framework
 ================================
-This project is a customised test automation framework for Habitat Account, which provides structured and standard way of 
-creating automated test scripts for GUI, Mobile and API level tests across Habitat projects  
+This project is a customised test automation framework. Which provides structured and standard way of 
+creating automated test scripts for GUI, Mobile and API level tests
 
 This project is derived from Salmon Test Automation Framework Template   
 *Description n Features     
@@ -16,5 +16,3 @@ This project is derived from Salmon Test Automation Framework Template
 *including knowledge base can be found in 
 FrameworkTemplateREADME.md
 =================
-
-- \HabitatAutomationFramework\master_cucumber_testng\kt\FrameworkTemplateREADME.md

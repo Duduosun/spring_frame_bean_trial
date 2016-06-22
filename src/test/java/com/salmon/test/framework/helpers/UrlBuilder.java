@@ -3,11 +3,13 @@ package com.salmon.test.framework.helpers;
 import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
 
+@Component
 public class UrlBuilder {
     private static final Logger LOG = LoggerFactory.getLogger(UrlBuilder.class);
     @Getter

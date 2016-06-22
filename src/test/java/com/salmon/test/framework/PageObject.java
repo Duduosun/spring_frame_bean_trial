@@ -9,10 +9,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.ResourceBundle;
 
+@Component
 public abstract class PageObject {
     private static final long DRIVER_WAIT_TIME = 10;
     private static final Logger LOG = LoggerFactory.getLogger(PageObject.class);
